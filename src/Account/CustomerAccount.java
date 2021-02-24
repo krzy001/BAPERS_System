@@ -74,7 +74,7 @@ public class CustomerAccount {
         this.accountNo = accountNo;
     }
 
-    /*
+    /* Getter and setters for address aren't on the design diagram. mistake?
     public String getAddress() {
         return address;
     }
