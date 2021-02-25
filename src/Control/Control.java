@@ -1,10 +1,16 @@
 package Control;
+import GUI.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+
 public class Control {
 
+    public static void main(String[] args) {
+        LogIn screen = new LogIn();
+        screen.setVisible(true);
+    }
 
     public void identifyUserAccount(){
 
