@@ -7,6 +7,7 @@ import java.time.LocalTime;
 
 public class Control {
 
+    //This is control class
     public static void main(String[] args) {
         LogIn screen = new LogIn();
         screen.setVisible(true);
