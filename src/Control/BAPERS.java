@@ -21,12 +21,24 @@ public class BAPERS {
     private final String AddPayment = "AP";
     private final String Backup = "B";
     private final String CreateCustomerAccount = "CCA";
-
+    private final String CreateNewUser = "CNU";
+    private final String IdentifyCustomer = "IC";
+    private final String IdentifyUser = "IU";
+    private final String IndividualJobReport = "IJR";
+    private final String IndividualPerformanceReport = "IPR";
+    private final String JobEnquiry = "JE";
+    private final String JobList = "JL";
     private final String LogIn = "LI";
     private final String OfficeManager = "OM";
     private final String ShiftManager = "SM";
     private final String Receptionist = "R";
     private final String Technician = "T";
+    private final String Reports = "RP";
+    private final String Restore = "RS";
+    private final String Screen = "S";
+    private final String SummaryReport = "SR";
+    private final String ViewCustomerAccount = "VCA";
+    private final String ViewUserAccount = "VUA";
 
     public BAPERS(){
         currentPage = LogIn;
