@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class IndividualJobReport extends Screen {
@@ -11,7 +13,8 @@ public class IndividualJobReport extends Screen {
     private JPanel panelBottom;
     private JPanel scrollPane;
 
-    public IndividualJobReport() {
+    public IndividualJobReport(BAPERS system) {
+        super(system);
         this.setContentPane(this.panelIndividualJobReport);
         this.pack();
     }

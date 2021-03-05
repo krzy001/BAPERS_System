@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class Receptionist extends Screen{
@@ -11,7 +13,8 @@ public class Receptionist extends Screen{
     private JPanel panelThree;
     private JButton btnBack;
 
-    public Receptionist(){
+    public Receptionist(BAPERS system){
+        super(system);
         this.setContentPane(this.panelReceptionist);
         this.pack();
     }

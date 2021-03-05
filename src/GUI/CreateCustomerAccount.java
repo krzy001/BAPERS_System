@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class CreateCustomerAccount extends Screen{
@@ -22,7 +24,8 @@ public class CreateCustomerAccount extends Screen{
     private JPanel panelBottom;
     private JButton btnBack;
 
-    public CreateCustomerAccount() {
+    public CreateCustomerAccount(BAPERS system) {
+        super(system);
         this.setContentPane(this.panelCreateCustomer);
         this.pack();
     }

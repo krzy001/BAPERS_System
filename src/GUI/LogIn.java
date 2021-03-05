@@ -1,6 +1,11 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import Control.BAPERS;
+import Control.Control;
 
 public class LogIn extends Screen {
     private JPanel panelTop;
@@ -12,16 +17,16 @@ public class LogIn extends Screen {
     private JButton buttonForgotPassword;
     private JPanel panelLogIn;
 
-    public LogIn(){
+    public LogIn(BAPERS system, Control controller){
+        super(system);
         this.setContentPane(this.panelLogIn);
         this.pack();
+        buttonLogIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //If details in database correct
+                controller.login(system);
+            }
+        });
     }
-
-    /*
-    @Override
-    public void show(){
-        LogIn screen = new LogIn();
-        screen.setVisible(true);
-    }
-    */
 }

@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class Reports extends Screen {
@@ -20,7 +22,8 @@ public class Reports extends Screen {
     private JPanel panelBottom;
     private JButton btnBack;
 
-    public Reports(){
+    public Reports(BAPERS system){
+        super(system);
         this.setContentPane(this.panelReports);
         this.pack();
     }

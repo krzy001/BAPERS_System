@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class Restore extends Screen {
@@ -13,7 +15,8 @@ public class Restore extends Screen {
     private JPanel panelThree;
     private JPanel panelFour;
 
-    public Restore(){
+    public Restore(BAPERS system){
+        super(system);
         this.setContentPane(this.panelRestore);
         this.pack();
     }

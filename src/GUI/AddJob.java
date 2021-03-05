@@ -1,6 +1,10 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddJob extends Screen {
     private JPanel panelAddJob;
@@ -19,8 +23,15 @@ public class AddJob extends Screen {
     private JTextField textField5;
     private JButton btnBack;
 
-    public AddJob(){
+    public AddJob(BAPERS system){
+        super(system);
         this.setContentPane(this.panelAddJob);
         this.pack();
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.backScreen();
+            }
+        });
     }
 }

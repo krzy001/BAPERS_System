@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class JobEnquiry extends Screen {
@@ -13,7 +15,8 @@ public class JobEnquiry extends Screen {
     private JPanel panelButton;
     private JButton btnBack;
 
-    public JobEnquiry(){
+    public JobEnquiry(BAPERS system){
+        super(system);
         this.setContentPane(this.panelEnquiry);
         this.pack();
     }

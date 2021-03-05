@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class Backup extends Screen{
@@ -10,7 +12,8 @@ public class Backup extends Screen{
     private JButton btnBackup;
     private JButton btnBack;
 
-    public Backup(){
+    public Backup(BAPERS system){
+        super(system);
         this.setContentPane(this.panelBackup);
         this.pack();
     }

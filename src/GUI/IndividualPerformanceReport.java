@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class IndividualPerformanceReport extends Screen {
@@ -11,7 +13,8 @@ public class IndividualPerformanceReport extends Screen {
     private JPanel panelBottom;
     private JPanel panelIndividualPerformanceReport;
 
-    public IndividualPerformanceReport() {
+    public IndividualPerformanceReport(BAPERS system) {
+        super(system);
         this.setContentPane(this.panelIndividualPerformanceReport);
         this.pack();
     }

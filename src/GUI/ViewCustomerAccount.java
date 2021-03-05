@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class ViewCustomerAccount extends Screen{
@@ -12,7 +14,8 @@ public class ViewCustomerAccount extends Screen{
     private JPanel panelBottom;
     private JPanel panelMiddle;
 
-    public ViewCustomerAccount(){
+    public ViewCustomerAccount(BAPERS system){
+        super(system);
         this.setContentPane(this.panelViewCustomer);
         this.pack();
     }

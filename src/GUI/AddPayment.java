@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class AddPayment extends Screen {
@@ -17,7 +19,8 @@ public class AddPayment extends Screen {
     private JPanel panelAddPayment;
     private JButton btnBack;
 
-    public AddPayment(){
+    public AddPayment(BAPERS system){
+        super(system);
         this.setContentPane(this.panelAddPayment);
         this.pack();
     }

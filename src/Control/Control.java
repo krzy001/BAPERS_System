@@ -7,11 +7,6 @@ import java.time.LocalTime;
 
 public class Control {
 
-    public static void main(String[] args) {
-        LogIn screen = new LogIn();
-        screen.setVisible(true);
-    }
-
     public void identifyUserAccount(){
 
     }
@@ -20,8 +15,14 @@ public class Control {
 
     }
 
-    public void login(String username, String password){
+    public void login(BAPERS system){
+        //return the role of whoever logged in.
+        //For now, comment out the ones you don't want to use to set up all the pages working.
 
+        system.LoggingIn("OfficeManager");
+        //system.LoggingIn("ShiftManager");
+        //system.LoggingIn("Receptionist");
+        //system.LoggingIn("Technician");
     }
 
     public void logout(){
@@ -127,7 +128,7 @@ public class Control {
 
     public void generateSummaryPerformanceReport(
             LocalDate startDate, LocalDate endDate, String department, LocalTime totalTime, String shift){
-
     }
-
 }
+
+

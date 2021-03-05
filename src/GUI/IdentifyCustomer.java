@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class IdentifyCustomer extends Screen {
@@ -11,7 +13,8 @@ public class IdentifyCustomer extends Screen {
     private JPanel panelIdentifyCustomer;
     private JButton btnBack;
 
-    public IdentifyCustomer() {
+    public IdentifyCustomer(BAPERS system) {
+        super(system);
         this.setContentPane(this.panelIdentifyCustomer);
         this.pack();
     }

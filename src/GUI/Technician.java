@@ -1,5 +1,7 @@
 package GUI;
 
+import Control.BAPERS;
+
 import javax.swing.*;
 
 public class Technician extends Screen {
@@ -12,7 +14,8 @@ public class Technician extends Screen {
     private JPanel panelThree;
     private JPanel panelBottom;
 
-    public Technician(){
+    public Technician(BAPERS system){
+        super(system);
         this.setContentPane(this.panelTechnician);
         this.pack();
     }
