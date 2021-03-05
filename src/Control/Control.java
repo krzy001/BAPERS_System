@@ -26,7 +26,11 @@ public class Control {
     }
 
     public void logout(){
-
+        //////////////////////////////////////////////////////
+        /*
+        system.getPages empty
+         */
+        ////////////////////////////////////////////////////////
     }
 
     public void createJob(int jobNo){

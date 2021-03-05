@@ -21,6 +21,7 @@ public class OfficeManager extends Screen {
     private JButton btnReport;
     private JButton btnBack;
     private JPanel panelBottom;
+    private JButton btnLogOut;
 
     public OfficeManager(BAPERS system){
         super(system);
@@ -35,7 +36,7 @@ public class OfficeManager extends Screen {
         btnIdentifyCustomer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("OfficeManager","IdentifyCustomer");
+                system.nextScreen("IC");
             }
         });
     }

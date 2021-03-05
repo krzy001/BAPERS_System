@@ -11,6 +11,7 @@ public class BAPERS {
 
     private Screen screen;
     private Control controller;
+    private String currentPage;
     private Stack<String> pages = new Stack<String>();
 
     private String roleLoggedIn;
@@ -21,14 +22,14 @@ public class BAPERS {
     private final String Backup = "B";
     private final String CreateCustomerAccount = "CCA";
 
+    private final String LogIn = "LI";
     private final String OfficeManager = "OM";
     private final String ShiftManager = "SM";
     private final String Receptionist = "R";
     private final String Technician = "T";
 
-
-
     public BAPERS(){
+        currentPage = LogIn;
         controller = new Control();
         screen = new LogIn(this, controller);
     }
@@ -39,11 +40,11 @@ public class BAPERS {
 
     public void LoggingIn(String role){
         roleLoggedIn = role;
-        nextScreen("LogIn", roleLoggedIn);
+        nextScreen(roleLoggedIn);
     }
 
-    public void nextScreen(String lastPage, String nextPage){
-        pages.push(lastPage);
+    public void nextScreen(String nextPage){
+        pages.push(currentPage);
         setScreen(nextPage);
     }
 
@@ -53,12 +54,13 @@ public class BAPERS {
 
     private void setScreen(String page){
         screen.setVisible(false);
+        setCurrentPage(page);
 
         //has to be done for every page.
         if(page == "LogIn"){
             screen = new LogIn(this, controller);
         }
-        else if(page == "OfficeManager"){
+        else if(page == OfficeManager){
             screen = new OfficeManager(this);
         }
         else if (page == "ShiftManager"){
@@ -70,6 +72,14 @@ public class BAPERS {
         else if (page == "Technician"){
             screen = new Technician(this);
         }
+    }
+
+    public void setCurrentPage(String currentPage){
+        this.currentPage = currentPage;
+    }
+
+    public String getCurrentPage(){
+        return currentPage;
     }
 
     public static void main(String[] args){
