@@ -3,6 +3,8 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Reports extends Screen {
     private JPanel panelReports;
@@ -21,10 +23,18 @@ public class Reports extends Screen {
     private JButton btnSummaryReport;
     private JPanel panelBottom;
     private JButton btnBack;
+    private JButton btnLogout;
 
     public Reports(BAPERS system){
         super(system);
         this.setContentPane(this.panelReports);
         this.pack();
+
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen("LI");
+            }
+        });
     }
 }

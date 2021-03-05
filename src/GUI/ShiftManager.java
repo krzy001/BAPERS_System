@@ -17,6 +17,7 @@ public class ShiftManager extends Screen{
     private JPanel panelFour;
     private JPanel panelTop;
     private JPanel panelFive;
+    private JButton btnLogout;
 
     public ShiftManager(BAPERS system){
         super(system);
@@ -26,6 +27,13 @@ public class ShiftManager extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.backScreen();
+            }
+        });
+
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen("LI");
             }
         });
     }

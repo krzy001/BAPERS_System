@@ -69,7 +69,7 @@ public class BAPERS {
         setCurrentPage(page);
 
         //has to be done for every page.
-        if(page == "LogIn"){
+        if(page == LogIn){
             screen = new LogIn(this, controller);
         }
         else if(page == OfficeManager){

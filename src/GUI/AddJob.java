@@ -22,6 +22,7 @@ public class AddJob extends Screen {
     private JTextField textField4;
     private JTextField textField5;
     private JButton btnBack;
+    private JButton btnLogout;
 
     public AddJob(BAPERS system){
         super(system);
@@ -31,6 +32,12 @@ public class AddJob extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.backScreen();
+            }
+        });
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen("LI");
             }
         });
     }
