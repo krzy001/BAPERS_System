@@ -72,17 +72,71 @@ public class BAPERS {
         if(page == LogIn){
             screen = new LogIn(this, controller);
         }
+        else if(page == AddJob){
+            screen = new AddJob(this);
+        }
+        else if(page == AddPayment){
+            screen = new AddPayment(this);
+        }
+        else if(page == Backup){
+            screen = new Backup(this);
+        }
+        else if(page == CreateCustomerAccount){
+            screen = new CreateCustomerAccount(this);
+        }
+        else if(page == CreateNewUser){
+            screen = new CreateNewUser(this);
+        }
+        else if(page == IdentifyCustomer){
+            screen = new IdentifyCustomer(this);
+        }
+        else if(page == IdentifyUser){
+            screen = new IdentifyUser(this);
+        }
+        else if(page == IndividualJobReport){
+            screen = new IndividualJobReport(this);
+        }
+        else if(page == IndividualPerformanceReport) {
+            screen = new IndividualPerformanceReport(this);
+        }
+        else if(page == JobEnquiry) {
+            screen = new JobEnquiry(this);
+        }
+        else if(page == JobList) {
+            screen = new JobsList(this);
+        }
+
         else if(page == OfficeManager){
             screen = new OfficeManager(this);
         }
-        else if (page == "ShiftManager"){
-            screen = new ShiftManager(this);
-        }
-        else if (page == "Receptionist"){
+        else if (page == Receptionist){
             screen = new Receptionist(this);
         }
-        else if (page == "Technician"){
+        else if(page == Reports) {
+            screen = new Reports(this);
+        }
+        else if(page == Restore) {
+            screen = new Restore(this);
+        }
+        else if(page == Screen) {
+            screen = new Screen(this);
+        }
+        else if (page == ShiftManager){
+            screen = new ShiftManager(this);
+        }
+        else if(page == SummaryReport) {
+            screen = new SummaryReport(this);
+        }
+
+        else if (page == Technician){
             screen = new Technician(this);
+
+        }
+        else if(page == ViewCustomerAccount) {
+            screen = new ViewCustomerAccount(this);
+        }
+        else if(page == ViewUserAccount) {
+            screen = new ViewUserAccount(this);
         }
     }
 
