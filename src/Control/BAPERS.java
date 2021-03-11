@@ -118,9 +118,6 @@ public class BAPERS {
         else if(page == Restore) {
             screen = new Restore(this);
         }
-        else if(page == Screen) {
-            screen = new Screen(this);
-        }
         else if (page == ShiftManager){
             screen = new ShiftManager(this);
         }

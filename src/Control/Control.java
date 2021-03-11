@@ -7,11 +7,6 @@ import java.time.LocalTime;
 
 public class Control {
 
-    public static void main(String[] args) {
-        LogIn screen = new LogIn();
-        screen.setVisible(true);
-    }
-
     public void identifyUserAccount(){
 
     }
@@ -24,10 +19,10 @@ public class Control {
         //return the role of whoever logged in.
         //For now, comment out the ones you don't want to use to set up all the pages working.
 
-        system.LoggingIn("OfficeManager");
-        //system.LoggingIn("ShiftManager");
-        //system.LoggingIn("Receptionist");
-        //system.LoggingIn("Technician");
+        system.LoggingIn("OM");
+        //system.LoggingIn("SM");
+        //system.LoggingIn("R");
+        //system.LoggingIn("T");
     }
 
     public void logout(){
