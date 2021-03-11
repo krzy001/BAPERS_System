@@ -13,7 +13,6 @@ public class Receptionist extends Screen{
     private JButton btnIdentifyCustomer;
     private JPanel panelTwo;
     private JPanel panelThree;
-    private JButton btnBack;
     private JButton btnLogout;
 
     public Receptionist(BAPERS system){
@@ -24,7 +23,7 @@ public class Receptionist extends Screen{
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("LI");
+                system.LogOut();
             }
         });
         btnCreateCustomer.addActionListener(new ActionListener() {

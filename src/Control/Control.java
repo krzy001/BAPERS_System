@@ -25,14 +25,6 @@ public class Control {
         //system.LoggingIn("T");
     }
 
-    public void logout(){
-        //////////////////////////////////////////////////////
-        /*
-        system.getPages empty
-         */
-        ////////////////////////////////////////////////////////
-    }
-
     public void createJob(int jobNo){
 
     }

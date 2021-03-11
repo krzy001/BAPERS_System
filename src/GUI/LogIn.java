@@ -17,7 +17,7 @@ public class LogIn extends Screen {
     private JButton buttonForgotPassword;
     private JPanel panelLogIn;
 
-    public LogIn(BAPERS system, Control controller){
+    public LogIn(BAPERS system){
         super(system);
         this.setContentPane(this.panelLogIn);
         this.pack();
@@ -25,7 +25,7 @@ public class LogIn extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //If details in database correct
-                controller.login(system);
+                system.LogIn();
             }
         });
     }

@@ -25,7 +25,13 @@ public class ViewCustomerAccount extends Screen{
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("LI");
+                system.LogOut();
+            }
+        });
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.backScreen();
             }
         });
     }

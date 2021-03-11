@@ -25,7 +25,7 @@ public class Technician extends Screen {
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("LI");
+                system.LogOut();
             }
         });
         btnJobEnquiry.addActionListener(new ActionListener() {
@@ -38,6 +38,12 @@ public class Technician extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen("JE");
+            }
+        });
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.backScreen();
             }
         });
     }

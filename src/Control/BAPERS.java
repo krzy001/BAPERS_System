@@ -2,7 +2,6 @@ package Control;
 
 import GUI.*;
 
-import javax.swing.*;
 import java.util.Stack;
 
 public class BAPERS {
@@ -43,16 +42,29 @@ public class BAPERS {
     public BAPERS(){
         currentPage = LogIn;
         controller = new Control();
-        screen = new LogIn(this, controller);
+        screen = new LogIn(this);
     }
 
     public String getRoleLoggedIn(){
         return roleLoggedIn;
     }
 
+    public void LogIn(){
+        controller.login(this);
+    }
+
     public void LoggingIn(String role){
         roleLoggedIn = role;
         nextScreen(roleLoggedIn);
+    }
+
+    public void LogOut(){
+        nextScreen(LogIn);
+        pages.empty();
+    }
+
+    public Stack<String> getPages(){
+        return pages;
     }
 
     public void nextScreen(String nextPage){
@@ -70,7 +82,7 @@ public class BAPERS {
 
         //has to be done for every page.
         if(page == LogIn){
-            screen = new LogIn(this, controller);
+            screen = new LogIn(this);
         }
         else if(page == AddJob){
             screen = new AddJob(this);
@@ -105,7 +117,6 @@ public class BAPERS {
         else if(page == JobList) {
             screen = new JobsList(this);
         }
-
         else if(page == OfficeManager){
             screen = new OfficeManager(this);
         }
@@ -124,10 +135,8 @@ public class BAPERS {
         else if(page == SummaryReport) {
             screen = new SummaryReport(this);
         }
-
         else if (page == Technician){
             screen = new Technician(this);
-
         }
         else if(page == ViewCustomerAccount) {
             screen = new ViewCustomerAccount(this);
@@ -135,6 +144,10 @@ public class BAPERS {
         else if(page == ViewUserAccount) {
             screen = new ViewUserAccount(this);
         }
+    }
+
+    public Control getController(){
+        return controller;
     }
 
     public void setCurrentPage(String currentPage){
