@@ -15,7 +15,7 @@ public class BAPERS {
 
     private String roleLoggedIn;
 
-    // Considering using these instead of Strings for optimisation
+    
     private final String AddJob = "AJ";
     private final String AddPayment = "AP";
     private final String Backup = "B";
