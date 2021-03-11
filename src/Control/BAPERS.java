@@ -1,6 +1,7 @@
 package Control;
 
 import GUI.*;
+import database.*;
 
 import java.util.Stack;
 
@@ -40,6 +41,8 @@ public class BAPERS {
     private final String ViewUserAccount = "VUA";
 
     public BAPERS(){
+        dbConnection dbConnect = new dbConnection();
+        dbConnect.DBConnectivity();
         currentPage = LogIn;
         controller = new Control();
         screen = new LogIn(this);
