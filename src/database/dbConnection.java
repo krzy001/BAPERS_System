@@ -9,7 +9,7 @@ public class dbConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             //Connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "root");
-            Connection Connect = DriverManager.getConnection("jdbc:mysql://localhost/project", "root", "");
+            Connection Connect = DriverManager.getConnection("jdbc:mysql://localhost/risinggen", "root", "");
             if (Connect != null) {
                 System.out.println("Connected To Database Successfully");
 
