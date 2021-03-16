@@ -1,29 +1,26 @@
 package Account;
 
-import java.time.LocalDate;
-
 public class CustomerAccount {
     String name;
-    LocalDate dateOfBirth;
-    String customerType;
-    String email;
     String contactName;
+    String email;
     int accountNo;
     String address;
     int phone;
+    String discountPlan;
+    boolean valuedCustomer;
 
     public CustomerAccount(
-            String name, LocalDate dateOfBirth, String customerType, String email,
-            String contactName, int accountNo, String address, int phone){
+            String name, String contactName, String email, int accountNo, String address, int phone, String discountPlan, boolean valuedCustomer){
 
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this. customerType = customerType;
         this.email = email;
         this.contactName = contactName;
         this.accountNo = accountNo;
         this.address = address;
         this.phone = phone;
+        this.discountPlan = discountPlan;
+        this.valuedCustomer = valuedCustomer;
     }
 
     public String getName() {
@@ -34,20 +31,12 @@ public class CustomerAccount {
         this.name = name;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getCustomerType() {
-        return customerType;
-    }
-
-    public void setCustomerType(String customerType) {
-        this.customerType = customerType;
+    public String setAddress(String address) {
+        return address;
     }
 
     public String getEmail() {
@@ -62,9 +51,15 @@ public class CustomerAccount {
         return contactName;
     }
 
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
+    public void setContactName(String contactName) { this.contactName = contactName; }
+
+    public void setDiscountPlan(String discountPlan) { this.discountPlan = discountPlan;}
+
+    public String getDiscountPlan() { return discountPlan; }
+
+    public void setValuedCustomer(boolean valuedCustomer) { this.valuedCustomer = valuedCustomer;}
+
+    public Boolean getValuedCustomer() {return valuedCustomer; }
 
     public int getAccountNo() {
         return accountNo;

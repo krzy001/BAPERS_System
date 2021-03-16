@@ -1,35 +1,33 @@
 package Account;
 
-import java.time.LocalDate;
-
 public class ValuedCustomer extends CustomerAccount {
 
-    String discountRate;
-    String discountType;
+    String discountPlan;
+    Boolean valuedCustomer;
 
     public ValuedCustomer(
-            String name, LocalDate dateOfBirth, String customerType, String email,
-            String contactName, int accountNo, String address, int phone,
-            String discountRate, String discountType ){
+            String name, String email,
+            String contactName, String accountNo, int address, int phone,
+            String discountPlan, boolean valuedCustomer ){
 
-        super(name, dateOfBirth, customerType, email, contactName, accountNo, address, phone);
-        this.discountRate = discountRate;
-        this.discountType = discountType;
+        super(name, discountPlan, email, phone, accountNo, address, contactName,valuedCustomer);
+        this.discountPlan = discountPlan;
+        this.valuedCustomer = valuedCustomer;
     }
 
-    public String getDiscountRate() {
-        return discountRate;
+    public String getDiscountPlan() {
+        return discountPlan;
     }
 
-    public void setDiscountRate(String discountRate) {
-        this.discountRate = discountRate;
+    public void setDiscountPlan(String discountPlan) {
+        this.discountPlan = discountPlan;
     }
 
-    public String getDiscountType() {
-        return discountType;
+    public Boolean getValuedCustomer() {
+        return valuedCustomer;
     }
 
-    public void setDiscountType(String discountType) {
-        this.discountType = discountType;
+    public void setValuedCustomer(boolean valuedCustomer) {
+        this.valuedCustomer = valuedCustomer;
     }
 }

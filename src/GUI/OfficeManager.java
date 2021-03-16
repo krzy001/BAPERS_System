@@ -22,6 +22,7 @@ public class OfficeManager extends Screen {
     private JButton btnBack;
     private JPanel panelBottom;
     private JButton btnLogOut;
+    private JButton addJobButton;
 
     public OfficeManager(BAPERS system){
         super(system);
@@ -77,6 +78,12 @@ public class OfficeManager extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.LogOut();
+            }
+        });
+        addJobButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen("AJ");
             }
         });
     }
