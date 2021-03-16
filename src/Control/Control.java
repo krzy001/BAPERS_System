@@ -2,11 +2,9 @@ package Control;
 import GUI.*;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Control {
@@ -15,12 +13,52 @@ public class Control {
     String user="root";
     String pass="";
 
-    public void identifyUserAccount(){
+    public boolean identifyUserAccount(String accountID){
+        ResultSet rs=null;
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "SELECT Staff_ID FROM staff WHERE Staff_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,accountID);
 
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "User found");
+                return true;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "User not found");
+                return false;
+            }
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+            return false;
+        }
     }
 
-    public void createUserAccount(){
+    public void createUserAccount(
+            String name, String username, String password, String jobRole,
+            String email, String department){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO staff (Name,Username,Password,Job_Role,EMail,Department) values (?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,name);
+            pst.setString(2,username);
+            pst.setString(3,password);
+            pst.setString(4,jobRole);
+            pst.setString(5,email);
+            pst.setString(6,department);
 
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
     }
 
     public String login(BAPERS system, String username, String password){
@@ -37,9 +75,13 @@ public class Control {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Username & Password Correct");
 
-                //how do you get role?
+                /* Get role and return it
 
-                return "OM";
+                sql = "SELECT * FROM staff WHERE Username="+username;
+                pst = con.prepareStatement(sql);
+                 */
+
+                return system.OfficeManager;
                 //return "SM";
                 //return "R";
                 //return "T";
@@ -55,8 +97,29 @@ public class Control {
         }
     }
 
-    public void createJob(int jobNo){
+    public void createJob(
+            String startTime, String priority, String specialInstructions, String jobStatus,
+            String date, String deadline, String price, String customerAccountNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO jobs (Start_Time,Priority,Special_Instructions,Job_Status,Date,Deadline,Price,CustomerAccount_No) values (?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,startTime);
+            pst.setString(2,priority);
+            pst.setString(3,specialInstructions);
+            pst.setString(4,jobStatus);
+            pst.setString(5,date);
+            pst.setString(6,deadline);
+            pst.setString(7,price);
+            pst.setString(8,customerAccountNo);
 
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
     }
 
     public void setPrivilege(int accountID){
@@ -72,8 +135,28 @@ public class Control {
     }
 
     public void createCustomerAccount(
-            String customerName, String contactName, LocalDate dateOfBirth, String customerType,
-            String email, String address){
+            String name, String contactName, String address, String phoneNo,
+            String email, String discountPlan, String valued){
+
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO customer (Name,Contact_Name,Customer_Address,Phone_Number,Email,Discount_Plan,Valued_Customer) values (?,?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,name);
+            pst.setString(2,contactName);
+            pst.setString(3,address);
+            pst.setString(4,phoneNo);
+            pst.setString(5,email);
+            pst.setString(6,discountPlan);
+            pst.setString(7,valued);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
 
     }
 
@@ -93,8 +176,26 @@ public class Control {
 
     }
 
-    public void processPayment(){
+    public void processPayment(
+            String customerName, String nameOnCard, String expiryDate, String lastFourDigits,
+            String paid){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO payment () values ()";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,customerName);
+            pst.setString(2,nameOnCard);
+            pst.setString(3,expiryDate);
+            pst.setString(4,lastFourDigits);
+            pst.setString(5,paid);
 
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
     }
 
     public void recordCashPayment(){
@@ -136,8 +237,28 @@ public class Control {
 
     }
 
-    public void identifyCustomerAccount(int accountID){
+    public boolean identifyCustomerAccount(String accountID){
+        ResultSet rs=null;
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "SELECT Account_No FROM customer WHERE Account_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,accountID);
 
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Customer found");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Customer not found");
+                return false;
+            }
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+            return false;
+        }
     }
 
     public void createInvoice(){

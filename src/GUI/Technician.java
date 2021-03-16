@@ -31,13 +31,13 @@ public class Technician extends Screen {
         btnJobEnquiry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("JE");
+                system.nextScreen(system.JobEnquiry);
             }
         });
         btnResponse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("JE");
+                system.nextScreen(system.JobEnquiry);
             }
         });
         btnBack.addActionListener(new ActionListener() {

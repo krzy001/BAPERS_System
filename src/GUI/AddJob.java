@@ -1,21 +1,10 @@
 package GUI;
 
 import Control.BAPERS;
-import com.mysql.cj.jdbc.JdbcConnection;
-import database.dbConnection;
 
 import javax.swing.*;
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.ExceptionListener;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 public class AddJob extends Screen {
     private JPanel panelAddJob;
@@ -46,11 +35,6 @@ public class AddJob extends Screen {
         this.setContentPane(this.panelAddJob);
         this.pack();
 
-        String driver="com.mysql.cj.jdbc.Driver";
-        String url="jdbc:mysql://localhost/risinggen";
-        String user="root";
-        String pass="";
-
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,26 +51,9 @@ public class AddJob extends Screen {
         btnAddJob.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    Class.forName(driver);
-                    Connection con = DriverManager.getConnection(url,user,pass);
-                    String sql = "INSERT INTO jobs (Start_Time,Priority,Special_Instructions,Job_Status,Date,Deadline,Price,CustomerAccount_No) values (?,?,?,?,?,?,?,?)";
-                    PreparedStatement pst = con.prepareStatement(sql);
-                    pst.setString(1,textField1.getText());
-                    pst.setString(2,textField2.getText());
-                    pst.setString(3,textField3.getText());
-                    pst.setString(4,textField4.getText());
-                    pst.setString(5,textField5.getText());
-                    pst.setString(6,textField6.getText());
-                    pst.setString(7,textField7.getText());
-                    pst.setString(8,textField8.getText());
-
-                    pst.executeUpdate();
-                    JOptionPane.showMessageDialog(null,"Saved");
-                }
-                catch(Exception e1){
-                    JOptionPane.showMessageDialog(null,e1);
-                }
+                system.getController().createJob(
+                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
             }
         });
     }

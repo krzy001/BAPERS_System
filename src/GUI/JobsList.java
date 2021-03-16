@@ -24,7 +24,7 @@ public class JobsList extends Screen{
         btnAddJob.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("AJ");
+                system.nextScreen(system.AddJob);
             }
         });
         btnLogout.addActionListener(new ActionListener() {

@@ -29,13 +29,13 @@ public class Receptionist extends Screen{
         btnCreateCustomer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("CCA");
+                system.nextScreen(system.CreateCustomerAccount);
             }
         });
         btnIdentifyCustomer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("IC");
+                system.nextScreen(system.IdentifyCustomer);
             }
         });
     }

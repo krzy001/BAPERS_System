@@ -22,11 +22,6 @@ public class ViewCustomerAccount extends Screen{
     private JButton btnLogout;
     private JTable tableCustomers;
 
-    String driver="com.mysql.cj.jdbc.Driver";
-    String url="jdbc:mysql://localhost/risinggen";
-    String user="root";
-    String pass="";
-
     public ViewCustomerAccount(BAPERS system){
         super(system);
         this.setContentPane(this.panelViewCustomer);

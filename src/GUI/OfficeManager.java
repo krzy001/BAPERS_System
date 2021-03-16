@@ -37,41 +37,41 @@ public class OfficeManager extends Screen {
         btnIdentifyCustomer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("IC");
+                system.nextScreen(system.IdentifyCustomer);
             }
         });
         btnCreateCustomer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("CCA");
+                system.nextScreen(system.CreateCustomerAccount);
             }
         });
         btnCreateUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("CNU");
+                system.nextScreen(system.CreateNewUser);
             }
         });
         btnBackupDatabase.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("B");
+                system.nextScreen(system.Backup);
             }
         });
         btnRestoreDatabase.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {system.nextScreen("RS");}
+            public void actionPerformed(ActionEvent e) {system.nextScreen(system.Restore);}
         });
         btnIdentifyUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("IU");
+                system.nextScreen(system.IdentifyUser);
             }
         });
         btnReport.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("RP");
+                system.nextScreen(system.Reports);
             }
         });
         btnLogOut.addActionListener(new ActionListener() {
@@ -83,7 +83,7 @@ public class OfficeManager extends Screen {
         addJobButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen("AJ");
+                system.nextScreen(system.AddJob);
             }
         });
     }

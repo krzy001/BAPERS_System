@@ -36,11 +36,6 @@ public class CreateCustomerAccount extends Screen{
         this.setContentPane(this.panelCreateCustomer);
         this.pack();
 
-        String driver="com.mysql.cj.jdbc.Driver";
-        String url="jdbc:mysql://localhost/risinggen";
-        String user="root";
-        String pass="";
-
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,26 +51,9 @@ public class CreateCustomerAccount extends Screen{
         btnCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    Class.forName(driver);
-                    Connection con = DriverManager.getConnection(url,user,pass);
-                    String sql = "INSERT INTO customer (Name,Contact_Name,Customer_Address,Phone_Number,Email,Discount_Plan,Valued_Customer) values (?,?,?,?,?,?,?)";
-                    PreparedStatement pst = con.prepareStatement(sql);
-                    pst.setString(1,textField1.getText());
-                    pst.setString(2,textField2.getText());
-                    pst.setString(3,textField3.getText());
-                    pst.setString(4,textField4.getText());
-                    pst.setString(5,textField5.getText());
-                    pst.setString(6,textField6.getText());
-                    pst.setString(7,textField7.getText());
-
-                    pst.executeUpdate();
-                    JOptionPane.showMessageDialog(null,"Saved");
-                }
-                catch(Exception e1){
-                    JOptionPane.showMessageDialog(null,e1);
-                }
-
+                system.getController().createCustomerAccount(
+                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                        textField5.getText(), textField6.getText(), textField7.getText());
             }
         });
     }

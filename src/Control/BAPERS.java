@@ -17,28 +17,27 @@ public class BAPERS {
     private String roleLoggedIn = "LoggedOff";
 
     
-    private final String AddJob = "AJ";
-    private final String AddPayment = "AP";
-    private final String Backup = "B";
-    private final String CreateCustomerAccount = "CCA";
-    private final String CreateNewUser = "CNU";
-    private final String IdentifyCustomer = "IC";
-    private final String IdentifyUser = "IU";
-    private final String IndividualJobReport = "IJR";
-    private final String IndividualPerformanceReport = "IPR";
-    private final String JobEnquiry = "JE";
-    private final String JobList = "JL";
-    private final String LogIn = "LI";
-    private final String OfficeManager = "OM";
-    private final String ShiftManager = "SM";
-    private final String Receptionist = "R";
-    private final String Technician = "T";
-    private final String Reports = "RP";
-    private final String Restore = "RS";
-    private final String Screen = "S";
-    private final String SummaryReport = "SR";
-    private final String ViewCustomerAccount = "VCA";
-    private final String ViewUserAccount = "VUA";
+    public final String AddJob = "AJ";
+    public final String AddPayment = "AP";
+    public final String Backup = "B";
+    public final String CreateCustomerAccount = "CCA";
+    public final String CreateNewUser = "CNU";
+    public final String IdentifyCustomer = "IC";
+    public final String IdentifyUser = "IU";
+    public final String IndividualJobReport = "IJR";
+    public final String IndividualPerformanceReport = "IPR";
+    public final String JobEnquiry = "JE";
+    public final String JobList = "JL";
+    public final String LogIn = "LI";
+    public final String OfficeManager = "OM";
+    public final String ShiftManager = "SM";
+    public final String Receptionist = "R";
+    public final String Technician = "T";
+    public final String Reports = "RP";
+    public final String Restore = "RS";
+    public final String SummaryReport = "SR";
+    public final String ViewCustomerAccount = "VCA";
+    public final String ViewUserAccount = "VUA";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();

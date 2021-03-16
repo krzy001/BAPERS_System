@@ -19,12 +19,7 @@ public class IdentifyCustomer extends Screen {
     private JPanel panelIdentifyCustomer;
     private JButton btnBack;
     private JButton btnLogout;
-    ResultSet rs=null;
-
-    String driver="com.mysql.cj.jdbc.Driver";
-    String url="jdbc:mysql://localhost/risinggen";
-    String user="root";
-    String pass="";
+    private boolean customerFound;
 
     public IdentifyCustomer(BAPERS system) {
         super(system);
@@ -46,28 +41,10 @@ public class IdentifyCustomer extends Screen {
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    Class.forName(driver);
-                    Connection con = DriverManager.getConnection(url,user,pass);
-                    String sql = "SELECT Account_No FROM customer WHERE Account_No=?";
-                    PreparedStatement pst = con.prepareStatement(sql);
-                    pst.setString(1,textField1.getText());
+                customerFound = system.getController().identifyCustomerAccount(textField1.getText());
 
-                    rs = pst.executeQuery();
-                    if (rs.next()) {
-                        JOptionPane.showMessageDialog(null, "Customer found");
-                        textField1.setText("");
-
-                        ViewCustomerAccount om = new ViewCustomerAccount(system);
-                        om.setVisible(true);
-                        setVisible(false);
-
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Customer not found");
-                    }
-                }
-                catch(Exception e1){
-                    JOptionPane.showMessageDialog(null,e1);
+                if(customerFound){
+                    system.nextScreen(system.ViewCustomerAccount);
                 }
             }
         });
