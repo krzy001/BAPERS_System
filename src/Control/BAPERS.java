@@ -14,7 +14,7 @@ public class BAPERS {
     private String currentPage;
     private Stack<String> pages = new Stack<String>();
 
-    private String roleLoggedIn;
+    private String roleLoggedIn = "LoggedOff";
 
     
     private final String AddJob = "AJ";
@@ -52,13 +52,12 @@ public class BAPERS {
         return roleLoggedIn;
     }
 
-    public void LogIn(){
-        controller.login(this);
-    }
+    public void LogIn(String username, String password){
+        roleLoggedIn = controller.login(this, username, password);
 
-    public void LoggingIn(String role){
-        roleLoggedIn = role;
-        nextScreen(roleLoggedIn);
+        if (roleLoggedIn != "LoggedOff"){
+            nextScreen(roleLoggedIn);
+        }
     }
 
     public void LogOut(){

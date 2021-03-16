@@ -15,5 +15,10 @@ public class Screen extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setVisible(true);
+
+        String driver="com.mysql.cj.jdbc.Driver";
+        String url="jdbc:mysql://localhost/risinggen";
+        String user="root";
+        String pass="";
     }
 }

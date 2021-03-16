@@ -1,11 +1,19 @@
 package Control;
 import GUI.*;
 
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
 public class Control {
+    String driver="com.mysql.cj.jdbc.Driver";
+    String url="jdbc:mysql://localhost/risinggen";
+    String user="root";
+    String pass="";
 
     public void identifyUserAccount(){
 
@@ -15,14 +23,36 @@ public class Control {
 
     }
 
-    public void login(BAPERS system){
-        //return the role of whoever logged in.
-        //For now, comment out the ones you don't want to use to set up all the pages working.
+    public String login(BAPERS system, String username, String password){
+        ResultSet rs=null;
+        try {
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            String sql = "SELECT * FROM staff WHERE Username=? AND Password =?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, username);
+            pst.setString(2, password);
 
-        system.LoggingIn("OM");
-        //system.LoggingIn("SM");
-        //system.LoggingIn("R");
-        //system.LoggingIn("T");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Username & Password Correct");
+
+                //how do you get role?
+
+                return "OM";
+                //return "SM";
+                //return "R";
+                //return "T";
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Username & Password Incorrect");
+                return system.getRoleLoggedIn();
+            }
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+            return system.getRoleLoggedIn();
+        }
     }
 
     public void createJob(int jobNo){
