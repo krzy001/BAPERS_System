@@ -21,6 +21,17 @@ public class LogIn extends Screen {
         this.setContentPane(this.panelLogIn);
         this.pack();
 
+        /*
+        buttonLogIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.OfficeManager);
+            }
+        });
+
+         */
+
+
         buttonLogIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
