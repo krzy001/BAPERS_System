@@ -22,6 +22,7 @@ public class ViewCustomerAccount extends Screen{
     private JButton btnLogout;
     private JTable tableCustomers;
 
+
     public ViewCustomerAccount(BAPERS system){
         super(system);
         this.setContentPane(this.panelViewCustomer);
@@ -48,13 +49,14 @@ public class ViewCustomerAccount extends Screen{
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "SELECT * FROM cutomer";
+            String sql = "SELECT * FROM customer";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             CustomerAccount customerAccount;
 
             while (rs.next()) {
-                customerAccount = new CustomerAccount(rs.getString("Name"),rs.getString("contactName"),
+                customerAccount = new CustomerAccount(
+                        rs.getString("Name"),rs.getString("Contact_Name"),
                         rs.getString("Email"),rs.getInt("accountNo"),rs.getString("address"),rs.getInt("phone"),
                         rs.getString("discountPlan"),rs.getBoolean("valuedCustomer"));
                 customersAccounts.add(customerAccount);
