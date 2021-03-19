@@ -1,15 +1,21 @@
 package Control;
 
+import GUI.ViewCustomerAccount;
+
 import javax.swing.*;
+import javax.swing.plaf.nimbus.State;
+import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Control {
     String driver="com.mysql.cj.jdbc.Driver";
     String url="jdbc:mysql://localhost/risinggen";
     String user="root";
     String pass="";
+    String dbName = "risigngen";
 
     public boolean identifyUserAccount(String accountID){
         ResultSet rs=null;
@@ -162,14 +168,6 @@ public class Control {
 
     }
 
-    public void restoreDatabase(){
-
-    }
-
-    public void backupDatabase(){
-
-    }
-
     public void applyDiscount(){
 
     }
@@ -259,6 +257,14 @@ public class Control {
         }
     }
 
+    public void viewCustomerInfo(){
+
+    }
+
+    public void viewUserInfo(){
+
+    }
+
     public void createInvoice(){
 
     }
@@ -273,6 +279,27 @@ public class Control {
 
     public void generateSummaryPerformanceReport(
             LocalDate startDate, LocalDate endDate, String department, LocalTime totalTime, String shift){
+    }
+
+    public void backupDatabase() {
+        String savePath = "dbBackup.sql";
+        String executeCmd = ("C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump -u " + user + " -p" + pass + " --databases " + dbName + " -r " + savePath);
+        try {
+            Process p = Runtime.getRuntime().exec(executeCmd);
+            int processComplete = p.waitFor();
+            if (processComplete == 0)
+            {
+                System.out.println("Backup Complete");
+            } else {
+                System.out.println("Backup Unsuccessful");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void restoreDatabase() {
+       
     }
 }
 

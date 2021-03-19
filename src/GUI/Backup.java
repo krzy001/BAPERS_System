@@ -32,6 +32,12 @@ public class Backup extends Screen{
                 system.backScreen();
             }
         });
+        btnBackup.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().backupDatabase();
+            }
+        });
     }
 
 }

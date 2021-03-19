@@ -32,5 +32,11 @@ public class ViewUserAccount extends Screen {
                 system.backScreen();
             }
         });
+        btnUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Need to create a update GUI
+            }
+        });
     }
 }
