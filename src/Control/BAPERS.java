@@ -72,6 +72,11 @@ public class BAPERS {
         setScreen(nextPage);
     }
 
+    public void nextScreen(String nextPage, String info){
+        pages.push(currentPage);
+        setScreen(nextPage, info);
+    }
+
     public void backScreen(){
         setScreen(pages.pop());
     }
@@ -80,7 +85,6 @@ public class BAPERS {
         screen.setVisible(false);
         setCurrentPage(page);
 
-        //has to be done for every page.
         if(page == LogIn){
             screen = new LogIn(this);
         }
@@ -135,14 +139,20 @@ public class BAPERS {
         else if(page == SummaryReport) {
             screen = new SummaryReport(this);
         }
-        else if (page == Technician){
+        else if (page == Technician) {
             screen = new Technician(this);
-        }
-        else if(page == ViewCustomerAccount) {
-            screen = new ViewCustomerAccount(this);
         }
         else if(page == ViewUserAccount) {
             screen = new ViewUserAccount(this);
+        }
+    }
+
+    private void setScreen(String page, String info) {
+        screen.setVisible(false);
+        setCurrentPage(page);
+
+        if(page == ViewCustomerAccount) {
+            screen = new ViewCustomerAccount(this, info);
         }
     }
 

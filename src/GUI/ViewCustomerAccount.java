@@ -20,14 +20,52 @@ public class ViewCustomerAccount extends Screen {
     private JPanel panelBottom;
     private JPanel panelMiddle;
     private JButton btnLogout;
-    public JTable table1;
-    private JScrollPane scrollPane;
+    private JLabel jLabelName;
+    private JLabel jLabelContactName;
+    private JLabel jLabelAddress;
+    private JLabel jLabelPhone;
+    private JLabel jLabelEmail;
+    private JLabel jLabelDiscountPlan;
+    private JLabel jLabelValued;
 
 
-    public ViewCustomerAccount(BAPERS system) {
+    public ViewCustomerAccount(BAPERS system, String accountID) {
         super(system);
         this.setContentPane(this.panelViewCustomer);
         this.pack();
+
+        try{
+            String sql = "SELECT * FROM customer WHERE Account_No = '" + accountID + "' ";
+
+            Connection con = DriverManager.getConnection(url,user,pass);
+
+            Statement s = con.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+
+            if (rs.next()){
+
+                String name = rs.getString(2);
+                String contactName = rs.getString(3);
+                String address = rs.getString(4);
+                String phone = rs.getString(5);
+                String email = rs.getString(6);
+                String discountPlan = rs.getString(7);
+                String valued = rs.getString(8);
+
+                jLabelName.setText(name);
+                jLabelContactName.setText(contactName);
+                jLabelAddress.setText(address);
+                jLabelPhone.setText(phone);
+                jLabelEmail.setText(email);
+                jLabelDiscountPlan.setText(discountPlan);
+                jLabelValued.setText(valued);
+
+            } else{
+                JOptionPane.showMessageDialog(null, "No data found for this ID");
+            }
+        } catch (Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

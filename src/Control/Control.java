@@ -15,7 +15,7 @@ public class Control {
     String url="jdbc:mysql://localhost/risinggen";
     String user="root";
     String pass="";
-    String dbName = "risigngen";
+    String dbName = "risinggen";
 
     public boolean identifyUserAccount(String accountID){
         ResultSet rs=null;
@@ -284,6 +284,7 @@ public class Control {
     public void backupDatabase() {
         String savePath = "dbBackup.sql";
         String executeCmd = ("C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump -u " + user + " -p" + pass + " --databases " + dbName + " -r " + savePath);
+
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
