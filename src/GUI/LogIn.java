@@ -28,9 +28,7 @@ public class LogIn extends Screen {
                 system.nextScreen(system.OfficeManager);
             }
         });
-
          */
-
 
         buttonLogIn.addActionListener(new ActionListener() {
             @Override

@@ -48,14 +48,14 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO staff (Name,Username,Password,Job_Role,Department) values (?,?,?,?,?)";
+            String sql = "INSERT INTO staff (Name,Username,Password,Job_Role, Email, Department) values (?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,name);
             pst.setString(2,username);
             pst.setString(3,password);
             pst.setString(4,jobRole);
-            //pst.setString(5,email);
-            pst.setString(5,department);
+            pst.setString(5,email);
+            pst.setString(6,department);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
