@@ -109,14 +109,14 @@ public class Control {
             Connection con = DriverManager.getConnection(url,user,pass);
             String sql = "INSERT INTO jobs (Start_Time,Priority,Special_Instructions,Job_Status,Date,Deadline,Price,CustomerAccount_No) values (?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,startTime);
-            pst.setString(2,priority);
-            pst.setString(3,specialInstructions);
-            pst.setString(4,jobStatus);
-            pst.setString(5,date);
-            pst.setString(6,deadline);
-            pst.setString(7,price);
-            pst.setString(8,customerAccountNo);
+            pst.setString(2,startTime);
+            pst.setString(3,priority);
+            pst.setString(4,specialInstructions);
+            pst.setString(5,jobStatus);
+            pst.setString(6,date);
+            pst.setString(7,deadline);
+            pst.setString(8,price);
+            pst.setString(9,customerAccountNo);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");

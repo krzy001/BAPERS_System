@@ -60,8 +60,6 @@ public class ViewCustomerAccount extends Screen {
                 jLabelDiscountPlan.setText(discountPlan);
                 jLabelValued.setText(valued);
 
-            } else{
-                JOptionPane.showMessageDialog(null, "No data found for this ID");
             }
         } catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);

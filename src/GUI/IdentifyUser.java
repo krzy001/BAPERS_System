@@ -41,7 +41,7 @@ public class IdentifyUser extends Screen{
                 userFound = system.getController().identifyUserAccount(textField1.getText());
 
                 if(userFound){
-                    system.nextScreen(system.ViewUserAccount);
+                    system.nextScreen(system.ViewUserAccount,textField1.getText());
                 }
             }
         });

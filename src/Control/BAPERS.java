@@ -118,9 +118,6 @@ public class BAPERS {
         else if(page == JobEnquiry) {
             screen = new JobEnquiry(this);
         }
-        else if(page == JobList) {
-            screen = new JobsList(this);
-        }
         else if(page == OfficeManager){
             screen = new OfficeManager(this);
         }
@@ -142,17 +139,20 @@ public class BAPERS {
         else if (page == Technician) {
             screen = new Technician(this);
         }
-        else if(page == ViewUserAccount) {
-            screen = new ViewUserAccount(this);
-        }
     }
 
     private void setScreen(String page, String info) {
         screen.setVisible(false);
         setCurrentPage(page);
 
-        if(page == ViewCustomerAccount) {
+        if(page == JobList) {
+            screen = new JobsList(this, info);
+        }
+        else if(page == ViewCustomerAccount) {
             screen = new ViewCustomerAccount(this, info);
+        }
+        else if(page == ViewUserAccount) {
+            screen = new ViewUserAccount(this, info);
         }
     }
 
