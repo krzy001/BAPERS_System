@@ -132,7 +132,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO task (Task_Description,Location,Price,Duration,Shift,Date,Completed_By) values (?,?,?,?,?,?,?,?.?)";
+            String sql = "INSERT INTO task (Task_Description,Location,Price,Duration,Shift,Date,Completed_By,JobsJob_No,StaffStaff_ID) values (?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,description);
             pst.setString(2,location);
