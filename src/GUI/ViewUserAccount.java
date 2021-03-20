@@ -68,7 +68,7 @@ public class ViewUserAccount extends Screen {
         btnUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Need to create a update GUI
+                system.nextScreen(system.UpdateUserInfo);
             }
         });
     }

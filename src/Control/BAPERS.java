@@ -37,6 +37,10 @@ public class BAPERS {
     public final String SummaryReport = "SR";
     public final String ViewCustomerAccount = "VCA";
     public final String ViewUserAccount = "VUA";
+    public final String UpdateCustomerInfo = "UCI";
+    public final String UpdateUserInfo = "UUI";
+    public final String AddTask = "ADT";
+    public final String TaskList = "TL";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
@@ -139,6 +143,15 @@ public class BAPERS {
         else if (page == Technician) {
             screen = new Technician(this);
         }
+        else if(page == UpdateCustomerInfo){
+            screen = new UpdateCustomerInfo(this);
+        }
+        else if(page == UpdateUserInfo){
+            screen = new UpdateUserInfo(this);
+        }
+        else if(page == AddTask){
+            screen = new AddTask(this);
+        }
     }
 
     private void setScreen(String page, String info) {
@@ -153,6 +166,8 @@ public class BAPERS {
         }
         else if(page == ViewUserAccount) {
             screen = new ViewUserAccount(this, info);
+        }else if(page == TaskList) {
+            screen = new TaskList(this, info);
         }
     }
 

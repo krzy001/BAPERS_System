@@ -25,7 +25,8 @@ public class UpdateCustomerInfo extends Screen {
     private JButton btnBack;
     private JButton btnUpdate;
     private JPanel panelUpdateCustomerInfo;
-    private JTextField textField8;
+    private JPanel panelMiddle;
+    private JPanel panelNine;
 
     public UpdateCustomerInfo(BAPERS system) {
         super(system);
@@ -50,7 +51,7 @@ public class UpdateCustomerInfo extends Screen {
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateCustomerInfo(
                         textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
+                        textField5.getText(), textField6.getText(), textField7.getText());
             }
         });
     }

@@ -15,7 +15,7 @@ public class Control {
     String url="jdbc:mysql://localhost/risinggen";
     String user="root";
     String pass="";
-    String dbName = "risinggen";
+
 
     public boolean identifyUserAccount(String accountID){
         ResultSet rs=null;
@@ -79,22 +79,16 @@ public class Control {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Username & Password Correct");
 
-                // Get role and return it
+                /* Get role and return it
 
-                    String JobRole = rs.getString(5);
-                    System.out.println(JobRole);
+                sql = "SELECT * FROM staff WHERE Username="+username;
+                pst = con.prepareStatement(sql);
+                 */
 
-                    if (JobRole == "Office Manager"){
-                        return system.OfficeManager;
-                    } else if(JobRole == "Shift Manager"){
-                        return system.ShiftManager;
-                    } else if (JobRole == "Receptionist"){
-                        return system.Receptionist;
-                    } else if (JobRole == "Technician"){
-                        return system.Technician;
-                    } else{
-                        return system.getRoleLoggedIn();
-                    }
+                return system.OfficeManager;
+                //return system.ShiftManager;
+                //return system.Receptionist;
+                //return system.Technician;
 
             } else {
                 JOptionPane.showMessageDialog(null, "Username & Password Incorrect");
@@ -123,6 +117,32 @@ public class Control {
             pst.setString(6,deadline);
             pst.setString(7,price);
             pst.setString(8,customerAccountNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void addTask(
+            String description, String location, String price, String duration,
+            String shift, String date, String completedBy, String jobsNO, String staffID){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO task (Task_Description,Location,Price,Duration,Shift,Date,Completed_By) values (?,?,?,?,?,?,?,?.?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,description);
+            pst.setString(2,location);
+            pst.setString(3,price);
+            pst.setString(4,duration);
+            pst.setString(5,shift);
+            pst.setString(6,date);
+            pst.setString(7,completedBy);
+            pst.setString(8,jobsNO);
+            pst.setString(9,staffID);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
@@ -170,23 +190,21 @@ public class Control {
 
     }
     public void updateCustomerInfo(
-            String account,String name, String contactName, String address, String phoneNo,
+            String name, String contactName, String address, String phoneNo,
             String email, String discountPlan, String valued){
 
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE customer WHERE Account_No=?";
+            String sql = "UPDATE customer WHERE SET Name=?, Contact_Name=?, Customer_Address=?, Phone_Number=?, Email=?, Discount_Plan, Valued_Customer WHERE Account_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,account);
             pst.setString(2,name);
-            pst.setString(3,name);
-            pst.setString(4,contactName);
-            pst.setString(5,address);
-            pst.setString(6,phoneNo);
-            pst.setString(7,email);
-            pst.setString(8,discountPlan);
-            pst.setString(9,valued);
+            pst.setString(3,contactName);
+            pst.setString(4,address);
+            pst.setString(5,phoneNo);
+            pst.setString(6,email);
+            pst.setString(7,discountPlan);
+            pst.setString(8,valued);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
@@ -195,6 +213,29 @@ public class Control {
             JOptionPane.showMessageDialog(null,e1);
         }
 
+    }
+    public void updateUserInfo(
+            String name, String contactName, String address, String phoneNo,
+            String email, String discountPlan, String valued) {
+
+        try {
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            String sql = "UPDATE user WHERE SET ";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(2, name);
+            pst.setString(3, contactName);
+            pst.setString(4, address);
+            pst.setString(5, phoneNo);
+            pst.setString(6, email);
+            pst.setString(7, discountPlan);
+            pst.setString(8, valued);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Saved");
+        } catch (Exception e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
     }
 
     public void assignJob(){
@@ -314,17 +355,21 @@ public class Control {
             LocalDate startDate, LocalDate endDate, String department, LocalTime totalTime, String shift){
     }
 
-    public void backupDatabase() {
-        String savePath = "dbBackup.sql";
-        String executeCmd = ("C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump -u " + user + " -p" + pass + " --databases " + dbName + " -r " + savePath);
 
+    public void backupDatabase()
+    {
+        String dbName = "risinggen";
+        String dbUser = "root";
+        String dbPass = "";
+        String savePath = "dbBackup.sql";
+        String executeCmd = ("C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump -u " + dbUser + " -p" + dbPass + "  --databases " + dbName + " -r " + savePath);
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
             if (processComplete == 0)
             {
-                System.out.println("Backup Complete");
-            } else {
+                System.out.println("Backup Created Success");
+            }else{
                 System.out.println("Backup Unsuccessful");
             }
         } catch (Exception e) {

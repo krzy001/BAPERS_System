@@ -27,6 +27,7 @@ public class ViewCustomerAccount extends Screen {
     private JLabel jLabelEmail;
     private JLabel jLabelDiscountPlan;
     private JLabel jLabelValued;
+    private JButton btnTask;
 
 
     public ViewCustomerAccount(BAPERS system, String accountID) {
@@ -101,7 +102,13 @@ public class ViewCustomerAccount extends Screen {
         btnUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Need to add a GUI page for update
+                system.nextScreen(system.UpdateCustomerInfo);
+            }
+        });
+        btnTask.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.AddTask);
             }
         });
     }
