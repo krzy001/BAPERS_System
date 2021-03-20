@@ -79,16 +79,22 @@ public class Control {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Username & Password Correct");
 
-                /* Get role and return it
+                // Get role and return it
 
-                sql = "SELECT * FROM staff WHERE Username="+username;
-                pst = con.prepareStatement(sql);
-                 */
+                    String JobRole = rs.getString(5);
+                    System.out.println(JobRole);
 
-                return system.OfficeManager;
-                //return system.ShiftManager;
-                //return system.Receptionist;
-                //return system.Technician;
+                    if (JobRole == "Office Manager"){
+                        return system.OfficeManager;
+                    } else if(JobRole == "Shift Manager"){
+                        return system.ShiftManager;
+                    } else if (JobRole == "Receptionist"){
+                        return system.Receptionist;
+                    } else if (JobRole == "Technician"){
+                        return system.Technician;
+                    } else{
+                        return system.getRoleLoggedIn();
+                    }
 
             } else {
                 JOptionPane.showMessageDialog(null, "Username & Password Incorrect");
