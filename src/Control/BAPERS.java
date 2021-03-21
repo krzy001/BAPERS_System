@@ -3,6 +3,7 @@ package Control;
 import GUI.*;
 import database.*;
 
+import java.awt.*;
 import java.util.Stack;
 
 public class BAPERS {
@@ -48,6 +49,8 @@ public class BAPERS {
         currentPage = LogIn;
         controller = new Control();
         screen = new LogIn(this);
+        screen.setSize(800,500);
+        screen.setLocationRelativeTo(null);
     }
 
     public String getRoleLoggedIn(){

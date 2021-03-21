@@ -191,50 +191,51 @@ public class Control {
     }
     public void updateCustomerInfo(
             String name, String contactName, String address, String phoneNo,
-            String email, String discountPlan, String valued){
+            String email, String discountPlan, String valued,String account){
 
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE customer WHERE SET Name=?, Contact_Name=?, Customer_Address=?, Phone_Number=?, Email=?, Discount_Plan, Valued_Customer WHERE Account_No=?";
+            String sql = "UPDATE customer SET Name=?,Contact_Name=?,Customer_Address=?,Phone_Number=?,Email=?,Discount_Plan=?,Valued_Customer=? WHERE Account_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(2,name);
-            pst.setString(3,contactName);
-            pst.setString(4,address);
-            pst.setString(5,phoneNo);
-            pst.setString(6,email);
-            pst.setString(7,discountPlan);
-            pst.setString(8,valued);
+            pst.setString(1,name);
+            pst.setString(2,contactName);
+            pst.setString(3,address);
+            pst.setString(4,phoneNo);
+            pst.setString(5,email);
+            pst.setString(6,discountPlan);
+            pst.setString(7,valued);
+            pst.setString(8,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Save Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
         }
 
     }
     public void updateUserInfo(
-            String name, String contactName, String address, String phoneNo,
-            String email, String discountPlan, String valued) {
+            String name, String username, String password, String role,
+            String email, String department, String id) {
 
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "UPDATE user WHERE SET ";
+            String sql = "UPDATE staff SET Name=?,Username=?,Password=?,Job_Role=?,Email=?,Department=? WHERE Staff_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(2, name);
-            pst.setString(3, contactName);
-            pst.setString(4, address);
-            pst.setString(5, phoneNo);
-            pst.setString(6, email);
-            pst.setString(7, discountPlan);
-            pst.setString(8, valued);
+            pst.setString(1, name);
+            pst.setString(2, username);
+            pst.setString(3, password);
+            pst.setString(4, role);
+            pst.setString(5, email);
+            pst.setString(6, department);
+            pst.setString(7, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Saved");
+            JOptionPane.showMessageDialog(null, "Save Successful");
         } catch (Exception e1) {
-            JOptionPane.showMessageDialog(null, e1);
+            JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
     }
 
@@ -312,7 +313,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "SELECT Account_No FROM customer WHERE Account_No=?";
+            String sql = "SELECT Account_No FROM customer WHERE Account_No=? OR Name=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,accountID);
 

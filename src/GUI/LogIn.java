@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,18 +10,26 @@ import Control.BAPERS;
 public class LogIn extends Screen {
     private JPanel panelTop;
     private JPanel panelLeft;
-    private JPanel panelRight;
     private JTextField textField1;
     private JPasswordField passwordField1;
     private JButton buttonLogIn;
-    private JButton buttonForgotPassword;
     private JPanel panelLogIn;
+    private JLabel labelLogo;
+    private JLabel labelUsername;
+    private JLabel labelPassword;
 
     public LogIn(BAPERS system){
         super(system);
         this.setContentPane(this.panelLogIn);
         this.pack();
-
+        float logo = 80;
+        float username = 20;
+        float password = 20;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
+        labelUsername.setFont(labelUsername.getFont().deriveFont(username));
+        labelPassword.setFont(labelPassword.getFont().deriveFont(password));
+        buttonLogIn.setPreferredSize(new Dimension(250,50));
         /*
         buttonLogIn.addActionListener(new ActionListener() {
             @Override
