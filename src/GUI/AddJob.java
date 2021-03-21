@@ -82,43 +82,43 @@ public class AddJob extends Screen {
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField2.getText(),textField9.getText());
+                system.getController().updateStartTime(textField2.getText(),textField9.getText());
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField3.getText(),textField9.getText());
+                system.getController().updatePriority(textField3.getText(),textField9.getText());
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField4.getText(),textField9.getText());
+                system.getController().updateSpecialInstruction(textField4.getText(),textField9.getText());
             }
         });
         updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField5.getText(),textField9.getText());
+                system.getController().updateJobStatus(textField5.getText(),textField9.getText());
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField6.getText(),textField9.getText());
+                system.getController().updateDate(textField6.getText(),textField9.getText());
             }
         });
         updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField7.getText(),textField9.getText());
+                system.getController().updateDeadline(textField7.getText(),textField9.getText());
             }
         });
         updateButton7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField8.getText(),textField9.getText());
+                system.getController().updatePrice(textField8.getText(),textField9.getText());
             }
         });
     }
