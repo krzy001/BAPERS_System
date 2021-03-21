@@ -26,6 +26,7 @@ public class ViewTask extends Screen {
     private JButton changeButton;
     private JButton removeButton;
     private JPanel panelViewTask;
+    private JButton completeButton;
 
     public ViewTask(BAPERS system, String taskId) {
         super(system);
@@ -59,5 +60,6 @@ public class ViewTask extends Screen {
                 system.nextScreen(system.AddTask);
             }
         });
+
     }
 }
