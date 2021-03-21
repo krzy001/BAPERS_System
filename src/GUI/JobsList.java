@@ -90,12 +90,7 @@ public class JobsList extends Screen{
                 system.backScreen();
             }
         });
-        removeJobButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
         changeJobButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
