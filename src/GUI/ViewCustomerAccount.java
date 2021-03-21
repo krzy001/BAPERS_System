@@ -30,6 +30,8 @@ public class ViewCustomerAccount extends Screen {
     private JLabel jLabelValued;
     private JButton btnTask;
     private JLabel labelLogo;
+    private JButton jobListButton;
+    private JButton taskListButton;
 
 
     public ViewCustomerAccount(BAPERS system, String accountID) {

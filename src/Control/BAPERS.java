@@ -197,6 +197,7 @@ public class BAPERS {
             screen.setSize(800,500);
             screen.setLocationRelativeTo(null);
         }
+
     }
 
     private void setScreen(String page, String info) {
@@ -205,14 +206,23 @@ public class BAPERS {
 
         if(page == JobList) {
             screen = new JobsList(this, info);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == ViewCustomerAccount) {
             screen = new ViewCustomerAccount(this, info);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == ViewUserAccount) {
             screen = new ViewUserAccount(this, info);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
+
         }else if(page == TaskList) {
             screen = new TaskList(this, info);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
     }
 

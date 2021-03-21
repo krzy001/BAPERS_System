@@ -313,7 +313,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "SELECT Account_No FROM customer WHERE Account_No=? OR Name=?";
+            String sql = "SELECT Account_No FROM customer WHERE Account_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,accountID);
 
