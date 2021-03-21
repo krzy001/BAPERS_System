@@ -78,15 +78,7 @@ public class ViewCustomerAccount extends Screen {
             public void actionPerformed(ActionEvent e) {
                 system.LogOut();
             }
-
         });
-        btnBack.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.backScreen();
-            }
-        });
-
 
         btnBack.addActionListener(new ActionListener() {
             @Override
