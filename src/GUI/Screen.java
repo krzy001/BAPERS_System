@@ -17,10 +17,7 @@ public class Screen extends JFrame {
     Screen(BAPERS system){
         super("BAPERS System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        /*
-        setSize(800,500);
-        setLocationRelativeTo(null);
-         */
+        //setSize(Toolkit.getDefaultToolkit().getScreenSize());
         setVisible(true);
     }
 }

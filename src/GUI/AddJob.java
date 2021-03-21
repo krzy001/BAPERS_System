@@ -31,6 +31,15 @@ public class AddJob extends Screen {
     private JPanel panelNine;
     private JPanel panelTen;
     private JLabel labelLogo;
+    private JButton updateButton;
+    private JButton updateButton1;
+    private JButton updateButton2;
+    private JButton updateButton3;
+    private JButton updateButton4;
+    private JButton updateButton5;
+    private JButton updateButton6;
+    private JButton updateButton7;
+    private JComboBox comboBox1;
 
     public AddJob(BAPERS system){
         super(system);
@@ -57,8 +66,57 @@ public class AddJob extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().createJob(
-                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                        textField1.getText(), textField2.getText(), textField3.getText(), comboBox1.getActionCommand(),
                         textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
+            }
+        });
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        updateButton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
