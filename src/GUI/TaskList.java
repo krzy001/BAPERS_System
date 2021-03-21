@@ -31,7 +31,7 @@ public class TaskList extends Screen{
     private JButton removeTaskButton;
     private JButton changeTaskButton;
 
-    public TaskList(BAPERS system, String jobID){
+    public TaskList(BAPERS system){
         super(system);
         this.setContentPane(this.panelTaskList);
         this.pack();

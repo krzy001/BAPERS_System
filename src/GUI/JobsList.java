@@ -31,46 +31,13 @@ public class JobsList extends Screen{
     private JButton removeJobButton;
     private JButton changeJobButton;
 
-    public JobsList(BAPERS system, String jobID){
+    public JobsList(BAPERS system){
         super(system);
         this.setContentPane(this.panelJobsList);
         this.pack();
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
-
-        try{
-            String sql = "SELECT * FROM jobs WHERE Job_No = '" + jobID + "' ";
-
-            Connection con = DriverManager.getConnection(url,user,pass);
-
-            Statement s = con.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
-
-            if (rs.next()){
-
-                String startTime = rs.getString(2);
-                String priority = rs.getString(3);
-                String specialInstructions = rs.getString(4);
-                String jobStatus = rs.getString(5);
-                String date = rs.getString(6);
-                String deadline = rs.getString(7);
-                String price = rs.getString(8);
-                String CustomerID = rs.getString(9);
-
-                jLabelStartTime.setText(startTime);
-                jLabelPriority.setText(priority);
-                jLabelSpecialInstructions.setText(specialInstructions);
-                jLabelJobStatus.setText(jobStatus);
-                jLabelDate.setText(date);
-                jLabelDeadline.setText(deadline);
-                jLabelPrice.setText(price);
-                jLabelCustomerID.setText(CustomerID);
-
-            }
-        } catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
-        }
 
         btnAddJob.addActionListener(new ActionListener() {
             @Override

@@ -80,13 +80,6 @@ public class ViewCustomerAccount extends Screen {
             }
 
         });
-        btnBack.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.backScreen();
-            }
-        });
-
 
         btnBack.addActionListener(new ActionListener() {
             @Override
