@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,11 +30,15 @@ public class AddJob extends Screen {
     private JPanel panelEight;
     private JPanel panelNine;
     private JPanel panelTen;
+    private JLabel labelLogo;
 
     public AddJob(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddJob);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         btnBack.addActionListener(new ActionListener() {
             @Override

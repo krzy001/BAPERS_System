@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import Control.BAPERS;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -26,11 +27,15 @@ public class TaskList extends Screen{
     private JPanel panelBottom;
     private JButton btnBack;
     private JButton btnAddTask;
+    private JLabel labelLogo;
 
     public TaskList(BAPERS system, String jobID){
         super(system);
         this.setContentPane(this.panelTaskList);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
 
         btnLogout.addActionListener(new ActionListener() {

@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -22,11 +23,15 @@ public class ViewUserAccount extends Screen {
     private JLabel jLabelUsername;
     private JLabel jPanelRole;
     private JLabel jPanelDepartment;
+    private JLabel labelLogo;
 
     public ViewUserAccount(BAPERS system, String accountID){
         super(system);
         this.setContentPane(this.panelVewUser);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         try{
             String sql = "SELECT * FROM staff WHERE Staff_ID = '" + accountID + "' ";

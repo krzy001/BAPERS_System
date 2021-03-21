@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,11 +24,16 @@ public class OfficeManager extends Screen {
     private JPanel panelBottom;
     private JButton btnLogOut;
     private JButton addJobButton;
+    private JLabel labelLogo;
 
     public OfficeManager(BAPERS system){
         super(system);
         this.setContentPane(this.panelOfficeManager);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
+
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

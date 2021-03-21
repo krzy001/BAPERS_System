@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -26,11 +27,15 @@ public class AddPayment extends Screen {
     private JButton btnLogout;
     private JPanel panelSeven;
     private JTextField textField3;
+    private JLabel labelLogo;
 
     public AddPayment(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddPayment);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

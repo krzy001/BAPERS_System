@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,11 +28,15 @@ public class UpdateUserInfo extends Screen {
     private JButton btnUpdate;
     private JPanel panelUpdateUserInfo;
     private JPanel panelMiddle;
+    private JLabel labelLogo;
 
     public UpdateUserInfo(BAPERS system) {
         super(system);
         this.setContentPane(this.panelUpdateUserInfo);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

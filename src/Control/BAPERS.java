@@ -94,66 +94,108 @@ public class BAPERS {
 
         if(page == LogIn){
             screen = new LogIn(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == AddJob){
             screen = new AddJob(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == AddPayment){
             screen = new AddPayment(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == Backup){
             screen = new Backup(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == CreateCustomerAccount){
             screen = new CreateCustomerAccount(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == CreateNewUser){
             screen = new CreateNewUser(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == IdentifyCustomer){
             screen = new IdentifyCustomer(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == IdentifyUser){
             screen = new IdentifyUser(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == IndividualJobReport){
             screen = new IndividualJobReport(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == IndividualPerformanceReport) {
             screen = new IndividualPerformanceReport(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == JobEnquiry) {
             screen = new JobEnquiry(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == OfficeManager){
             screen = new OfficeManager(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if (page == Receptionist){
             screen = new Receptionist(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == Reports) {
             screen = new Reports(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == Restore) {
             screen = new Restore(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if (page == ShiftManager){
             screen = new ShiftManager(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == SummaryReport) {
             screen = new SummaryReport(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if (page == Technician) {
             screen = new Technician(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == UpdateCustomerInfo){
             screen = new UpdateCustomerInfo(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == UpdateUserInfo){
             screen = new UpdateUserInfo(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
         else if(page == AddTask){
             screen = new AddTask(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
         }
     }
 

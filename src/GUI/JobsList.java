@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -26,11 +27,15 @@ public class JobsList extends Screen{
     private JLabel jLabelDeadline;
     private JLabel jLabelPrice;
     private JLabel jLabelCustomerID;
+    private JLabel labelLogo;
 
     public JobsList(BAPERS system, String jobID){
         super(system);
         this.setContentPane(this.panelJobsList);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         try{
             String sql = "SELECT * FROM jobs WHERE Job_No = '" + jobID + "' ";

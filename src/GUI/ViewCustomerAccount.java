@@ -5,6 +5,7 @@ import Control.BAPERS;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -28,12 +29,16 @@ public class ViewCustomerAccount extends Screen {
     private JLabel jLabelDiscountPlan;
     private JLabel jLabelValued;
     private JButton btnTask;
+    private JLabel labelLogo;
 
 
     public ViewCustomerAccount(BAPERS system, String accountID) {
         super(system);
         this.setContentPane(this.panelViewCustomer);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         try{
             String sql = "SELECT * FROM customer WHERE Account_No = '" + accountID + "' ";

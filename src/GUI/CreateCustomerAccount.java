@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -29,11 +30,15 @@ public class CreateCustomerAccount extends Screen{
     private JButton btnBack;
     private JButton btnLogout;
     private JTextField textField7;
+    private JLabel labelLogo;
 
     public CreateCustomerAccount(BAPERS system) {
         super(system);
         this.setContentPane(this.panelCreateCustomer);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

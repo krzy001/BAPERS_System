@@ -4,6 +4,7 @@ import javax.swing.*;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,11 +33,15 @@ public class AddTask extends Screen {
     private JButton btnAddJob;
     private JPanel panleEleven;
     private JPanel panelNine;
+    private JLabel labelLogo;
 
     public AddTask(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddTask);
         this.pack();
+        float logo = 80;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
 
         btnBack.addActionListener(new ActionListener() {
             @Override
