@@ -39,6 +39,7 @@ public class AddJob extends Screen {
     private JButton updateButton5;
     private JButton updateButton6;
     private JButton updateButton7;
+    private JTextField textField9;
     private JComboBox comboBox1;
 
     public AddJob(BAPERS system){
@@ -66,7 +67,7 @@ public class AddJob extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().createJob(
-                        textField1.getText(), textField2.getText(), textField3.getText(), comboBox1.getActionCommand(),
+                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
                         textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
             }
         });
@@ -74,49 +75,50 @@ public class AddJob extends Screen {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                system.getController().updateCustomerName(textField1.getText(),textField9.getText());
 
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField2.getText(),textField9.getText());
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField3.getText(),textField9.getText());
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField4.getText(),textField9.getText());
             }
         });
         updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField5.getText(),textField9.getText());
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField6.getText(),textField9.getText());
             }
         });
         updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField7.getText(),textField9.getText());
             }
         });
         updateButton7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                system.getController().updateCustomerName(textField8.getText(),textField9.getText());
             }
         });
     }
