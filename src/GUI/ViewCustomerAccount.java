@@ -118,5 +118,17 @@ public class ViewCustomerAccount extends Screen {
                 system.nextScreen(system.AddTask);
             }
         });
+        jobListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.JobList);
+            }
+        });
+        taskListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.TaskList);
+            }
+        });
     }
 }

@@ -28,6 +28,8 @@ public class JobsList extends Screen{
     private JLabel jLabelPrice;
     private JLabel jLabelCustomerID;
     private JLabel labelLogo;
+    private JButton removeJobButton;
+    private JButton changeJobButton;
 
     public JobsList(BAPERS system, String jobID){
         super(system);
@@ -86,6 +88,18 @@ public class JobsList extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.backScreen();
+            }
+        });
+        removeJobButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        changeJobButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

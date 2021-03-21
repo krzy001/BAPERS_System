@@ -28,6 +28,8 @@ public class TaskList extends Screen{
     private JButton btnBack;
     private JButton btnAddTask;
     private JLabel labelLogo;
+    private JButton removeTaskButton;
+    private JButton changeTaskButton;
 
     public TaskList(BAPERS system, String jobID){
         super(system);
@@ -55,6 +57,18 @@ public class TaskList extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.AddTask);
+            }
+        });
+        removeTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        changeTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
