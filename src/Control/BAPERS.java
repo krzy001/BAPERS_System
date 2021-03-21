@@ -3,7 +3,6 @@ package Control;
 import GUI.*;
 import database.*;
 
-import java.awt.*;
 import java.util.Stack;
 
 public class BAPERS {
@@ -42,6 +41,10 @@ public class BAPERS {
     public final String UpdateUserInfo = "UUI";
     public final String AddTask = "ADT";
     public final String TaskList = "TL";
+    public final String SearchJob = "SJ";
+    public final String SearchTask = "ST";
+    public final String ViewJob = "VJ";
+    public final String ViewTask = "VT";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
@@ -123,12 +126,12 @@ public class BAPERS {
             screen.setLocationRelativeTo(null);
         }
         else if(page == IdentifyCustomer){
-            screen = new IdentifyCustomer(this);
+            screen = new SearchCustomer(this);
             screen.setSize(800,500);
             screen.setLocationRelativeTo(null);
         }
         else if(page == IdentifyUser){
-            screen = new IdentifyUser(this);
+            screen = new SearchUser(this);
             screen.setSize(800,500);
             screen.setLocationRelativeTo(null);
         }
@@ -197,6 +200,16 @@ public class BAPERS {
             screen.setSize(800,500);
             screen.setLocationRelativeTo(null);
         }
+        else if(page == SearchJob){
+            screen = new SearchJob(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
+        }
+        else if(page == SearchTask){
+            screen = new SearchTask(this);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
+        }
 
     }
 
@@ -219,11 +232,23 @@ public class BAPERS {
             screen.setSize(800,500);
             screen.setLocationRelativeTo(null);
 
-        }else if(page == TaskList) {
+        }
+        else if(page == TaskList) {
             screen = new TaskList(this, info);
             screen.setSize(800,500);
             screen.setLocationRelativeTo(null);
         }
+        else if(page == ViewTask) {
+            screen = new ViewTask(this, info);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
+        }
+        else if(page == ViewJob) {
+            screen = new ViewJob(this, info);
+            screen.setSize(800,500);
+            screen.setLocationRelativeTo(null);
+        }
+
     }
 
     public Control getController(){

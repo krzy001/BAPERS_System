@@ -494,10 +494,6 @@ public class Control {
 
     }
 
-    public void searchJob(int jobNo){
-
-    }
-
     //Maybe the parameters could be simplified to the customer account
     public void acceptJob(
             String customerName, String contactName, LocalDate dateOfBirth, String email,
@@ -517,6 +513,54 @@ public class Control {
             String sql = "SELECT Account_No FROM customer WHERE Account_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,accountID);
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Customer found");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Customer not found");
+                return false;
+            }
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+            return false;
+        }
+    }
+
+    public boolean searchJob(String jobNo){
+        ResultSet rs=null;
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "SELECT Job_No FROM jobs WHERE Job_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,jobNo);
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Customer found");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Customer not found");
+                return false;
+            }
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+            return false;
+        }
+    }
+
+    public boolean searchTask(String taskId){
+        ResultSet rs=null;
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "SELECT Task_ID FROM task WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,taskId);
 
             rs = pst.executeQuery();
             if (rs.next()) {

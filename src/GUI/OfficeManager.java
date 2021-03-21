@@ -10,21 +10,21 @@ import java.awt.event.ActionListener;
 public class OfficeManager extends Screen {
     private JPanel panelOfficeManager;
     private JPanel panelTop;
-    private JPanel panelLeft;
-    private JPanel panelRight;
-    private JPanel panelMiddle;
-    private JButton btnIdentifyCustomer;
-    private JButton btnBackupDatabase;
-    private JButton btnCreateCustomer;
-    private JButton btnRestoreDatabase;
-    private JButton btnCreateUser;
-    private JButton btnIdentifyUser;
     private JButton btnReport;
     private JButton btnBack;
     private JPanel panelBottom;
     private JButton btnLogOut;
     private JButton addJobButton;
     private JLabel labelLogo;
+    private JButton searchCustomerButton;
+    private JButton createCustomerButton;
+    private JButton searchUserButton;
+    private JButton createUserButton;
+    private JButton addTaskButton;
+    private JButton searchJobButton;
+    private JButton searchTaskButton;
+    private JButton backupButton;
+    private JButton restoreButton;
 
     public OfficeManager(BAPERS system){
         super(system);
@@ -40,35 +40,35 @@ public class OfficeManager extends Screen {
                 system.backScreen();
             }
         });
-        btnIdentifyCustomer.addActionListener(new ActionListener() {
+        searchCustomerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.IdentifyCustomer);
             }
         });
-        btnCreateCustomer.addActionListener(new ActionListener() {
+        createCustomerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.CreateCustomerAccount);
             }
         });
-        btnCreateUser.addActionListener(new ActionListener() {
+        createUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.CreateNewUser);
             }
         });
-        btnBackupDatabase.addActionListener(new ActionListener() {
+        backupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.Backup);
             }
         });
-        btnRestoreDatabase.addActionListener(new ActionListener() {
+        restoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {system.nextScreen(system.Restore);}
         });
-        btnIdentifyUser.addActionListener(new ActionListener() {
+        searchUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.IdentifyUser);
@@ -90,6 +90,24 @@ public class OfficeManager extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.AddJob);
+            }
+        });
+        searchJobButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchJob);
+            }
+        });
+        searchTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchTask);
+            }
+        });
+        addTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.AddTask);
             }
         });
     }

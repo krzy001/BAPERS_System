@@ -7,20 +7,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class IdentifyUser extends Screen{
+public class SearchJob extends Screen {
+
+    private JPanel panelSearchJob;
     private JPanel panelTop;
+    private JLabel labelLogo;
+    private JButton btnLogout;
     private JPanel panelMiddle;
     private JTextField textField1;
-    private JPanel panelIdentifyUser;
+    private JPanel panelBottom;
     private JButton btnSearch;
     private JButton btnBack;
-    private JButton btnLogout;
-    private JLabel labelLogo;
-    private boolean userFound;
+    private boolean jobFound;
 
-    public IdentifyUser(BAPERS system) {
+    public SearchJob(BAPERS system) {
         super(system);
-        this.setContentPane(this.panelIdentifyUser);
+        this.setContentPane(this.panelSearchJob);
         this.pack();
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
@@ -38,15 +40,13 @@ public class IdentifyUser extends Screen{
                 system.backScreen();
             }
         });
-
-
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userFound = system.getController().identifyUserAccount(textField1.getText());
+                jobFound = system.getController().searchJob(textField1.getText());
 
-                if(userFound){
-                    system.nextScreen(system.ViewUserAccount,textField1.getText());
+                if(jobFound){
+                    system.nextScreen(system.ViewJob,textField1.getText());
                 }
             }
         });

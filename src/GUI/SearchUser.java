@@ -7,21 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class IdentifyCustomer extends Screen {
+public class SearchUser extends Screen{
     private JPanel panelTop;
     private JPanel panelMiddle;
     private JTextField textField1;
+    private JPanel panelIdentifyUser;
     private JButton btnSearch;
-    private JPanel panelBottom;
-    private JPanel panelIdentifyCustomer;
     private JButton btnBack;
     private JButton btnLogout;
     private JLabel labelLogo;
-    private boolean customerFound;
+    private boolean userFound;
 
-    public IdentifyCustomer(BAPERS system) {
+    public SearchUser(BAPERS system) {
         super(system);
-        this.setContentPane(this.panelIdentifyCustomer);
+        this.setContentPane(this.panelIdentifyUser);
         this.pack();
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
@@ -39,13 +38,15 @@ public class IdentifyCustomer extends Screen {
                 system.backScreen();
             }
         });
+
+
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                customerFound = system.getController().identifyCustomerAccount(textField1.getText());
+                userFound = system.getController().identifyUserAccount(textField1.getText());
 
-                if(customerFound){
-                    system.nextScreen(system.ViewCustomerAccount,textField1.getText());
+                if(userFound){
+                    system.nextScreen(system.ViewUserAccount,textField1.getText());
                 }
             }
         });
