@@ -157,6 +157,7 @@ public class BAPERS {
         }
         else if(page == AddTask){
             screen = new AddTask(this);
+            screen.setSize(800,800);
         }
         else if(page == SearchJob){
             screen = new SearchJob(this);

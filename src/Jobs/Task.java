@@ -11,15 +11,17 @@ public class Task {
     LocalTime totalTimeTaken;
     String completedBy;
     String description;
+    String status;
 
     //In design diagram totalTimeTaken was parameter for constructor when it shouldn't have been
-    public Task(int taskID, float price, String department, LocalDateTime startTime, String completedBy, String description) {
+    public Task(int taskID, float price, String department, LocalDateTime startTime, String completedBy, String description,String status) {
         this.taskID = taskID;
         this.price = price;
         this.department = department;
         this.startTime = startTime;
         this.completedBy = completedBy;
         this.description = description;
+        this.status= status;
     }
 
     public int getTaskID() {
@@ -76,5 +78,13 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status= status;
     }
 }

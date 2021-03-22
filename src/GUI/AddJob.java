@@ -40,6 +40,7 @@ public class AddJob extends Screen {
     private JButton updateButton6;
     private JButton updateButton7;
     private JTextField textField9;
+    private JButton removeButton;
     private JComboBox comboBox1;
 
     public AddJob(BAPERS system){
@@ -119,6 +120,12 @@ public class AddJob extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updatePrice(textField8.getText(),textField9.getText());
+            }
+        });
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().removeJob(textField9.getText());
             }
         });
     }

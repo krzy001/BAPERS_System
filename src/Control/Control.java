@@ -238,6 +238,21 @@ public class Control {
         }
 
     }
+    public void removeJob(String jobNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "Delete FROM jobs WHERE Job_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,jobNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
     public void updateCustomerAccount(String customerAccountNo,String jobNo){
         try{
             Class.forName(driver);
@@ -258,11 +273,11 @@ public class Control {
 
     public void addTask(
             String description, String location, String price, String duration,
-            String shift, String date, String completedBy, String jobsNO, String staffID){
+            String shift, String date, String completedBy, String jobsNO, String staffID, String status){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO task (Task_Description,Location,Price,Duration,Shift,Date,Completed_By,JobsJob_No,StaffStaff_ID) values (?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO task (Task_Description,Location,Price,Duration,Shift,Date,Status,Completed_By,JobsJob_No,StaffStaff_ID) values (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,description);
             pst.setString(2,location);
@@ -270,15 +285,193 @@ public class Control {
             pst.setString(4,duration);
             pst.setString(5,shift);
             pst.setString(6,date);
-            pst.setString(7,completedBy);
-            pst.setString(8,jobsNO);
-            pst.setString(9,staffID);
+            pst.setString(7,status);
+            pst.setString(8,completedBy);
+            pst.setString(9,jobsNO);
+            pst.setString(10,staffID);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
         }
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+    public void updateDescription(String description,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Task_Description=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,description);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+
+    public void updateLocation(String location,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Location=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,location);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+
+    public void updateTaskPrice(String price,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Price=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,price);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateDuration(String duration,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Duration=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,duration);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateTaskShift(String shift,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Shift=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,shift);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateTaskDate(String date,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Date=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,date);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateTaskStatus(String status,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Status=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,status);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateCompletedBy(String completedBy,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET completed_By=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,completedBy);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateTaskJobsNo(String jobsNo,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET JobsJob_No=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,jobsNo);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateTaskStaffId(String staffID,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET StaffStaff_Id=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,staffID);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void removeTask(String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "Delete FROM task WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
         }
     }
 
