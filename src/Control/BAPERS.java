@@ -46,6 +46,7 @@ public class BAPERS {
     public final String SearchTask = "ST";
     public final String ViewJob = "VJ";
     public final String ViewTask = "VT";
+    public final String RecordCardPayment = "RCP";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
@@ -174,6 +175,9 @@ public class BAPERS {
         }
         else if(page == ViewJob) {
             screen = new ViewJob(this);
+        }
+        else if(page == RecordCardPayment) {
+            screen = new RecordCardPayment(this);
         }
         else if(page == AddPayment){
             screen = new AddPayment(this);

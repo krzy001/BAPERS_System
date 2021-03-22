@@ -6,33 +6,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 
 public class AddPayment extends Screen {
     private JPanel panelTop;
-    private JButton btnAddPayment;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JPanel panelTwo;
-    private JPanel panelThree;
-    private JPanel panelFour;
-    private JPanel panelFive;
-    private JPanel panelSix;
-    private JPanel panelAddPayment;
-    private JButton btnBack;
-    private JButton btnLogout;
-    private JPanel panelSeven;
-    private JTextField textField3;
     private JLabel labelLogo;
+    private JButton btnLogout;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JPanel panelAddPayment;
+    private JPanel panelFive;
+    private JButton btnAddPayment;
+    private JButton btnBack;
+    private JButton cardPaymentButton;
+    private JButton cashPaymentButton;
+    private JTextField textField;
+    private JTextField textField4;
 
     public AddPayment(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddPayment);
         this.pack();
+
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
@@ -52,9 +46,19 @@ public class AddPayment extends Screen {
         btnAddPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().processPayment(
-                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                        textField5.getText());
+
+            }
+        });
+        btnAddPayment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().AddPayment(textField.getText(),textField4.getText(), textField3.getText(), textField2.getText());
+            }
+        });
+        cardPaymentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.RecordCardPayment);
             }
         });
     }

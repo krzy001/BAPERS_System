@@ -268,6 +268,7 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,"Save Unsuccessful");
         }
+
     }
 
     public void addTask(
@@ -774,20 +775,41 @@ public class Control {
     public void applyDiscount(){
 
     }
-
-    public void processPayment(
-            String customerName, String nameOnCard, String expiryDate, String lastFourDigits,
-            String paid){
+    public void AddPayment(
+            String amount, String date, String jobNo,
+            String accountNO){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO payment () values ()";
+            String sql = "INSERT INTO payment (Total_Amount,Date,JobsJob_No,CustomerAccount_No) values (?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,customerName);
-            pst.setString(2,nameOnCard);
-            pst.setString(3,expiryDate);
-            pst.setString(4,lastFourDigits);
-            pst.setString(5,paid);
+            pst.setString(1,amount);
+            pst.setString(2,date);
+            pst.setString(3,jobNo);
+            pst.setString(4,accountNO);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void recordCardPayment(
+            String cardNo, String expiryDate, String name,
+            String paid, String paymentTransactionId, String cvv){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO recordcardpayment (Card_No,Expiry_Date,Card_Holder_Name,Paid,PaymentTransaction_ID,CVV) values (?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,name);
+            pst.setString(2,expiryDate);
+            pst.setString(3,cardNo);
+            pst.setString(4,paid);
+            pst.setString(5,paymentTransactionId);
+            pst.setString(6,cvv);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
