@@ -25,7 +25,7 @@ public class ViewUserAccount extends Screen {
     private JLabel jPanelDepartment;
     private JLabel labelLogo;
 
-    public ViewUserAccount(BAPERS system, String accountID){
+    public ViewUserAccount(BAPERS system){
         super(system);
         this.setContentPane(this.panelVewUser);
         this.pack();
@@ -34,7 +34,7 @@ public class ViewUserAccount extends Screen {
         labelLogo.setForeground(Color.RED);
 
         try{
-            String sql = "SELECT * FROM staff WHERE Staff_ID = '" + accountID + "' ";
+            String sql = "SELECT * FROM staff WHERE Staff_ID = '" + system.getID() + "' ";
 
             Connection con = DriverManager.getConnection(url,user,pass);
 

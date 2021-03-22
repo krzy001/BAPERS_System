@@ -12,6 +12,7 @@ public class BAPERS {
     private Screen screen;
     private Control controller;
     private String currentPage;
+    private String ID;
     private Stack<String> pages = new Stack<String>();
 
     private String roleLoggedIn = "LoggedOff";
@@ -82,11 +83,6 @@ public class BAPERS {
         setScreen(nextPage);
     }
 
-    public void nextScreen(String nextPage, String info){
-        pages.push(currentPage);
-        setScreen(nextPage, info);
-    }
-
     public void backScreen(){
         setScreen(pages.pop());
     }
@@ -100,9 +96,6 @@ public class BAPERS {
         }
         else if(page == AddJob){
             screen = new AddJob(this);
-        }
-        else if(page == AddPayment){
-            screen = new AddPayment(this);
         }
         else if(page == Backup){
             screen = new Backup(this);
@@ -157,7 +150,6 @@ public class BAPERS {
         }
         else if(page == AddTask){
             screen = new AddTask(this);
-            screen.setSize(800,800);
         }
         else if(page == SearchJob){
             screen = new SearchJob(this);
@@ -171,27 +163,26 @@ public class BAPERS {
         else if(page == TaskList) {
             screen = new TaskList(this);
         }
-        screen.setSize(800,500);
-        screen.setLocationRelativeTo(null);
-    }
-
-    private void setScreen(String page, String info) {
-        screen.setVisible(false);
-        setCurrentPage(page);
-
-        if(page == ViewCustomerAccount) {
-            screen = new ViewCustomerAccount(this, info);
+        else if(page == ViewCustomerAccount) {
+            screen = new ViewCustomerAccount(this);
         }
         else if(page == ViewUserAccount) {
-            screen = new ViewUserAccount(this, info);
+            screen = new ViewUserAccount(this);
         }
         else if(page == ViewTask) {
-            screen = new ViewTask(this, info);
+            screen = new ViewTask(this);
         }
         else if(page == ViewJob) {
-            screen = new ViewJob(this, info);
+            screen = new ViewJob(this);
         }
-        screen.setSize(800,500);
+        else if(page == AddPayment){
+            screen = new AddPayment(this);
+        }
+        if(page == AddTask) {
+            screen.setSize(800, 800);
+        }else{
+            screen.setSize(800, 500);
+        }
         screen.setLocationRelativeTo(null);
     }
 
@@ -205,6 +196,14 @@ public class BAPERS {
 
     public String getCurrentPage(){
         return currentPage;
+    }
+
+    public String getID(){
+        return ID;
+    }
+
+    public void setID(String ID){
+        this.ID = ID;
     }
 
     public static void main(String[] args){

@@ -46,7 +46,8 @@ public class SearchUser extends Screen{
                 userFound = system.getController().identifyUserAccount(textField1.getText());
 
                 if(userFound){
-                    system.nextScreen(system.ViewUserAccount,textField1.getText());
+                    system.setID(textField1.getText());
+                    system.nextScreen(system.ViewUserAccount);
                 }
             }
         });

@@ -34,7 +34,7 @@ public class ViewCustomerAccount extends Screen {
     private JButton taskListButton;
 
 
-    public ViewCustomerAccount(BAPERS system, String accountID) {
+    public ViewCustomerAccount(BAPERS system) {
         super(system);
         this.setContentPane(this.panelViewCustomer);
         this.pack();
@@ -43,7 +43,7 @@ public class ViewCustomerAccount extends Screen {
         labelLogo.setForeground(Color.RED);
 
         try{
-            String sql = "SELECT * FROM customer WHERE Account_No = '" + accountID + "' ";
+            String sql = "SELECT * FROM customer WHERE Account_No = '" + system.getID() + "' ";
 
             Connection con = DriverManager.getConnection(url,user,pass);
 

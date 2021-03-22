@@ -45,7 +45,8 @@ public class SearchCustomer extends Screen {
                 customerFound = system.getController().identifyCustomerAccount(textField1.getText());
 
                 if(customerFound){
-                    system.nextScreen(system.ViewCustomerAccount,textField1.getText());
+                    system.setID(textField1.getText());
+                    system.nextScreen(system.ViewCustomerAccount);
                 }
             }
         });

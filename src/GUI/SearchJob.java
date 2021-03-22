@@ -46,7 +46,8 @@ public class SearchJob extends Screen {
                 jobFound = system.getController().searchJob(textField1.getText());
 
                 if(jobFound){
-                    system.nextScreen(system.ViewJob,textField1.getText());
+                    system.setID(textField1.getText());
+                    system.nextScreen(system.ViewJob);
                 }
             }
         });

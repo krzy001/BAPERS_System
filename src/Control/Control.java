@@ -268,7 +268,6 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,"Save Unsuccessful");
         }
-
     }
 
     public void addTask(

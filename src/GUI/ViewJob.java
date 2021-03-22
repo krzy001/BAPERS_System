@@ -16,13 +16,6 @@ public class ViewJob extends Screen {
     private JLabel labelLogo;
     private JButton btnLogout;
     private JPanel panelMiddle;
-    private JLabel jLabelName;
-    private JLabel jLabelContactName;
-    private JLabel jLabelAddress;
-    private JLabel jLabelPhone;
-    private JLabel jLabelEmail;
-    private JLabel jLabelDiscountPlan;
-    private JLabel jLabelValued;
     private JPanel panelBottom;
     private JButton btnBack;
     private JButton btnAddJob;
@@ -30,8 +23,17 @@ public class ViewJob extends Screen {
     private JButton changeButton;
     private JButton removeButton;
     private JPanel panelViewJob;
+    private JLabel jLabelJobID;
+    private JLabel jLabelStartTime;
+    private JLabel jLabelPriority;
+    private JLabel jLabelSpecial;
+    private JLabel jLabelJobStatus;
+    private JLabel jLabelDate;
+    private JLabel jLabelDeadline;
+    private JLabel jLabelPrice;
+    private JLabel jLabelCustomerID;
 
-    public ViewJob(BAPERS system, String jobID) {
+    public ViewJob(BAPERS system) {
         super(system);
         this.setContentPane(this.panelViewJob);
         this.pack();
@@ -40,7 +42,7 @@ public class ViewJob extends Screen {
         labelLogo.setForeground(Color.RED);
 
         try{
-            String sql = "SELECT * FROM jobs WHERE Job_No = '" + jobID + "' ";
+            String sql = "SELECT * FROM jobs WHERE Job_No = '" + system.getID() + "' ";
 
             Connection con = DriverManager.getConnection(url,user,pass);
 
@@ -49,26 +51,25 @@ public class ViewJob extends Screen {
 
             if (rs.next()){
 
+                String jobNo = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
-                String specialInstructions = rs.getString(4);
+                String special = rs.getString(4);
                 String jobStatus = rs.getString(5);
                 String date = rs.getString(6);
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String CustomerID = rs.getString(9);
 
-                /*
+                jLabelJobID.setText(jobNo);
                 jLabelStartTime.setText(startTime);
                 jLabelPriority.setText(priority);
-                jLabelSpecialInstructions.setText(specialInstructions);
+                jLabelSpecial.setText(special);
                 jLabelJobStatus.setText(jobStatus);
                 jLabelDate.setText(date);
                 jLabelDeadline.setText(deadline);
                 jLabelPrice.setText(price);
                 jLabelCustomerID.setText(CustomerID);
-
-                 */
             }
         } catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);

@@ -45,7 +45,8 @@ public class SearchTask extends Screen {
                 taskFound = system.getController().searchTask(textField1.getText());
 
                 if(taskFound){
-                    system.nextScreen(system.ViewTask,textField1.getText());
+                    system.setID(textField1.getText());
+                    system.nextScreen(system.ViewTask);
                 }
             }
         });
