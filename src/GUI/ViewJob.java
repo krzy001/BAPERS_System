@@ -99,6 +99,5 @@ public class ViewJob extends Screen {
                 system.nextScreen(system.AddJob);
             }
         });
-
     }
 }
