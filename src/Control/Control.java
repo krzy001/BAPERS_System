@@ -973,8 +973,8 @@ public class Control {
         String dbPass = "";
         String savePath = "risinggen.sql";*/
 
-        //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -u root -p risinggen > risinggen.sql");
-        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup.bat");
+        //String executeCmd = ("C:\\xampp\\mysql\\bin\\mysqldump -u root -p risinggen > risinggen.sql");
+        String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\backup.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
@@ -990,8 +990,8 @@ public class Control {
     }
 
     public void restoreDatabase() {
-        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\restore.bat");
-        //String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup.bat");
+        String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\restore.bat");
+        //String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\backup.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
