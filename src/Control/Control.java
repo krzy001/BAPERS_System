@@ -60,8 +60,7 @@ public class Control {
         }
     }
 
-    public String login(BAPERS system, String username, String password){
-        ResultSet rs=null;
+    public void login(BAPERS system, String username, String password){
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
@@ -70,29 +69,26 @@ public class Control {
             pst.setString(1, username);
             pst.setString(2, password);
 
-            rs = pst.executeQuery();
-            if (rs.next()) {
+            ResultSet rs1 = pst.executeQuery();
+            if (rs1.next()) {
                 JOptionPane.showMessageDialog(null, "Username & Password Correct");
 
-                /* Get role and return it
+                /*
+                String role = rs1.getString("Job_Role");
 
-                sql = "SELECT * FROM staff WHERE Username="+username;
-                pst = con.prepareStatement(sql);
+                system.setRoleLoggedIn(role);
                  */
-
-                return system.OfficeManager;
-                //return system.ShiftManager;
-                //return system.Receptionist;
-                //return system.Technician;
+                system.setRoleLoggedIn(system.OfficeManager);
+                //system.setRoleLoggedIn(system.ShiftManager);
+                //system.setRoleLoggedIn(system.Receptionist);
+                //system.setRoleLoggedIn(system.Technician);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Username & Password Incorrect");
-                return system.getRoleLoggedIn();
             }
         }
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
-            return system.getRoleLoggedIn();
         }
     }
 

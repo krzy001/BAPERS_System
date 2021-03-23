@@ -29,10 +29,10 @@ public class BAPERS {
     public final String JobEnquiry = "JE";
     public final String JobList = "JL";
     public final String LogIn = "LI";
-    public final String OfficeManager = "OM";
-    public final String ShiftManager = "SM";
-    public final String Receptionist = "R";
-    public final String Technician = "T";
+    public final String OfficeManager = "Office Manager";
+    public final String ShiftManager = "Shift Manager";
+    public final String Receptionist = "Receptionist";
+    public final String Technician = "Technician";
     public final String Reports = "RP";
     public final String Restore = "RS";
     public final String SummaryReport = "SR";
@@ -64,7 +64,7 @@ public class BAPERS {
     }
 
     public void LogIn(String username, String password){
-        roleLoggedIn = controller.login(this, username, password);
+        controller.login(this, username, password);
 
         if (roleLoggedIn != "LoggedOff"){
             nextScreen(roleLoggedIn);
@@ -74,6 +74,7 @@ public class BAPERS {
     public void LogOut(){
         nextScreen(LogIn);
         pages.empty();
+        setRoleLoggedIn("LoggedOff");
     }
 
     public Stack<String> getPages(){
@@ -216,5 +217,9 @@ public class BAPERS {
 
     public static void main(String[] args){
         new BAPERS();
+    }
+
+    public void setRoleLoggedIn(String role) {
+        roleLoggedIn = role;
     }
 }
