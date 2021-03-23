@@ -968,11 +968,13 @@ public class Control {
 
     public void backupDatabase()
     {
-        String dbName = "risinggen";
+        /*String dbName = "risinggen";
         String dbUser = "root";
         String dbPass = "";
-        String savePath = "risinggen.sql";
-        String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -u root -p --database risinggen -r risinggen.sql");
+        String savePath = "risinggen.sql";*/
+
+        //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -u root -p risinggen > risinggen.sql");
+        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
@@ -988,7 +990,20 @@ public class Control {
     }
 
     public void restoreDatabase() {
-       
+        String[] executeCmd = new String[]{"C:\\xxamp\\mysql\\bin\\mysqldump --user=root --p project > D:\\Backup\\project.sql"};
+        //String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup.bat");
+        try {
+            Process p = Runtime.getRuntime().exec(executeCmd);
+            int processComplete = p.waitFor();
+            if (processComplete == 0)
+            {
+                System.out.println("Backup Created Success");
+            }else{
+                System.out.println("Backup Unsuccessful");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
