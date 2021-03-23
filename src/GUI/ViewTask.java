@@ -44,7 +44,7 @@ public class ViewTask extends Screen {
         labelLogo.setForeground(Color.RED);
 
         try{
-            String sql = "SELECT * FROM tasks WHERE Task_ID = '" + system.getID() + "' ";
+            String sql = "SELECT * FROM task WHERE Task_ID = '" + system.getID() + "' ";
 
             Connection con = DriverManager.getConnection(url,user,pass);
 

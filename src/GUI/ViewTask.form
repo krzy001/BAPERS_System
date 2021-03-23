@@ -22,7 +22,7 @@
             </constraints>
             <properties>
               <font size="36"/>
-              <text value="View Job"/>
+              <text value="View Task"/>
             </properties>
           </component>
           <component id="8605f" class="javax.swing.JLabel" binding="labelLogo">
