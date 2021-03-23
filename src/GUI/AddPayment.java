@@ -61,5 +61,11 @@ public class AddPayment extends Screen {
                 system.nextScreen(system.RecordCardPayment);
             }
         });
+        cashPaymentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.RecordCashPayment);
+            }
+        });
     }
 }

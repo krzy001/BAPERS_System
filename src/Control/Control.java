@@ -819,7 +819,22 @@ public class Control {
         }
     }
 
-    public void recordCashPayment(){
+    public void recordCashPayment(String paymentNo, String paid, String transactionId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO recordcashpayment (Payment_No,Paid,PaymentTransaction_ID) values (?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,paymentNo);
+            pst.setString(2,paid);
+            pst.setString(3,transactionId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
 
     }
 
@@ -956,8 +971,8 @@ public class Control {
         String dbName = "risinggen";
         String dbUser = "root";
         String dbPass = "";
-        String savePath = "dbBackup.sql";
-        String executeCmd = ("C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\mysqldump -u " + dbUser + " -p" + dbPass + "  --databases " + dbName + " -r " + savePath);
+        String savePath = "risinggen.sql";
+        String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -u root -p --database risinggen -r risinggen.sql");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
