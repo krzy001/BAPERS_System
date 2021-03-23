@@ -21,6 +21,11 @@ public class AddPayment extends Screen {
     private JButton cashPaymentButton;
     private JTextField textField;
     private JTextField textField4;
+    private JButton updateButton;
+    private JButton updateButton1;
+    private JButton updateButton2;
+    private JButton updateButton3;
+    private JTextField textField1;
 
     public AddPayment(BAPERS system){
         super(system);
@@ -65,6 +70,30 @@ public class AddPayment extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.RecordCashPayment);
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updatePaymentAmount(textField.getText(),textField1.getText());
+            }
+        });
+        updateButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updatePaymentDate(textField4.getText(),textField1.getText());
+            }
+        });
+        updateButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updatePaymentJobNo(textField3.getText(),textField1.getText());
+            }
+        });
+        updateButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updatePaymentAccountNo(textField2.getText(),textField1.getText());
             }
         });
     }

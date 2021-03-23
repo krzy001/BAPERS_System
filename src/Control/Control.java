@@ -795,6 +795,72 @@ public class Control {
             JOptionPane.showMessageDialog(null,e1);
         }
     }
+    public void updatePaymentAmount(String amount,String transactionId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE payment SET Total_Amount=? WHERE Transaction_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,amount);
+            pst.setString(2,transactionId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updatePaymentDate(String date,String transactionId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE payment SET Date=? WHERE Transaction_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,date);
+            pst.setString(2,transactionId);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updatePaymentJobNo(String jobNo,String transactionId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE payment SET JobsJob_No=? WHERE Transaction_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,jobNo);
+            pst.setString(2,transactionId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updatePaymentAccountNo(String accountNo,String transactionId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE payment SET CustomerAccount_No=? WHERE Transaction_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,accountNo);
+            pst.setString(2,transactionId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
 
     public void recordCardPayment(
             String cardNo, String expiryDate, String name,
@@ -810,6 +876,105 @@ public class Control {
             pst.setString(4,paid);
             pst.setString(5,paymentTransactionId);
             pst.setString(6,cvv);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updateCardCardNo(String cardNo,String primaryCardNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcardpayment SET Card_No=? WHERE Card_No";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,cardNo);
+            pst.setString(2,primaryCardNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+    public void updateCardExpiryDate(String expiryDate,String transactionId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcardpayment SET Expiry_Date=? WHERE Card_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,expiryDate);
+            pst.setString(2,transactionId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+    public void updateCardHolderName(String name,String cardNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcardpayment SET Card_Holder_Name=? WHERE Card_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,name);
+            pst.setString(2,cardNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updateCardPaid(String paid,String cardNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcardpayment SET Paid=? WHERE Card_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,paid);
+            pst.setString(2,cardNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updateCardPaymentTransaction(String transactionId,String cardNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcardpayment SET PaymentTransaction_ID=? WHERE Card_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,transactionId);
+            pst.setString(2,cardNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+    public void updateCardCVV(String cvv,String cardNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcardpayment SET CVV=? WHERE Card_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,cvv);
+            pst.setString(2,cardNo);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
@@ -836,6 +1001,40 @@ public class Control {
             JOptionPane.showMessageDialog(null,e1);
         }
 
+    }
+
+    public void updateCashPaymentPaid(String paid, String paymentNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcashpayment SET Paid=? WHERE Payment_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,paid);
+            pst.setString(2,paymentNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updateCashPaymentTransaction(String transactionId, String paymentNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE recordcashpayment SET PaymentTransaction_ID=? WHERE Payment_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,transactionId);
+            pst.setString(2,paymentNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
     }
 
     public void recordCardPayment(){
@@ -973,8 +1172,8 @@ public class Control {
         String dbPass = "";
         String savePath = "risinggen.sql";*/
 
-        //String executeCmd = ("C:\\xampp\\mysql\\bin\\mysqldump -u root -p risinggen > risinggen.sql");
-        String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\backup.bat");
+        //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -u root -p risinggen > risinggen.sql");
+        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup2.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
@@ -990,8 +1189,8 @@ public class Control {
     }
 
     public void restoreDatabase() {
-        String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\restore.bat");
-        //String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\backup.bat");
+        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\restore.bat");
+        //String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();

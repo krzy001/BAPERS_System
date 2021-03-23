@@ -18,6 +18,8 @@ public class RecordCashPayment extends Screen{
     private JPanel panelFive;
     private JButton btnAddCashPayment;
     private JButton btnBack;
+    private JButton updateButton;
+    private JButton updateButton1;
 
     public RecordCashPayment(BAPERS system) {
         super(system);
@@ -44,6 +46,18 @@ public class RecordCashPayment extends Screen{
             public void actionPerformed(ActionEvent e) {
                 system.getController().recordCashPayment(
                         textField1.getText(), textField2.getText(), textField3.getText());
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCashPaymentPaid(textField2.getText(),textField1.getText());
+            }
+        });
+        updateButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCashPaymentTransaction(textField3.getText(),textField1.getText());
             }
         });
     }

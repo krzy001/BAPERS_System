@@ -22,6 +22,13 @@ public class RecordCardPayment extends Screen {
     private JTextField textField3;
     private JLabel labelLogo;
     private JTextField textField6;
+    private JButton updateButton;
+    private JButton updateButton1;
+    private JButton updateButton2;
+    private JButton updateButton3;
+    private JButton updateButton4;
+    private JTextField textField7;
+    private JButton updateButton5;
 
     public RecordCardPayment(BAPERS system){
         super(system);
@@ -49,6 +56,36 @@ public class RecordCardPayment extends Screen {
                 system.getController().recordCardPayment(
                         textField3.getText(), textField2.getText(), textField1.getText(), textField4.getText(),
                         textField5.getText(),textField6.getText());
+            }
+        });
+        updateButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCardExpiryDate(textField2.getText(),textField1.getText());
+            }
+        });
+        updateButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCardHolderName(textField3.getText(),textField1.getText());
+            }
+        });
+        updateButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCardPaid(textField4.getText(),textField1.getText());
+            }
+        });
+        updateButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCardCVV(textField6.getText(),textField1.getText());
+            }
+        });
+        updateButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateCardPaymentTransaction(textField5.getText(),textField1.getText());
             }
         });
     }
