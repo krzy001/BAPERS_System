@@ -990,7 +990,7 @@ public class Control {
     }
 
     public void restoreDatabase() {
-        String[] executeCmd = new String[]{"C:\\xxamp\\mysql\\bin\\mysqldump --user=root --p project > D:\\Backup\\project.sql"};
+        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\restore.bat");
         //String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
