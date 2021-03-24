@@ -63,13 +63,13 @@ public class BAPERS {
         return roleLoggedIn;
     }
 
-    public void LogIn(String username, String password){
+   /* public void LogIn(String text, String username, String password){
         controller.login(this, username, password);
 
         if (roleLoggedIn != "LoggedOff"){
             nextScreen(roleLoggedIn);
         }
-    }
+    }*/
 
     public void LogOut(){
         nextScreen(LogIn);

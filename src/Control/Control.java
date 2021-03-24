@@ -60,24 +60,24 @@ public class Control {
         }
     }
 
-    public void login(BAPERS system, String username, String password){
+   /*public void login(BAPERS system, String username, String password){
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "SELECT * FROM staff WHERE Username=? AND Password =?";
+            String sql = "SELECT * FROM staff WHERE Username=? AND Password=? AND Job_Role=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
+            pst.setString(3, String.valueOf(system));
 
             ResultSet rs1 = pst.executeQuery();
             if (rs1.next()) {
-                JOptionPane.showMessageDialog(null, "Username & Password Correct");
+                JOptionPane.showMessageDialog(null, "Username & Password Correct, You are logged in as " + rs1.getString("Job_Role"));
 
-                /*
                 String role = rs1.getString("Job_Role");
 
                 system.setRoleLoggedIn(role);
-                 */
+
                 system.setRoleLoggedIn(system.OfficeManager);
                 //system.setRoleLoggedIn(system.ShiftManager);
                 //system.setRoleLoggedIn(system.Receptionist);
@@ -90,7 +90,7 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
         }
-    }
+    }*/
 
     public void createJob(
             String startTime, String priority, String specialInstructions, String jobStatus,
@@ -881,7 +881,7 @@ public class Control {
         }
     }
 
-    public void updateCardCardNo(String cardNo,String primaryCardNo){
+    /*public void updateCardCardNo(String cardNo,String primaryCardNo){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
@@ -896,7 +896,7 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
         }
-    }
+    }*/
     public void updateCardExpiryDate(String expiryDate,String transactionId){
         try{
             Class.forName(driver);
