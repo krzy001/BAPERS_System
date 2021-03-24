@@ -1,8 +1,10 @@
 package Control;
 
 import GUI.*;
+import Report.*;
 import database.*;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.Stack;
 
 public class BAPERS {
@@ -10,6 +12,7 @@ public class BAPERS {
     //private final JFrame frame = new JFrame("BAPERS_SYSTEM");
 
     private Screen screen;
+    private Report report;
     private Control controller;
     private String currentPage;
     private String ID;
@@ -24,8 +27,8 @@ public class BAPERS {
     public final String CreateNewUser = "CNU";
     public final String IdentifyCustomer = "IC";
     public final String IdentifyUser = "IU";
-    public final String IndividualJobReport = "IJR";
-    public final String IndividualPerformanceReport = "IPR";
+    public final String ViewIndividualJobReport = "VIJR";
+    public final String ViewIndividualPerformanceReport = "VIPR";
     public final String JobEnquiry = "JE";
     public final String JobList = "JL";
     public final String LogIn = "LI";
@@ -35,7 +38,7 @@ public class BAPERS {
     public final String Technician = "Technician";
     public final String Reports = "RP";
     public final String Restore = "RS";
-    public final String SummaryReport = "SR";
+    public final String ViewSummaryReport = "VSR";
     public final String ViewCustomerAccount = "VCA";
     public final String ViewUserAccount = "VUA";
     public final String UpdateCustomerInfo = "UCI";
@@ -115,11 +118,11 @@ public class BAPERS {
         else if(page == IdentifyUser){
             screen = new SearchUser(this);
         }
-        else if(page == IndividualJobReport){
-            screen = new IndividualJobReport(this);
+        else if(page == ViewIndividualJobReport){
+            screen = new ViewIndividualJobReport(this);
         }
-        else if(page == IndividualPerformanceReport) {
-            screen = new IndividualPerformanceReport(this);
+        else if(page == ViewIndividualPerformanceReport) {
+            screen = new ViewIndividualPerformanceReport(this);
         }
         else if(page == JobEnquiry) {
             screen = new JobEnquiry(this);
@@ -139,8 +142,8 @@ public class BAPERS {
         else if (page == ShiftManager){
             screen = new ShiftManager(this);
         }
-        else if(page == SummaryReport) {
-            screen = new SummaryReport(this);
+        else if(page == ViewSummaryReport) {
+            screen = new ViewSummaryReport(this);
         }
         else if (page == Technician) {
             screen = new Technician(this);
@@ -197,6 +200,23 @@ public class BAPERS {
             screen.setSize(800, 500);
         }
         screen.setLocationRelativeTo(null);
+    }
+
+    public DefaultTableModel generateIndividualJobReport(){
+        report = new IndividualJobReport();
+        report.getIndividualJobReport();
+
+        return report.getModel();
+    }
+
+    public DefaultTableModel generateIndividualPerformanceReport(){
+        report = new Report();
+        return report.getModel();
+    }
+
+    public DefaultTableModel generateSummaryReport(){
+        report = new Report();
+        return report.getModel();
     }
 
     public Control getController(){

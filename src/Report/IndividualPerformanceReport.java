@@ -14,8 +14,8 @@ public class IndividualPerformanceReport extends Report {
     LocalTime totalTime;
     int accountID;
 
-    public IndividualPerformanceReport(int reportID) {
-        super(reportID);
+    public IndividualPerformanceReport() {
+
     }
 
     public String getIndividualPerformanceReport(){

@@ -14,14 +14,8 @@ public class Reports extends Screen {
     private JPanel panelThree;
     private JPanel panelFour;
     private JButton btnView1;
-    private JButton btnIndividualJobReport;
-    private JButton btnPrint1;
     private JButton btnView2;
-    private JButton btnPrint2;
-    private JButton btnIndividualPerformanceReport;
     private JButton btnView3;
-    private JButton btnPrint3;
-    private JButton btnSummaryReport;
     private JPanel panelBottom;
     private JButton btnBack;
     private JButton btnLogout;

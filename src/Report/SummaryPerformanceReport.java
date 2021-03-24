@@ -11,8 +11,8 @@ public class SummaryPerformanceReport extends Report {
     LocalTime totalTime;
     String shift;
 
-    public SummaryPerformanceReport(int reportID) {
-        super(reportID);
+    public SummaryPerformanceReport() {
+
     }
 
     public String getSummaryPerformanceReport(){
