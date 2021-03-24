@@ -69,7 +69,13 @@ public class LogIn extends Screen {
                             system.nextScreen(system.OfficeManager);
                         }
                         else if(comboBox1.getSelectedIndex()==1){
-                            ShiftManager sm = new ShiftManager(system);
+                            system.nextScreen(system.ShiftManager);
+                        }
+                        else if(comboBox1.getSelectedIndex()==2){
+                            system.nextScreen(system.Technician);
+                        }
+                        else if(comboBox1.getSelectedIndex()==3){
+                            system.nextScreen(system.Receptionist);
                         }
 
                         String role = rs1.getString("Job_Role");
