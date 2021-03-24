@@ -35,10 +35,15 @@ public class JobsList extends Screen{
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{
+        DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Job ID", "Start Time", "Priority", "Special Instructions",
                 "Job Status", "Date", "Deadline", "Price",
                 "Customer ID"}, 0);
+
+        DefaultTableModel model2 = new DefaultTableModel(new String[]{
+                "Job ID", "Start Time", "Priority", "Special Instructions",
+                "Job Status", "Date", "Deadline", "Price",
+                "Customer ID"}, 0);;
 
         try {
             String sql = "SELECT * FROM jobs";
@@ -57,17 +62,43 @@ public class JobsList extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
-                model.addRow(new Object[]{
+                model1.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
             }
 
-            jobsTable.setModel(model);
+            jobsTable.setModel(model1);
 
         }
         catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);
         }
+
+        try {
+            String sql = "SELECT * FROM jobs ORDER BY Job_Status='In process'";
+            Connection con = DriverManager.getConnection(url, user, pass);
+            Statement s = con.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String jobID = rs.getString(1);
+                String startTime = rs.getString(2);
+                String priority = rs.getString(3);
+                String specialInstructions = rs.getString(4);
+                String jobStatus = rs.getString(5);
+                String date = rs.getString(6);
+                String deadline = rs.getString(7);
+                String price = rs.getString(8);
+                String customerID = rs.getString(9);
+                model2.addRow(new Object[]{
+                        jobID, startTime, priority, specialInstructions,
+                        jobStatus, date, deadline, price, customerID});
+            }
+        }catch (Exception e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+
 
         btnAddJob.addActionListener(new ActionListener() {
             @Override
@@ -99,38 +130,11 @@ public class JobsList extends Screen{
             public void actionPerformed(ActionEvent e) {
                 checkBox1.setFocusable(false);
                 if(checkBox1.isSelected()) {
-                    try {
-                        String sql = "SELECT * FROM jobs ORDER BY Job_Status='In process'";
-                        Connection con = DriverManager.getConnection(url, user, pass);
-                        Statement s = con.prepareStatement(sql);
-                        ResultSet rs = s.executeQuery(sql);
-
-                        while (rs.next()) {
-
-                            String jobID = rs.getString(1);
-                            String startTime = rs.getString(2);
-                            String priority = rs.getString(3);
-                            String specialInstructions = rs.getString(4);
-                            String jobStatus = rs.getString(5);
-                            String date = rs.getString(6);
-                            String deadline = rs.getString(7);
-                            String price = rs.getString(8);
-                            String customerID = rs.getString(9);
-                            model.addRow(new Object[]{
-                                    jobID, startTime, priority, specialInstructions,
-                                    jobStatus, date, deadline, price, customerID});
-                        }
-
-                        jobsTable.setModel(model);
-
-                    } catch (Exception e1) {
-                        JOptionPane.showMessageDialog(null, e1);
-                    }
+                    jobsTable.setModel(model2);
                 }
-                else if(checkBox1.isSelected()){
-                    checkBox1.setFocusable(false);
+                else{
+                    jobsTable.setModel(model1);
                 }
-
             }
         });
     }

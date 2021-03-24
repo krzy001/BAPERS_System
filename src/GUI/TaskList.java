@@ -25,6 +25,7 @@ public class TaskList extends Screen{
     private JButton removeTaskButton;
     private JButton changeTaskButton;
     private JTable taskTable;
+    private JCheckBox checkBox1;
 
     public TaskList(BAPERS system){
         super(system);
@@ -34,7 +35,12 @@ public class TaskList extends Screen{
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{
+        DefaultTableModel model1 = new DefaultTableModel(new String[]{
+                "Task ID", "Task Description", "Location", "Price",
+                "Duration", "Shift", "Date", "Status",
+                "Completed By","Job ID", "Staff ID"}, 0);
+
+        DefaultTableModel model2 = new DefaultTableModel(new String[]{
                 "Task ID", "Task Description", "Location", "Price",
                 "Duration", "Shift", "Date", "Status",
                 "Completed By","Job ID", "Staff ID"}, 0);
@@ -58,17 +64,42 @@ public class TaskList extends Screen{
                 String completedBy = rs.getString(9);
                 String jobID = rs.getString(10);
                 String staffID = rs.getString(11);
-                model.addRow(new Object[]{
+                model1.addRow(new Object[]{
                         taskID, taskDescription, location, price,
                         duration, shift, date, status,
                         completedBy,jobID,staffID});
             }
 
-            taskTable.setModel(model);
+            taskTable.setModel(model1);
 
         }
         catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);
+        }
+
+        try {
+            String sql = "SELECT * FROM tasks ORDER BY Status='In process'";
+            Connection con = DriverManager.getConnection(url, user, pass);
+            Statement s = con.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String jobID = rs.getString(1);
+                String startTime = rs.getString(2);
+                String priority = rs.getString(3);
+                String specialInstructions = rs.getString(4);
+                String jobStatus = rs.getString(5);
+                String date = rs.getString(6);
+                String deadline = rs.getString(7);
+                String price = rs.getString(8);
+                String customerID = rs.getString(9);
+                model2.addRow(new Object[]{
+                        jobID, startTime, priority, specialInstructions,
+                        jobStatus, date, deadline, price, customerID});
+            }
+        }catch (Exception e1) {
+            JOptionPane.showMessageDialog(null, e1);
         }
 
 
@@ -101,6 +132,18 @@ public class TaskList extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+        checkBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkBox1.setFocusable(false);
+                if(checkBox1.isSelected()) {
+                    taskTable.setModel(model2);
+                }
+                else{
+                    taskTable.setModel(model1);
+                }
             }
         });
     }
