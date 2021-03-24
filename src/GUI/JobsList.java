@@ -25,6 +25,7 @@ public class JobsList extends Screen{
     private JButton changeJobButton;
     private JTable jobsTable;
     private JScrollPane scrTbl;
+    private JCheckBox checkBox1;
 
     public JobsList(BAPERS system){
         super(system);
@@ -90,6 +91,45 @@ public class JobsList extends Screen{
         changeJobButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        checkBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkBox1.setFocusable(false);
+                if(checkBox1.isSelected()) {
+                    try {
+                        String sql = "SELECT * FROM jobs ORDER BY Job_Status='In process'";
+                        Connection con = DriverManager.getConnection(url, user, pass);
+                        Statement s = con.prepareStatement(sql);
+                        ResultSet rs = s.executeQuery(sql);
+
+                        while (rs.next()) {
+
+                            String jobID = rs.getString(1);
+                            String startTime = rs.getString(2);
+                            String priority = rs.getString(3);
+                            String specialInstructions = rs.getString(4);
+                            String jobStatus = rs.getString(5);
+                            String date = rs.getString(6);
+                            String deadline = rs.getString(7);
+                            String price = rs.getString(8);
+                            String customerID = rs.getString(9);
+                            model.addRow(new Object[]{
+                                    jobID, startTime, priority, specialInstructions,
+                                    jobStatus, date, deadline, price, customerID});
+                        }
+
+                        jobsTable.setModel(model);
+
+                    } catch (Exception e1) {
+                        JOptionPane.showMessageDialog(null, e1);
+                    }
+                }
+                else if(checkBox1.isSelected()){
+                    checkBox1.setFocusable(false);
+                }
 
             }
         });
