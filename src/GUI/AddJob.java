@@ -41,6 +41,16 @@ public class AddJob extends Screen {
     private JButton updateButton7;
     private JTextField textField9;
     private JButton removeButton;
+    private JLabel labelJobNo;
+    private JLabel labelStartTime;
+    private JLabel labelPriority;
+    private JLabel labelSpecialInstruction;
+    private JLabel labelJobStatus;
+    private JLabel labelDate;
+    private JLabel labelDeadline;
+    private JLabel labelPrice;
+    private JLabel labelCustomerAccountNo;
+    private JLabel labelAddJob;
     private JComboBox comboBox1;
 
     public AddJob(BAPERS system){
@@ -48,8 +58,31 @@ public class AddJob extends Screen {
         this.setContentPane(this.panelAddJob);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+        labelJobNo.setFont(labelJobNo.getFont().deriveFont(size));
+        labelStartTime.setFont(labelStartTime.getFont().deriveFont(size));
+        labelPriority.setFont(labelPriority.getFont().deriveFont(size));
+        labelSpecialInstruction.setFont(labelSpecialInstruction.getFont().deriveFont(size));
+        labelJobStatus.setFont(labelJobStatus.getFont().deriveFont(size));
+        labelDate.setFont(labelDate.getFont().deriveFont(size));
+        labelDeadline.setFont(labelDeadline.getFont().deriveFont(size));
+        labelPrice.setFont(labelPrice.getFont().deriveFont(size));
+        labelCustomerAccountNo.setFont(labelCustomerAccountNo.getFont().deriveFont(size));
+
+        btnAddJob.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        removeButton.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
+        updateButton4.setPreferredSize(new Dimension(150,30));
+        updateButton5.setPreferredSize(new Dimension(150,30));
+        updateButton6.setPreferredSize(new Dimension(150,30));
+        updateButton7.setPreferredSize(new Dimension(150,30));
 
         btnBack.addActionListener(new ActionListener() {
             @Override

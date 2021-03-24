@@ -16,7 +16,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e58fb" class="javax.swing.JLabel">
+          <component id="e58fb" class="javax.swing.JLabel" binding="labelAddJob">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -51,7 +51,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e97e" class="javax.swing.JLabel">
+          <component id="e97e" class="javax.swing.JLabel" binding="labelStartTime">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -87,7 +87,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="fdee5" class="javax.swing.JLabel">
+          <component id="fdee5" class="javax.swing.JLabel" binding="labelPriority">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -121,7 +121,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="23a49" class="javax.swing.JLabel">
+          <component id="23a49" class="javax.swing.JLabel" binding="labelSpecialInstruction">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -155,7 +155,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="22a9c" class="javax.swing.JLabel">
+          <component id="22a9c" class="javax.swing.JLabel" binding="labelJobStatus">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -189,7 +189,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="98386" class="javax.swing.JLabel">
+          <component id="98386" class="javax.swing.JLabel" binding="labelDate">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -257,7 +257,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="d0c2b" class="javax.swing.JLabel">
+          <component id="d0c2b" class="javax.swing.JLabel" binding="labelDeadline">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -291,7 +291,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e5de5" class="javax.swing.JLabel">
+          <component id="e5de5" class="javax.swing.JLabel" binding="labelPrice">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -325,7 +325,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="15cff" class="javax.swing.JLabel">
+          <component id="15cff" class="javax.swing.JLabel" binding="labelCustomerAccountNo">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -351,7 +351,7 @@
           </component>
         </children>
       </grid>
-      <component id="2c9a6" class="javax.swing.JLabel">
+      <component id="2c9a6" class="javax.swing.JLabel" binding="labelJobNo">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

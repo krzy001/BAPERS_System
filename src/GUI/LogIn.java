@@ -32,12 +32,11 @@ public class LogIn extends Screen {
         this.setContentPane(this.panelLogIn);
         this.pack();
         float logo = 80;
-        float username = 20;
-        float password = 20;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
-        labelUsername.setFont(labelUsername.getFont().deriveFont(username));
-        labelPassword.setFont(labelPassword.getFont().deriveFont(password));
+        labelUsername.setFont(labelUsername.getFont().deriveFont(size));
+        labelPassword.setFont(labelPassword.getFont().deriveFont(size));
         buttonLogIn.setPreferredSize(new Dimension(250,50));
 
         /*

@@ -189,7 +189,11 @@ public class BAPERS {
         }
         if(page == AddTask) {
             screen.setSize(800, 800);
-        }else{
+        }
+        if(page == AddJob) {
+            screen.setSize(800, 800);
+        }
+        else{
             screen.setSize(800, 500);
         }
         screen.setLocationRelativeTo(null);
