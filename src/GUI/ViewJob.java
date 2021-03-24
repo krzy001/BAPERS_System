@@ -20,8 +20,6 @@ public class ViewJob extends Screen {
     private JButton btnBack;
     private JButton btnAddJob;
     private JButton jobListButton;
-    private JButton changeButton;
-    private JButton removeButton;
     private JPanel panelViewJob;
     private JLabel jLabelJobID;
     private JLabel jLabelStartTime;
@@ -31,7 +29,7 @@ public class ViewJob extends Screen {
     private JLabel jLabelDate;
     private JLabel jLabelDeadline;
     private JLabel jLabelPrice;
-    private JLabel jLabelCustomerID;
+    private JLabel jLabelAccountNo;
 
     public ViewJob(BAPERS system) {
         super(system);
@@ -59,7 +57,7 @@ public class ViewJob extends Screen {
                 String date = rs.getString(6);
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
-                String CustomerID = rs.getString(9);
+                String accountNo = rs.getString(9);
 
                 jLabelJobID.setText(jobNo);
                 jLabelStartTime.setText(startTime);
@@ -69,7 +67,7 @@ public class ViewJob extends Screen {
                 jLabelDate.setText(date);
                 jLabelDeadline.setText(deadline);
                 jLabelPrice.setText(price);
-                jLabelCustomerID.setText(CustomerID);
+                jLabelAccountNo.setText(accountNo);
             }
         } catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);
