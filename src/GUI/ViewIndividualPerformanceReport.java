@@ -7,20 +7,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class IndividualJobReport extends Screen {
+public class ViewIndividualPerformanceReport extends Screen {
     private JPanel panelTop;
-    private JButton btnBack;
-    private JTextArea IndividualJobReport;
     private JPanel panelMiddle;
-    private JPanel panelIndividualJobReport;
-    private JPanel panelBottom;
     private JPanel scrollPane;
+    private JButton btnBack;
+    private JPanel panelBottom;
+    private JPanel panelIndividualPerformanceReport;
     private JButton btnLogout;
     private JLabel labelLogo;
+    private JTable table1;
+    private JButton printButton;
 
-    public IndividualJobReport(BAPERS system) {
+    public ViewIndividualPerformanceReport(BAPERS system) {
         super(system);
-        this.setContentPane(this.panelIndividualJobReport);
+        this.setContentPane(this.panelIndividualPerformanceReport);
         this.pack();
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));

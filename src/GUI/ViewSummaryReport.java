@@ -7,18 +7,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SummaryReport extends Screen {
+public class ViewSummaryReport extends Screen {
     private JPanel panelTop;
     private JPanel panelMiddle;
-    private JTextArea SummaryReport;
     private JPanel scrollPane;
     private JButton btnBack;
     private JPanel panelBottom;
     private JPanel panelSummaryReport;
     private JButton btnLogout;
     private JLabel labelLogo;
+    private JTable table1;
+    private JButton printButton;
 
-    public SummaryReport(BAPERS system) {
+    public ViewSummaryReport(BAPERS system) {
         super(system);
         this.setContentPane(this.panelSummaryReport);
         this.pack();
