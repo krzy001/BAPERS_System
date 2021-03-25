@@ -95,6 +95,8 @@ public class JobsList extends Screen{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
             }
+
+            jobsTable.setModel(model2);
         }catch (Exception e1) {
             JOptionPane.showMessageDialog(null, e1);
         }
@@ -130,10 +132,10 @@ public class JobsList extends Screen{
             public void actionPerformed(ActionEvent e) {
                 checkBox1.setFocusable(false);
                 if(checkBox1.isSelected()) {
-                    jobsTable.setModel(model2);
+                    jobsTable.setModel(model1);
                 }
                 else{
-                    jobsTable.setModel(model1);
+                    jobsTable.setModel(model2);
                 }
             }
         });

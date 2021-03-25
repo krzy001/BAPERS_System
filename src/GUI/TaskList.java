@@ -146,10 +146,10 @@ public class TaskList extends Screen{
             public void actionPerformed(ActionEvent e) {
                 checkBox1.setFocusable(false);
                 if(checkBox1.isSelected()) {
-                    taskTable.setModel(model2);
+                    taskTable.setModel(model1);
                 }
                 else{
-                    taskTable.setModel(model1);
+                    taskTable.setModel(model2);
                 }
             }
         });

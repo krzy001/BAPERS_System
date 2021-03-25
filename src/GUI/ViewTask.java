@@ -32,6 +32,7 @@ public class ViewTask extends Screen {
     private JLabel jLabelCompletedBy;
     private JLabel jLabelStaffID;
     private JLabel jLabelStatus;
+    private JLabel jLabelStartTime;
     private JButton completeButton;
 
     public ViewTask(BAPERS system) {
@@ -54,18 +55,20 @@ public class ViewTask extends Screen {
 
                 String taskID = rs.getString(1);
                 String taskDescription = rs.getString(2);
-                String location = rs.getString(3);
-                String price = rs.getString(4);
-                String duration = rs.getString(5);
-                String shift = rs.getString(6);
-                String date = rs.getString(7);
-                String status = rs.getString(8);
-                String completedBy = rs.getString(9);
-                String jobNo = rs.getString(10);
-                String staffID = rs.getString(11);
+                String startTime = rs.getString(3);
+                String location = rs.getString(4);
+                String price = rs.getString(5);
+                String duration = rs.getString(6);
+                String shift = rs.getString(7);
+                String date = rs.getString(8);
+                String status = rs.getString(9);
+                String completedBy = rs.getString(10);
+                String jobNo = rs.getString(11);
+                String staffID = rs.getString(12);
 
                 jLabelTaskID.setText(taskID);
                 jLabelDescription.setText(taskDescription);
+                jLabelStartTime.setText(startTime);
                 jLabelLocation.setText(location);
                 jLabelPrice.setText(price);
                 jLabelDuration.setText(duration);
