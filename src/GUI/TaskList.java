@@ -23,7 +23,7 @@ public class TaskList extends Screen{
     private JButton btnAddTask;
     private JLabel labelLogo;
     private JButton btnSearchTask;
-    private JButton changeTaskButton;
+
     private JTable taskTable;
     private JCheckBox checkBox1;
 
@@ -32,8 +32,14 @@ public class TaskList extends Screen{
         this.setContentPane(this.panelTaskList);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnAddTask.setPreferredSize(new Dimension(150,30));
+        btnSearchTask.setPreferredSize(new Dimension(150,30));
 
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Task ID", "Task Description", "Start Time", "Location", "Price",
@@ -130,12 +136,6 @@ public class TaskList extends Screen{
             }
         });
         btnSearchTask.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        changeTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
