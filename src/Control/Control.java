@@ -1188,7 +1188,7 @@ public class Control {
             int processComplete = p.waitFor();
             if (processComplete == 0)
             {
-                System.out.println("Backup Created Success");
+                System.out.println("Backup Successful");
             }else{
                 System.out.println("Backup Unsuccessful");
             }
@@ -1205,9 +1205,9 @@ public class Control {
             int processComplete = p.waitFor();
             if (processComplete == 0)
             {
-                System.out.println("Backup Created Success");
+                System.out.println("Restore Successful");
             }else{
-                System.out.println("Backup Unsuccessful");
+                System.out.println("Restore Unsuccessful");
             }
         } catch (Exception e) {
             e.printStackTrace();
