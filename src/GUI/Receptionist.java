@@ -16,6 +16,9 @@ public class Receptionist extends Screen{
     private JPanel panelThree;
     private JButton btnLogout;
     private JLabel labelLogo;
+    private JButton button1;
+    private JButton addJobButton;
+    private JButton button3;
 
     public Receptionist(BAPERS system){
         super(system);
