@@ -43,12 +43,12 @@ public class TaskList extends Screen{
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Task ID", "Task Description", "Start Time", "Location", "Price",
                 "Duration", "Shift", "Date", "Status",
-                "Completed By","Job ID", "Staff ID"}, 0);
+                "Completed By","Job ID", "Staff ID","Time Taken"}, 0);
 
         DefaultTableModel model2 = new DefaultTableModel(new String[]{
                 "Task ID", "Task Description","Start Time", "Location", "Price",
                 "Duration", "Shift", "Date", "Status",
-                "Completed By","Job ID", "Staff ID"}, 0);
+                "Completed By","Job ID", "Staff ID","Time Taken"}, 0);
 
         try {
             String sql = "SELECT * FROM task";
@@ -70,10 +70,11 @@ public class TaskList extends Screen{
                 String completedBy = rs.getString(10);
                 String jobID = rs.getString(11);
                 String staffID = rs.getString(12);
+                String timeTaken = rs.getString(13);
                 model1.addRow(new Object[]{
                         taskID, taskDescription, startTime, location, price,
                         duration, shift, date, status,
-                        completedBy,jobID,staffID});
+                        completedBy,jobID,staffID,timeTaken});
             }
 
             taskTable.setModel(model1);
@@ -103,10 +104,11 @@ public class TaskList extends Screen{
                 String completedBy = rs.getString(10);
                 String jobID = rs.getString(11);
                 String staffID = rs.getString(12);
+                String timeTaken = rs.getString(13);
                 model2.addRow(new Object[]{
                         taskID, taskDescription, startTime, location, price,
                         duration, shift, date, status,
-                        completedBy,jobID,staffID});
+                        completedBy,jobID,staffID,timeTaken});
 
             }
             taskTable.setModel(model2);

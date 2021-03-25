@@ -46,5 +46,11 @@ public class ViewIndividualPerformanceReport extends Screen {
                 system.backScreen();
             }
         });
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().IndividualPerformanceReport();
+            }
+        });
     }
 }

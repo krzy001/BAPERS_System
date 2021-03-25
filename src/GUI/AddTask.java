@@ -60,6 +60,9 @@ public class AddTask extends Screen {
     private JLabel labelCompletedBy;
     private JLabel labelJobNo;
     private JLabel labelStaffId;
+    private JTextField textField13;
+    private JLabel labelTimeTaken;
+    private JButton updateButton11;
 
     public AddTask(BAPERS system){
         super(system);
@@ -83,6 +86,7 @@ public class AddTask extends Screen {
         labelCompletedBy.setFont(labelLogo.getFont().deriveFont(size));
         labelJobNo.setFont(labelLogo.getFont().deriveFont(size));
         labelStaffId.setFont(labelLogo.getFont().deriveFont(size));
+        labelTimeTaken.setFont(labelLogo.getFont().deriveFont(size));
 
         removeButton.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
@@ -119,7 +123,7 @@ public class AddTask extends Screen {
                 system.getController().addTask(
                         textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
                         textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText(),
-                        textField9.getText(),textField10.getText(),textField11.getText());
+                        textField9.getText(),textField10.getText(),textField11.getText(),textField12.getText());
             }
         });
 
@@ -186,6 +190,13 @@ public class AddTask extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateTaskStartTime(textField12.getText(),textField11.getText());
+            }
+        });
+
+        updateButton10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateTaskTimeTaken(textField13.getText(),textField11.getText());
             }
         });
 

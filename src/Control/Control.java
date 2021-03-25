@@ -1,9 +1,22 @@
 package Control;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import javax.swing.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import java.util.ArrayList;
 
 public class Control {
     String driver="com.mysql.cj.jdbc.Driver";
@@ -269,11 +282,11 @@ public class Control {
 
     public void addTask(
             String description,String startTime, String location, String price, String duration,
-            String shift, String date, String completedBy, String jobsNO, String staffID, String status){
+            String shift, String date, String completedBy, String jobsNO, String staffID, String status,String timeTaken){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO task (Task_Description,Start_Time,Location,Price,Duration,Shift,Date,Status,Completed_By,JobsJob_No,StaffStaff_ID) values (?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO task (Task_Description,Start_Time,Location,Price,Duration,Shift,Date,Status,Completed_By,JobsJob_No,StaffStaff_ID,Time_Taken) values (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,description);
             pst.setString(2,startTime);
@@ -286,6 +299,7 @@ public class Control {
             pst.setString(9,completedBy);
             pst.setString(10,jobsNO);
             pst.setString(11,staffID);
+            pst.setString(12,timeTaken);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
@@ -464,6 +478,22 @@ public class Control {
             String sql = "UPDATE task SET StaffStaff_Id=? WHERE Task_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,staffID);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+    public void updateTaskTimeTaken(String timeTaken,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Time_Taken=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,timeTaken);
             pst.setString(2,taskId);
 
             pst.executeUpdate();
@@ -1210,6 +1240,28 @@ public class Control {
                 System.out.println("Restore Unsuccessful");
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void IndividualPerformanceReport(){
+        try{
+            Workbook w = new XSSFWorkbook();
+
+            Sheet s = w.createSheet("Individual Performance Report");
+            String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken"};
+            Row row = s.createRow(0);
+
+            for(int i = 0; i < headers.length; i++){
+                Cell cell = row.createCell(i);
+                cell.setCellValue(headers[i]);
+
+                FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
+                w.write(file);
+                file.close();
+            }
+        }
+        catch(Exception e){
             e.printStackTrace();
         }
     }
