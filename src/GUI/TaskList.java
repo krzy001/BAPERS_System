@@ -36,12 +36,12 @@ public class TaskList extends Screen{
         labelLogo.setForeground(Color.RED);
 
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
-                "Task ID", "Task Description", "Location", "Price",
+                "Task ID", "Task Description", "Start Time", "Location", "Price",
                 "Duration", "Shift", "Date", "Status",
                 "Completed By","Job ID", "Staff ID"}, 0);
 
         DefaultTableModel model2 = new DefaultTableModel(new String[]{
-                "Task ID", "Task Description", "Location", "Price",
+                "Task ID", "Task Description","Start Time", "Location", "Price",
                 "Duration", "Shift", "Date", "Status",
                 "Completed By","Job ID", "Staff ID"}, 0);
 
@@ -55,17 +55,18 @@ public class TaskList extends Screen{
             {
                 String taskID = rs.getString(1);
                 String taskDescription = rs.getString(2);
-                String location = rs.getString(3);
-                String price = rs.getString(4);
-                String duration = rs.getString(5);
-                String shift = rs.getString(6);
-                String date = rs.getString(7);
-                String status = rs.getString(8);
-                String completedBy = rs.getString(9);
-                String jobID = rs.getString(10);
-                String staffID = rs.getString(11);
+                String startTime = rs.getString(3);
+                String location = rs.getString(4);
+                String price = rs.getString(5);
+                String duration = rs.getString(6);
+                String shift = rs.getString(7);
+                String date = rs.getString(8);
+                String status = rs.getString(9);
+                String completedBy = rs.getString(10);
+                String jobID = rs.getString(11);
+                String staffID = rs.getString(12);
                 model1.addRow(new Object[]{
-                        taskID, taskDescription, location, price,
+                        taskID, taskDescription, startTime, location, price,
                         duration, shift, date, status,
                         completedBy,jobID,staffID});
             }
@@ -78,26 +79,32 @@ public class TaskList extends Screen{
         }
 
         try {
-            String sql = "SELECT * FROM tasks ORDER BY Status='In process'";
+            String sql = "SELECT * FROM task ORDER BY Status='Completed'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
             while (rs.next()) {
 
-                String jobID = rs.getString(1);
-                String startTime = rs.getString(2);
-                String priority = rs.getString(3);
-                String specialInstructions = rs.getString(4);
-                String jobStatus = rs.getString(5);
-                String date = rs.getString(6);
-                String deadline = rs.getString(7);
-                String price = rs.getString(8);
-                String customerID = rs.getString(9);
-                model2.addRow(new Object[]{
-                        jobID, startTime, priority, specialInstructions,
-                        jobStatus, date, deadline, price, customerID});
+                String taskID = rs.getString(1);
+                String taskDescription = rs.getString(2);
+                String startTime = rs.getString(3);
+                String location = rs.getString(4);
+                String price = rs.getString(5);
+                String duration = rs.getString(6);
+                String shift = rs.getString(7);
+                String date = rs.getString(8);
+                String status = rs.getString(9);
+                String completedBy = rs.getString(10);
+                String jobID = rs.getString(11);
+                String staffID = rs.getString(12);
+                model1.addRow(new Object[]{
+                        taskID, taskDescription, startTime, location, price,
+                        duration, shift, date, status,
+                        completedBy,jobID,staffID});
+
             }
+            taskTable.setModel(model2);
         }catch (Exception e1) {
             JOptionPane.showMessageDialog(null, e1);
         }
