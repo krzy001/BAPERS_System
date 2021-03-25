@@ -46,6 +46,9 @@ public class AddTask extends Screen {
     private JButton updateButton8;
     private JButton updateButton9;
     private JButton removeButton;
+    private JTextField textField12;
+    private JLabel labelStartTime;
+    private JButton updateButton10;
 
     public AddTask(BAPERS system){
         super(system);
@@ -74,7 +77,7 @@ public class AddTask extends Screen {
                 system.getController().addTask(
                         textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
                         textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText(),
-                        textField9.getText(),textField10.getText());
+                        textField9.getText(),textField10.getText(),textField11.getText());
             }
         });
 
@@ -134,6 +137,13 @@ public class AddTask extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateDuration(textField4.getText(),textField11.getText());
+            }
+        });
+
+        updateButton10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.getController().updateTaskStartTime(textField12.getText(),textField11.getText());
             }
         });
 

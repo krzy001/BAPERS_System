@@ -268,23 +268,24 @@ public class Control {
     }
 
     public void addTask(
-            String description, String location, String price, String duration,
+            String description,String startTime, String location, String price, String duration,
             String shift, String date, String completedBy, String jobsNO, String staffID, String status){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO task (Task_Description,Location,Price,Duration,Shift,Date,Status,Completed_By,JobsJob_No,StaffStaff_ID) values (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO task (Task_Description,Start_Time,Location,Price,Duration,Shift,Date,Status,Completed_By,JobsJob_No,StaffStaff_ID) values (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,description);
-            pst.setString(2,location);
-            pst.setString(3,price);
-            pst.setString(4,duration);
-            pst.setString(5,shift);
-            pst.setString(6,date);
-            pst.setString(7,status);
-            pst.setString(8,completedBy);
-            pst.setString(9,jobsNO);
-            pst.setString(10,staffID);
+            pst.setString(2,startTime);
+            pst.setString(3,location);
+            pst.setString(4,price);
+            pst.setString(5,duration);
+            pst.setString(6,shift);
+            pst.setString(7,date);
+            pst.setString(8,status);
+            pst.setString(9,completedBy);
+            pst.setString(10,jobsNO);
+            pst.setString(11,staffID);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
@@ -300,6 +301,23 @@ public class Control {
             String sql = "UPDATE task SET Task_Description=? WHERE Task_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,description);
+            pst.setString(2,taskId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Save Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+        }
+    }
+
+    public void updateTaskStartTime(String startTime,String taskId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE task SET Start_Time=? WHERE Task_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,startTime);
             pst.setString(2,taskId);
 
             pst.executeUpdate();

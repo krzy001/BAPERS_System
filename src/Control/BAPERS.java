@@ -203,7 +203,7 @@ public class BAPERS {
     }
 
     public DefaultTableModel generateIndividualJobReport(){
-        report = new IndividualJobReport();
+        report = new Report();
         report.getIndividualJobReport();
 
         return report.getModel();
