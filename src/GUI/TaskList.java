@@ -22,7 +22,7 @@ public class TaskList extends Screen{
     private JButton btnBack;
     private JButton btnAddTask;
     private JLabel labelLogo;
-    private JButton removeTaskButton;
+    private JButton btnSearchTask;
     private JButton changeTaskButton;
     private JTable taskTable;
     private JCheckBox checkBox1;
@@ -129,7 +129,7 @@ public class TaskList extends Screen{
                 system.nextScreen(system.AddTask);
             }
         });
-        removeTaskButton.addActionListener(new ActionListener() {
+        btnSearchTask.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
