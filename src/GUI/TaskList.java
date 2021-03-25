@@ -32,7 +32,6 @@ public class TaskList extends Screen{
         this.setContentPane(this.panelTaskList);
         this.pack();
         float logo = 80;
-        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 

@@ -37,14 +37,41 @@ public class UpdateCustomerInfo extends Screen {
     private JButton updateButton4;
     private JButton updateButton5;
     private JButton updateButton6;
+    private JLabel labelAccountNo;
+    private JLabel labelName;
+    private JLabel labelContactName;
+    private JLabel labelAddress;
+    private JLabel labelPhoneNo;
+    private JLabel labelEmail;
+    private JLabel labelDiscountPlan;
+    private JLabel labelValued;
 
     public UpdateCustomerInfo(BAPERS system) {
         super(system);
         this.setContentPane(this.panelUpdateCustomerInfo);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+        labelAccountNo.setFont(labelLogo.getFont().deriveFont(size));
+        labelName.setFont(labelLogo.getFont().deriveFont(size));
+        labelContactName.setFont(labelLogo.getFont().deriveFont(size));
+        labelAddress.setFont(labelLogo.getFont().deriveFont(size));
+        labelPhoneNo.setFont(labelLogo.getFont().deriveFont(size));
+        labelEmail.setFont(labelLogo.getFont().deriveFont(size));
+        labelDiscountPlan.setFont(labelLogo.getFont().deriveFont(size));
+        labelValued.setFont(labelLogo.getFont().deriveFont(size));
+
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
+        updateButton4.setPreferredSize(new Dimension(150,30));
+        updateButton5.setPreferredSize(new Dimension(150,30));
+        updateButton6.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

@@ -42,6 +42,15 @@ public class ViewCustomerAccount extends Screen {
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnAddPayment.setPreferredSize(new Dimension(150,30));
+        btnAddJob.setPreferredSize(new Dimension(150,30));
+        btnUpdate.setPreferredSize(new Dimension(150,30));
+        btnTask.setPreferredSize(new Dimension(150,30));
+        jobListButton.setPreferredSize(new Dimension(150,30));
+        taskListButton.setPreferredSize(new Dimension(150,30));
+
         try{
             String sql = "SELECT * FROM customer WHERE Account_No = '" + system.getID() + "' ";
 

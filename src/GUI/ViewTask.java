@@ -43,6 +43,11 @@ public class ViewTask extends Screen {
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        taskListButton.setPreferredSize(new Dimension(150,30));
+        btnAddJob.setPreferredSize(new Dimension(150,30));
+
         try{
             String sql = "SELECT * FROM task WHERE Task_ID = '" + system.getID() + "' ";
 

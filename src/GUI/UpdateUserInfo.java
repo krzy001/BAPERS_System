@@ -28,20 +28,44 @@ public class UpdateUserInfo extends Screen {
     private JPanel panelUpdateUserInfo;
     private JPanel panelMiddle;
     private JLabel labelLogo;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton button6;
+    private JButton updateButton1;
+    private JButton updateButton2;
+    private JButton updateButton3;
+    private JButton updateButton4;
+    private JButton updateButton5;
+    private JButton updateButton6;
+    private JLabel labelId;
+    private JLabel labelName;
+    private JLabel labelUsername;
+    private JLabel labelPassword;
+    private JLabel labelRole;
+    private JLabel labelImage;
+    private JLabel labelDepartment;
 
     public UpdateUserInfo(BAPERS system) {
         super(system);
         this.setContentPane(this.panelUpdateUserInfo);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+        labelId.setFont(labelLogo.getFont().deriveFont(size));
+        labelName.setFont(labelLogo.getFont().deriveFont(size));
+        labelUsername.setFont(labelLogo.getFont().deriveFont(size));
+        labelPassword.setFont(labelLogo.getFont().deriveFont(size));
+        labelRole.setFont(labelLogo.getFont().deriveFont(size));
+        labelImage.setFont(labelLogo.getFont().deriveFont(size));
+        labelDepartment.setFont(labelLogo.getFont().deriveFont(size));
+
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
+        updateButton4.setPreferredSize(new Dimension(150,30));
+        updateButton5.setPreferredSize(new Dimension(150,30));
+        updateButton6.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
@@ -65,42 +89,42 @@ public class UpdateUserInfo extends Screen {
             }
         });*/
 
-        button1.addActionListener(new ActionListener() {
+        updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateUserName(
                         textField1.getText(),textField7.getText());
             }
         });
-        button2.addActionListener(new ActionListener() {
+        updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateUserUsername(
                         textField2.getText(),textField7.getText());
             }
         });
-        button3.addActionListener(new ActionListener() {
+        updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateUserPassword(
                         textField3.getText(),textField7.getText());
             }
         });
-        button4.addActionListener(new ActionListener() {
+        updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateUserRole(
                         textField4.getText(),textField7.getText());
             }
         });
-        button5.addActionListener(new ActionListener() {
+        updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateUserEmail(
                         textField5.getText(),textField7.getText());
             }
         });
-        button6.addActionListener(new ActionListener() {
+        updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.getController().updateUserDepartment(

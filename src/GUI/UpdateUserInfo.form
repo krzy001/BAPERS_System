@@ -59,7 +59,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="c4123" class="javax.swing.JLabel">
+              <component id="c4123" class="javax.swing.JLabel" binding="labelName">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -75,12 +75,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="8246d" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="8246d" class="javax.swing.JButton" binding="updateButton1">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Update"/>
                 </properties>
               </component>
             </children>
@@ -93,7 +93,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="6ec1a" class="javax.swing.JLabel">
+              <component id="6ec1a" class="javax.swing.JLabel" binding="labelUsername">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -109,12 +109,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="dcaa1" class="javax.swing.JButton" binding="button2" default-binding="true">
+              <component id="dcaa1" class="javax.swing.JButton" binding="updateButton2">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Update"/>
                 </properties>
               </component>
             </children>
@@ -127,7 +127,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="d10e4" class="javax.swing.JLabel">
+              <component id="d10e4" class="javax.swing.JLabel" binding="labelPassword">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -143,12 +143,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="c1a52" class="javax.swing.JButton" binding="button3" default-binding="true">
+              <component id="c1a52" class="javax.swing.JButton" binding="updateButton3">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Update"/>
                 </properties>
               </component>
             </children>
@@ -161,7 +161,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="eae83" class="javax.swing.JLabel">
+              <component id="eae83" class="javax.swing.JLabel" binding="labelRole">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -177,12 +177,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="fcc5b" class="javax.swing.JButton" binding="button4" default-binding="true">
+              <component id="fcc5b" class="javax.swing.JButton" binding="updateButton4">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Update"/>
                 </properties>
               </component>
             </children>
@@ -195,7 +195,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="532b7" class="javax.swing.JLabel">
+              <component id="532b7" class="javax.swing.JLabel" binding="labelImage">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -211,12 +211,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="dd40e" class="javax.swing.JButton" binding="button5" default-binding="true">
+              <component id="dd40e" class="javax.swing.JButton" binding="updateButton5">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Update"/>
                 </properties>
               </component>
             </children>
@@ -229,7 +229,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="71b04" class="javax.swing.JLabel">
+              <component id="71b04" class="javax.swing.JLabel" binding="labelDepartment">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -245,12 +245,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="8014a" class="javax.swing.JButton" binding="button6" default-binding="true">
+              <component id="8014a" class="javax.swing.JButton" binding="updateButton6">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Update"/>
                 </properties>
               </component>
             </children>
@@ -286,12 +286,12 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="c19e3" class="javax.swing.JLabel">
+              <component id="c19e3" class="javax.swing.JLabel" binding="labelId">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Id"/>
+                  <text value="Staff Id"/>
                 </properties>
               </component>
               <component id="fd802" class="javax.swing.JTextField" binding="textField7" default-binding="true">

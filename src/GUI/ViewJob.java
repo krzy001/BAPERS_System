@@ -39,6 +39,11 @@ public class ViewJob extends Screen {
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        jobListButton.setPreferredSize(new Dimension(150,30));
+        btnAddJob.setPreferredSize(new Dimension(150,30));
+
         try{
             String sql = "SELECT * FROM jobs WHERE Job_No = '" + system.getID() + "' ";
 
