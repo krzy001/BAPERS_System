@@ -51,7 +51,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="7a56f" class="javax.swing.JLabel">
+          <component id="7a56f" class="javax.swing.JLabel" binding="labelCardNo">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -103,7 +103,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="326dc" class="javax.swing.JLabel">
+          <component id="326dc" class="javax.swing.JLabel" binding="labelExpiryDate">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -137,7 +137,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="2beb8" class="javax.swing.JLabel">
+          <component id="2beb8" class="javax.swing.JLabel" binding="labelCardHolderName">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -173,7 +173,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="77855" class="javax.swing.JLabel">
+          <component id="77855" class="javax.swing.JLabel" binding="labelPaymentMade">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -207,7 +207,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="771f7" class="javax.swing.JLabel">
+          <component id="771f7" class="javax.swing.JLabel" binding="labelCVV">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -241,7 +241,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="4c429" class="javax.swing.JLabel">
+          <component id="4c429" class="javax.swing.JLabel" binding="labelTransactionId">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

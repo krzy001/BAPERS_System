@@ -10,12 +10,9 @@ import java.awt.event.ActionListener;
 public class Restore extends Screen {
     private JPanel panelTop;
     private JPanel panelRestore;
-    private JList listRestoreDatabase;
-    private JButton btnGo;
     private JButton btnBack;
     private JButton btnRestore;
     private JPanel panelTwo;
-    private JPanel panelThree;
     private JPanel panelFour;
     private JButton btnLogout;
     private JLabel labelLogo;
@@ -27,6 +24,10 @@ public class Restore extends Screen {
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+
+        btnRestore.setPreferredSize(new Dimension(400,150));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
