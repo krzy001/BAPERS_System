@@ -202,15 +202,10 @@ public class BAPERS {
         screen.setLocationRelativeTo(null);
     }
 
-    public DefaultTableModel generateIndividualJobReport(){
-        report = new Report();
-        report.getIndividualJobReport();
-
-        return report.getModel();
-    }
-
     public DefaultTableModel generateIndividualPerformanceReport(){
         report = new Report();
+        report.getIndividualPerformanceReport();
+
         return report.getModel();
     }
 

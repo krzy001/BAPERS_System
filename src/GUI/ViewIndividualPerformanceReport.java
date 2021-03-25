@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +27,8 @@ public class ViewIndividualPerformanceReport extends Screen {
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+
+        DefaultTableModel model = system.generateIndividualPerformanceReport();
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

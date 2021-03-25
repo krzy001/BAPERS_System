@@ -23,7 +23,7 @@ public class Report {
         dbConnect.DBConnectivity();
     }
 
-    public void getIndividualJobReport(){
+    public void getIndividualPerformanceReport(){
         model = new DefaultTableModel(new String[]{
                 "Name", "Task IDs", "Department", "Date",
                 "Start Time", "Time Taken", "Total"}, 0);

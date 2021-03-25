@@ -18,10 +18,6 @@ public class IndividualPerformanceReport extends Report {
 
     }
 
-    public String getIndividualPerformanceReport(){
-        return "Hello World";
-    }
-
     public void setIndividualPerformanceReport(String IndividualPerformanceReport){
 
     }

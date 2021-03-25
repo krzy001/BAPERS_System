@@ -27,7 +27,7 @@ public class ViewIndividualJobReport extends Screen {
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        system.generateIndividualJobReport();
+        //system.generateIndividualJobReport();
 
 
         btnLogout.addActionListener(new ActionListener() {
