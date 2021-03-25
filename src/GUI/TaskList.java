@@ -98,7 +98,7 @@ public class TaskList extends Screen{
                 String completedBy = rs.getString(10);
                 String jobID = rs.getString(11);
                 String staffID = rs.getString(12);
-                model1.addRow(new Object[]{
+                model2.addRow(new Object[]{
                         taskID, taskDescription, startTime, location, price,
                         duration, shift, date, status,
                         completedBy,jobID,staffID});
