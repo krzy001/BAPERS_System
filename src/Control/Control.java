@@ -282,7 +282,7 @@ public class Control {
 
     public void addTask(
             String description,String startTime, String location, String price, String duration,
-            String shift, String date, String completedBy, String jobsNO, String staffID, String status,String timeTaken){
+            String shift, String date, String status,String completedBy, String jobsNO, String staffID,String timeTaken){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);

@@ -51,25 +51,9 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="a0695" class="javax.swing.JLabel" binding="jLabelTaskID">
+          <component id="1e7ce" class="javax.swing.JLabel" binding="jLabelLoaction">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="43b4" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Task ID:"/>
-            </properties>
-          </component>
-          <component id="1e7ce" class="javax.swing.JLabel" binding="jLabelDescription">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value=""/>
@@ -77,10 +61,10 @@
           </component>
           <component id="3036d" class="javax.swing.JLabel">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Task Description:"/>
+              <text value="Location"/>
             </properties>
           </component>
           <component id="c49da" class="javax.swing.JLabel">
@@ -88,10 +72,10 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Location:"/>
+              <text value="Price"/>
             </properties>
           </component>
-          <component id="2b354" class="javax.swing.JLabel" binding="jLabelLocation">
+          <component id="2b354" class="javax.swing.JLabel" binding="jLabelPrice">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -104,10 +88,10 @@
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Price:"/>
+              <text value="Duration"/>
             </properties>
           </component>
-          <component id="7fff1" class="javax.swing.JLabel" binding="jLabelPrice">
+          <component id="7fff1" class="javax.swing.JLabel" binding="jLabelDuration">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -120,10 +104,10 @@
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Duration:"/>
+              <text value="Shift"/>
             </properties>
           </component>
-          <component id="b5779" class="javax.swing.JLabel" binding="jLabelDuration">
+          <component id="b5779" class="javax.swing.JLabel" binding="jLabelShift">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -136,10 +120,10 @@
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Shift:"/>
+              <text value="Date"/>
             </properties>
           </component>
-          <component id="76a4c" class="javax.swing.JLabel" binding="jLabelShift">
+          <component id="76a4c" class="javax.swing.JLabel" binding="jLabelDate">
             <constraints>
               <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -152,10 +136,10 @@
               <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Date:"/>
+              <text value="Status"/>
             </properties>
           </component>
-          <component id="86a38" class="javax.swing.JLabel" binding="jLabelDate">
+          <component id="86a38" class="javax.swing.JLabel" binding="jLabelStatus">
             <constraints>
               <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -168,20 +152,20 @@
               <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Completed By:"/>
+              <text value="Job No"/>
             </properties>
           </component>
           <component id="60b4e" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Job No:"/>
+              <text value="Decription"/>
             </properties>
           </component>
-          <component id="7c08b" class="javax.swing.JLabel" binding="jLabelJobNo">
+          <component id="7c08b" class="javax.swing.JLabel" binding="jLabelJDescription">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value=""/>
@@ -195,7 +179,7 @@
               <text value="Staff ID:"/>
             </properties>
           </component>
-          <component id="cc08e" class="javax.swing.JLabel" binding="jLabelCompletedBy">
+          <component id="cc08e" class="javax.swing.JLabel" binding="jLabelJobNo">
             <constraints>
               <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -203,7 +187,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="4c279" class="javax.swing.JLabel" binding="jLabelStaffID">
+          <component id="4c279" class="javax.swing.JLabel" binding="jLabelStaffId">
             <constraints>
               <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -211,28 +195,68 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="904c2" class="javax.swing.JLabel" binding="jLabelStatus">
+          <component id="904c2" class="javax.swing.JLabel">
             <constraints>
               <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Status"/>
+              <text value="CompletedBy"/>
             </properties>
           </component>
-          <component id="2a43c" class="javax.swing.JLabel" binding="jLabelStartTime">
+          <component id="aafb4" class="javax.swing.JLabel">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Start Time"/>
             </properties>
           </component>
-          <component id="3bec0" class="javax.swing.JLabel" binding="jLabelTimeTaken">
+          <component id="6694a" class="javax.swing.JLabel" binding="jLabelStartTime">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="43b4" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Task ID:"/>
+            </properties>
+          </component>
+          <component id="e2bd" class="javax.swing.JLabel" binding="jLabelTaskId">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="fc7d7" class="javax.swing.JLabel" binding="jLabelCompletedBy">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="f31e7" class="javax.swing.JLabel">
             <constraints>
               <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Time Taken"/>
+            </properties>
+          </component>
+          <component id="c0ac0" class="javax.swing.JLabel" binding="jLabelTimeTaken">
+            <constraints>
+              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
             </properties>
           </component>
         </children>
