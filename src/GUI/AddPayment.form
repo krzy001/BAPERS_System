@@ -51,7 +51,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="2c637" class="javax.swing.JLabel">
+          <component id="2c637" class="javax.swing.JLabel" binding="labelAccountNo">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -85,7 +85,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="567e1" class="javax.swing.JLabel">
+          <component id="567e1" class="javax.swing.JLabel" binding="labelJobNo">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -121,7 +121,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="82207" class="javax.swing.JLabel">
+          <component id="82207" class="javax.swing.JLabel" binding="labelDate">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -157,7 +157,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="c0944" class="javax.swing.JLabel">
+          <component id="c0944" class="javax.swing.JLabel" binding="labelAmount">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -235,7 +235,7 @@
         <properties/>
         <border type="none" title=""/>
         <children>
-          <component id="195b3" class="javax.swing.JLabel">
+          <component id="195b3" class="javax.swing.JLabel" binding="labelTransactionId">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

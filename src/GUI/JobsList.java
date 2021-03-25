@@ -21,7 +21,7 @@ public class JobsList extends Screen{
     private JPanel panelBottom;
     private JButton btnLogout;
     private JLabel labelLogo;
-    private JButton removeJobButton;
+    private JButton btnSearchJob;
     private JButton changeJobButton;
     private JTable jobsTable;
     private JScrollPane scrTbl;
@@ -32,8 +32,14 @@ public class JobsList extends Screen{
         this.setContentPane(this.panelJobsList);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnSearchJob.setPreferredSize(new Dimension(150,30));
+        btnAddJob.setPreferredSize(new Dimension(150,30));
 
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Job ID", "Start Time", "Priority", "Special Instructions",
@@ -121,12 +127,6 @@ public class JobsList extends Screen{
             }
         });
 
-        changeJobButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         checkBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -137,6 +137,12 @@ public class JobsList extends Screen{
                 else{
                     jobsTable.setModel(model2);
                 }
+            }
+        });
+        btnSearchJob.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchJob);
             }
         });
     }

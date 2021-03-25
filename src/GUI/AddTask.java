@@ -49,14 +49,56 @@ public class AddTask extends Screen {
     private JTextField textField12;
     private JLabel labelStartTime;
     private JButton updateButton10;
+    private JLabel labelTaskId;
+    private JLabel labelDescription;
+    private JLabel labelLocation;
+    private JLabel labelPrice;
+    private JLabel labelDuration;
+    private JLabel labelShift;
+    private JLabel labelDate;
+    private JLabel labelStatus;
+    private JLabel labelCompletedBy;
+    private JLabel labelJobNo;
+    private JLabel labelStaffId;
 
     public AddTask(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddTask);
         this.pack();
         float logo = 80;
+        float size = 20;
+
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+
+        labelTaskId.setFont(labelLogo.getFont().deriveFont(size));
+        labelDescription.setFont(labelLogo.getFont().deriveFont(size));
+        labelStartTime.setFont(labelLogo.getFont().deriveFont(size));
+        labelLocation.setFont(labelLogo.getFont().deriveFont(size));
+        labelPrice.setFont(labelLogo.getFont().deriveFont(size));
+        labelDuration.setFont(labelLogo.getFont().deriveFont(size));
+        labelShift.setFont(labelLogo.getFont().deriveFont(size));
+        labelDate.setFont(labelLogo.getFont().deriveFont(size));
+        labelStatus.setFont(labelLogo.getFont().deriveFont(size));
+        labelCompletedBy.setFont(labelLogo.getFont().deriveFont(size));
+        labelJobNo.setFont(labelLogo.getFont().deriveFont(size));
+        labelStaffId.setFont(labelLogo.getFont().deriveFont(size));
+
+        removeButton.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnAddJob.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
+        updateButton4.setPreferredSize(new Dimension(150,30));
+        updateButton5.setPreferredSize(new Dimension(150,30));
+        updateButton6.setPreferredSize(new Dimension(150,30));
+        updateButton7.setPreferredSize(new Dimension(150,30));
+        updateButton8.setPreferredSize(new Dimension(150,30));
+        updateButton9.setPreferredSize(new Dimension(150,30));
+        updateButton10.setPreferredSize(new Dimension(150,30));
 
         btnBack.addActionListener(new ActionListener() {
             @Override

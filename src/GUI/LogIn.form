@@ -48,14 +48,6 @@
             </constraints>
             <properties/>
           </component>
-          <component id="9a415" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Staff Role"/>
-            </properties>
-          </component>
           <component id="b4a89" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -67,6 +59,14 @@
                 <item value="Technician"/>
                 <item value="Receptionist"/>
               </model>
+            </properties>
+          </component>
+          <component id="54f73" class="javax.swing.JLabel" binding="labelStaffRole">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Select Role"/>
             </properties>
           </component>
         </children>

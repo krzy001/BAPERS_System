@@ -31,14 +31,34 @@ public class CreateCustomerAccount extends Screen{
     private JButton btnLogout;
     private JTextField textField7;
     private JLabel labelLogo;
+    private JLabel labelName;
+    private JLabel labelContactName;
+    private JLabel labelAddress;
+    private JLabel labelPhoneNo;
+    private JLabel labelEmail;
+    private JLabel labelDiscountPlan;
+    private JLabel labelValue;
 
     public CreateCustomerAccount(BAPERS system) {
         super(system);
         this.setContentPane(this.panelCreateCustomer);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+        labelName.setFont(labelLogo.getFont().deriveFont(size));
+        labelContactName.setFont(labelLogo.getFont().deriveFont(size));
+        labelAddress.setFont(labelLogo.getFont().deriveFont(size));
+        labelPhoneNo.setFont(labelLogo.getFont().deriveFont(size));
+        labelEmail.setFont(labelLogo.getFont().deriveFont(size));
+        labelDiscountPlan.setFont(labelLogo.getFont().deriveFont(size));
+        labelValue.setFont(labelLogo.getFont().deriveFont(size));
+
+
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnCreate.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

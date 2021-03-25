@@ -58,7 +58,7 @@ public class BAPERS {
         currentPage = LogIn;
         controller = new Control();
         screen = new LogIn(this);
-        screen.setSize(800,500);
+        screen.setSize(1000,800);
         screen.setLocationRelativeTo(null);
     }
 
@@ -190,15 +190,7 @@ public class BAPERS {
         else if(page == AddPayment){
             screen = new AddPayment(this);
         }
-        if(page == AddTask) {
-            screen.setSize(800, 800);
-        }
-        if(page == AddJob) {
-            screen.setSize(800, 800);
-        }
-        else{
-            screen.setSize(800, 500);
-        }
+        screen.setSize(1000,800);
         screen.setLocationRelativeTo(null);
     }
 

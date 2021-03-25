@@ -22,6 +22,7 @@ public class LogIn extends Screen {
     private JLabel labelUsername;
     private JLabel labelPassword;
     private JComboBox comboBox1;
+    private JLabel labelStaffRole;
     String driver="com.mysql.cj.jdbc.Driver";
     String url="jdbc:mysql://localhost/risinggen";
     String user="root";
@@ -37,6 +38,10 @@ public class LogIn extends Screen {
         labelLogo.setForeground(Color.RED);
         labelUsername.setFont(labelUsername.getFont().deriveFont(size));
         labelPassword.setFont(labelPassword.getFont().deriveFont(size));
+        labelStaffRole.setFont(labelPassword.getFont().deriveFont(size));
+
+        comboBox1.setFont(comboBox1.getFont().deriveFont(size));
+
         buttonLogIn.setPreferredSize(new Dimension(250,50));
 
         /*

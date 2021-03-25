@@ -51,7 +51,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="6b34" class="javax.swing.JLabel">
+          <component id="6b34" class="javax.swing.JLabel" binding="labelName">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -77,7 +77,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="2a598" class="javax.swing.JLabel">
+          <component id="2a598" class="javax.swing.JLabel" binding="labelContactName">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -103,7 +103,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="23c07" class="javax.swing.JLabel">
+          <component id="23c07" class="javax.swing.JLabel" binding="labelAddress">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -129,7 +129,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="df65f" class="javax.swing.JLabel">
+          <component id="df65f" class="javax.swing.JLabel" binding="labelPhoneNo">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -155,7 +155,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="fd56e" class="javax.swing.JLabel">
+          <component id="fd56e" class="javax.swing.JLabel" binding="labelEmail">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -181,7 +181,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="1ea92" class="javax.swing.JLabel">
+          <component id="1ea92" class="javax.swing.JLabel" binding="labelDiscountPlan">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -238,7 +238,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="3dffe" class="javax.swing.JLabel">
+          <component id="3dffe" class="javax.swing.JLabel" binding="labelValue">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

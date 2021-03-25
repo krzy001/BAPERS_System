@@ -24,6 +24,10 @@ public class Backup extends Screen{
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
+        btnBackup.setPreferredSize(new Dimension(400,150));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

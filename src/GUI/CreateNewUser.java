@@ -28,17 +28,33 @@ public class CreateNewUser extends Screen{
     private JTextField textField6;
     private JPanel panelEight;
     private JButton btnBack;
-    private JPanel panelBottom;
     private JButton btnLogout;
     private JLabel labelLogo;
+    private JLabel labelName;
+    private JLabel labelUsername;
+    private JLabel labelPassword;
+    private JLabel labelJobRole;
+    private JLabel labelEmail;
+    private JLabel labelDepartment;
 
     public CreateNewUser(BAPERS system) {
         super(system);
         this.setContentPane(this.panelCreateNewUser);
         this.pack();
         float logo = 80;
+        float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+        labelName.setFont(labelLogo.getFont().deriveFont(size));
+        labelUsername.setFont(labelLogo.getFont().deriveFont(size));
+        labelPassword.setFont(labelLogo.getFont().deriveFont(size));
+        labelJobRole.setFont(labelLogo.getFont().deriveFont(size));
+        labelEmail.setFont(labelLogo.getFont().deriveFont(size));
+        labelDepartment.setFont(labelLogo.getFont().deriveFont(size));
+
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnCreate.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

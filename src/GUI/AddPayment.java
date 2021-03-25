@@ -26,15 +26,35 @@ public class AddPayment extends Screen {
     private JButton updateButton2;
     private JButton updateButton3;
     private JTextField textField1;
+    private JLabel labelTransactionId;
+    private JLabel labelAmount;
+    private JLabel labelDate;
+    private JLabel labelJobNo;
+    private JLabel labelAccountNo;
 
     public AddPayment(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddPayment);
         this.pack();
-
         float logo = 80;
+        float size = 20;
+
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
+        labelTransactionId.setFont(labelLogo.getFont().deriveFont(size));
+        labelAmount.setFont(labelLogo.getFont().deriveFont(size));
+        labelDate.setFont(labelLogo.getFont().deriveFont(size));
+        labelJobNo.setFont(labelLogo.getFont().deriveFont(size));
+        labelAccountNo.setFont(labelLogo.getFont().deriveFont(size));
+
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnAddPayment.setPreferredSize(new Dimension(150,30));
+        cardPaymentButton.setPreferredSize(new Dimension(150,30));
+        cashPaymentButton.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
