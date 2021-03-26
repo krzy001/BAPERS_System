@@ -6,18 +6,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Technician extends Screen {
     private JPanel panelTechnician;
     private JPanel panelTop;
-    private JButton btnJobEnquiry;
-    private JButton btnResponse;
     private JButton btnBack;
     private JPanel panelTwo;
     private JPanel panelThree;
     private JPanel panelBottom;
     private JButton btnLogout;
     private JLabel labelLogo;
+    private JButton jobListButton;
+    private JButton taskListButton;
+    private JButton searchJobButton;
+    private JButton searchTaskButton;
 
     public Technician(BAPERS system){
         super(system);
@@ -27,28 +30,47 @@ public class Technician extends Screen {
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        jobListButton.setPreferredSize(new Dimension(150,30));
+        taskListButton.setPreferredSize(new Dimension(150,30));
+        searchJobButton.setPreferredSize(new Dimension(150,30));
+        searchTaskButton.setPreferredSize(new Dimension(150,30));
+
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.LogOut();
             }
         });
-        btnJobEnquiry.addActionListener(new ActionListener() {
+        jobListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.JobEnquiry);
+                system.nextScreen(system.JobList);
             }
         });
-        btnResponse.addActionListener(new ActionListener() {
+        taskListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.JobEnquiry);
+                system.nextScreen(system.TaskList);
             }
         });
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.backScreen();
+            }
+        });
+        searchJobButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchJob);
+            }
+        });
+        searchTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchTask);
             }
         });
     }

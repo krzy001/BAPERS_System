@@ -1081,6 +1081,58 @@ public class Control {
         }
     }
 
+    public void addDiscount(String rate, String accountNo){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "INSERT INTO discount (DiscountRate,CustomerAccount_No) values (?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,rate);
+            pst.setString(2,accountNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+    }
+
+    public void updateRate(String rate, String discountId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE discount SET DiscountRate=? WHERE Discount_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,rate);
+            pst.setString(2,discountId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+
+    }
+    public void updateAccountNo(String accountNo, String discountId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "UPDATE discount SET CustomerAccount_No=? WHERE Discount_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,accountNo);
+            pst.setString(2,discountId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Saved");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+        }
+
+    }
+
     public void recordCardPayment(){
 
     }

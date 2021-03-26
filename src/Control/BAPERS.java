@@ -56,6 +56,7 @@ public class BAPERS {
     public final String RecordCardPayment = "RCP";
     public final String RecordCashPayment = "RCHP";
     public final String UrgentJobsList = "UJL";
+    public final String Discount = "D";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
@@ -197,6 +198,9 @@ public class BAPERS {
         }
         else if(page == UrgentJobsList){
             screen = new UrgentJobsList(this);
+        }
+        else if(page == Discount){
+            screen = new Discount(this);
         }
         screen.setSize(1000,800);
         screen.setLocationRelativeTo(null);

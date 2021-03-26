@@ -32,6 +32,7 @@ public class ViewCustomerAccount extends Screen {
     private JLabel labelLogo;
     private JButton jobListButton;
     private JButton taskListButton;
+    private JButton discountButton;
 
 
     public ViewCustomerAccount(BAPERS system) {
@@ -50,6 +51,7 @@ public class ViewCustomerAccount extends Screen {
         btnTask.setPreferredSize(new Dimension(150,30));
         jobListButton.setPreferredSize(new Dimension(150,30));
         taskListButton.setPreferredSize(new Dimension(150,30));
+        discountButton.setPreferredSize(new Dimension(150,30));
 
         try{
             String sql = "SELECT * FROM customer WHERE Account_No = '" + system.getID() + "' ";
@@ -130,6 +132,12 @@ public class ViewCustomerAccount extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.TaskList);
+            }
+        });
+        discountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.Discount);
             }
         });
     }
