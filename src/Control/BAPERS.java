@@ -5,6 +5,7 @@ import Report.*;
 import database.*;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class BAPERS {
@@ -16,6 +17,8 @@ public class BAPERS {
     private Control controller;
     private String currentPage;
     private String ID;
+    ArrayList<String> urgentJobs = new ArrayList<String>();
+    private boolean urgentJobsShown = false;
     private Stack<String> pages = new Stack<String>();
 
     private String roleLoggedIn = "LoggedOff";
@@ -52,6 +55,7 @@ public class BAPERS {
     public final String ViewTask = "VT";
     public final String RecordCardPayment = "RCP";
     public final String RecordCashPayment = "RCHP";
+    public final String UrgentJobsList = "UJL";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
@@ -191,6 +195,9 @@ public class BAPERS {
         else if(page == AddPayment){
             screen = new AddPayment(this);
         }
+        else if(page == UrgentJobsList){
+            screen = new UrgentJobsList(this);
+        }
         screen.setSize(1000,800);
         screen.setLocationRelativeTo(null);
     }
@@ -233,5 +240,20 @@ public class BAPERS {
 
     public void setRoleLoggedIn(String role) {
         roleLoggedIn = role;
+    }
+
+    public ArrayList<String> getUrgentJobs() {
+        return urgentJobs;
+    }
+
+    public void addUrgentJobs(String jobID){
+        urgentJobs.add(jobID);
+    }
+
+    public boolean isUrgentJobsShown(){
+        return urgentJobsShown;
+    }
+    public void setUrgentJobsShown(boolean bool){
+        urgentJobsShown = bool;
     }
 }

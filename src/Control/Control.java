@@ -1212,7 +1212,7 @@ public class Control {
     public void backupDatabase()
     {
         //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -uroot risinggen > D:\\Backup\\risinggen.sql");
-        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\backup2.bat");
+        String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\backup.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
