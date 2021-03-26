@@ -20,6 +20,7 @@ public class BAPERS {
 
     private String roleLoggedIn = "LoggedOff";
 
+
     public final String AddJob = "AJ";
     public final String AddPayment = "AP";
     public final String Backup = "B";

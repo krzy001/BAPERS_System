@@ -22,7 +22,7 @@
             </constraints>
             <properties>
               <font size="36"/>
-              <text value="Record Cash Payment"/>
+              <text value="Cash Payment"/>
             </properties>
           </component>
           <component id="ac431" class="javax.swing.JLabel" binding="labelLogo">

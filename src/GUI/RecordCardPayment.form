@@ -22,7 +22,7 @@
             </constraints>
             <properties>
               <font size="36"/>
-              <text value="Record Card Payment"/>
+              <text value="Card Payment"/>
             </properties>
           </component>
           <component id="ed7a9" class="javax.swing.JLabel" binding="labelLogo">
