@@ -65,29 +65,31 @@ public class ViewIndividualPerformanceReport extends Screen {
                 try {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
-                    //String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
-                    String sql = "SELECT * FROM task";
+                    String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
                     PreparedStatement pst = con.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery(sql);
 
                     Workbook w = new XSSFWorkbook();
 
-                    FileOutputStream file = new FileOutputStream("Individual Performance Report.xlsx");
-
                     Sheet s = w.createSheet("Individual Performance Report");
                     String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken"};
+                    Row row = s.createRow(0);
+
+                    for (int i = 0; i < headers.length; i++) {
+                        Cell cell = row.createCell(i);
+                        cell.setCellValue(headers[i]);
+                    }
+
                     ArrayList<String> Name = new ArrayList<>();
-                    ArrayList<String> TaskId = new ArrayList<>();
+                    ArrayList<Integer> TaskId = new ArrayList<>();
                     ArrayList<String> Department = new ArrayList<>();
                     ArrayList<String> Date = new ArrayList<>();
                     ArrayList<String> StartTime = new  ArrayList<>();
                     ArrayList<String> TimeTaken = new ArrayList<>();
 
-                    Row row = s.createRow(1);
-
                     while (rs.next()) {
                         Name.add(rs.getString(1));
-                        TaskId.add(rs.getString(2));
+                        TaskId.add(rs.getInt(2));
                         Department.add(rs.getString(3));
                         Date.add(rs.getString(4));
                         StartTime.add(rs.getString(5));
@@ -95,18 +97,7 @@ public class ViewIndividualPerformanceReport extends Screen {
 
 
                         int rowNum = 1;
-                        /*
-                        for(int i = 0; i < Name.size(); ++i){
-                            row = s.createRow(rowNum++);
-                            row.createCell(0).setCellValue(1);
-                            row.createCell(1).setCellValue(2);
-                            row.createCell(2).setCellValue(3);
-                            row.createCell(3).setCellValue(4);
-                            row.createCell(4).setCellValue(5);
-                            row.createCell(5).setCellValue(6);
-                        }
 
-                         */
                        for(int i = 0; i < Name.size(); ++i){
                             row = s.createRow(rowNum++);
                             row.createCell(0).setCellValue(Name.get(i));
@@ -118,11 +109,8 @@ public class ViewIndividualPerformanceReport extends Screen {
                         }
 
                     }
-                    for (int i = 0; i < headers.length; i++) {
-                        Cell cell = row.createCell(i);
-                        cell.setCellValue(headers[i]);
-                        w.write(file);
-                    }
+                    FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
+                    w.write(file);
                     file.close();
                 }
                 catch(Exception e1){

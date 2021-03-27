@@ -67,10 +67,10 @@ public class Control {
             pst.setString(6,department);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Customer Created");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Customer Not Created");
         }
     }
 
@@ -124,27 +124,27 @@ public class Control {
             pst.setString(8,customerAccountNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Job Created");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Job Created");
         }
     }
 
-    public void updateStartTime(String startTime,String jobNo){
+    public void updateJobStartTime(String startTime,String jobNo){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE jobs Start_Time=? WHERE Job_No=?";
+            String sql = "UPDATE jobs SET Start_Time=? WHERE Job_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,startTime);
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updatePriority(String priority,String jobNo){
@@ -157,10 +157,10 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateSpecialInstruction(String specialInstructions,String jobNo){
@@ -173,10 +173,10 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
 
     }
@@ -190,10 +190,10 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
 
     }
@@ -207,10 +207,10 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
 
     }
@@ -224,10 +224,10 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
 
     }
@@ -241,26 +241,41 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
+    }
 
+    public void updateJobAccountNo(String accountNo,String jobNo) {
+        try {
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            String sql = "UPDATE jobs SET CustomerAccount_NO=? WHERE Job_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, accountNo);
+            pst.setString(2, jobNo);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Update Successful");
+        } catch (Exception e1) {
+            JOptionPane.showMessageDialog(null, "Update Unsuccessful");
+        }
     }
     public void removeJob(String jobNo){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "Delete FROM jobs WHERE Job_No=?";
+            String sql = "DELETE FROM jobs WHERE Job_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Remove Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Remove Unsuccessful");
         }
     }
     public void updateCustomerAccount(String customerAccountNo,String jobNo){
@@ -273,10 +288,10 @@ public class Control {
             pst.setString(2,jobNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
 
     }
@@ -303,10 +318,10 @@ public class Control {
             pst.setString(12,timeTaken);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Task Added");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Task Not Added");
         }
     }
     public void updateDescription(String description,String taskId){
@@ -319,10 +334,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -336,10 +351,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -353,10 +368,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -370,10 +385,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateDuration(String duration,String taskId){
@@ -386,10 +401,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateTaskShift(String shift,String taskId){
@@ -402,10 +417,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateTaskDate(String date,String taskId){
@@ -418,10 +433,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateTaskStatus(String status,String taskId){
@@ -434,10 +449,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateCompletedBy(String completedBy,String taskId){
@@ -450,10 +465,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateTaskJobsNo(String jobsNo,String taskId){
@@ -466,10 +481,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateTaskStaffId(String staffID,String taskId){
@@ -482,10 +497,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateTaskTimeTaken(String timeTaken,String taskId){
@@ -498,10 +513,10 @@ public class Control {
             pst.setString(2,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void removeTask(String taskId){
@@ -513,10 +528,10 @@ public class Control {
             pst.setString(1,taskId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Remove Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Remove Unsuccessful");
         }
     }
 
@@ -550,10 +565,10 @@ public class Control {
             pst.setString(7,valued);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Customer Account Created");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Customer Account Not Created");
         }
 
     }
@@ -595,10 +610,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -612,10 +627,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -629,10 +644,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -646,10 +661,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateCustomerEmail(String email,String account){
@@ -662,10 +677,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateCustomerDiscount(String discount,String account){
@@ -678,10 +693,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateCustomerValued(String valued,String account){
@@ -694,10 +709,10 @@ public class Control {
             pst.setString(2,account);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Save Successful");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Save Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     /*public void updateUserInfo(
@@ -733,7 +748,7 @@ public class Control {
             pst.setString(2, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Save Successful");
+            JOptionPane.showMessageDialog(null, "Update Successful");
         } catch (Exception e1) {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
@@ -748,7 +763,7 @@ public class Control {
             pst.setString(2, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Save Successful");
+            JOptionPane.showMessageDialog(null, "Update Successful");
         } catch (Exception e1) {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
@@ -763,7 +778,7 @@ public class Control {
             pst.setString(2, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Save Successful");
+            JOptionPane.showMessageDialog(null, "Update Successful");
         } catch (Exception e1) {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
@@ -778,7 +793,7 @@ public class Control {
             pst.setString(2, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Save Successful");
+            JOptionPane.showMessageDialog(null, "Update Successful");
         } catch (Exception e1) {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
@@ -793,7 +808,7 @@ public class Control {
             pst.setString(2, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Save Successful");
+            JOptionPane.showMessageDialog(null, "Update Successful");
         } catch (Exception e1) {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
@@ -808,7 +823,7 @@ public class Control {
             pst.setString(2, id);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Save Successful");
+            JOptionPane.showMessageDialog(null, "Update Successful");
         } catch (Exception e1) {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
@@ -834,10 +849,10 @@ public class Control {
             pst.setString(4,accountNO);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Payment Added");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Payment Not Added");
         }
     }
     public void updatePaymentAmount(String amount,String transactionId){
@@ -850,10 +865,10 @@ public class Control {
             pst.setString(2,transactionId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -866,10 +881,10 @@ public class Control {
             pst.setString(1,date);
             pst.setString(2,transactionId);
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -883,10 +898,10 @@ public class Control {
             pst.setString(2,transactionId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -900,10 +915,10 @@ public class Control {
             pst.setString(2,transactionId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -923,10 +938,10 @@ public class Control {
             pst.setString(6,cvv);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Card Payment Recorded");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Card Payment Not Recorded");
         }
     }
 
@@ -956,10 +971,10 @@ public class Control {
             pst.setString(2,transactionId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateCardHolderName(String name,String cardNo){
@@ -972,10 +987,10 @@ public class Control {
             pst.setString(2,cardNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -989,10 +1004,10 @@ public class Control {
             pst.setString(2,cardNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -1006,10 +1021,10 @@ public class Control {
             pst.setString(2,cardNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
     public void updateCardCVV(String cvv,String cardNo){
@@ -1022,10 +1037,10 @@ public class Control {
             pst.setString(2,cardNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -1040,10 +1055,10 @@ public class Control {
             pst.setString(3,transactionId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Cash Payment Recorded");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Cash Payment Not Recorded");
         }
 
     }
@@ -1058,10 +1073,10 @@ public class Control {
             pst.setString(2,paymentNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -1075,10 +1090,10 @@ public class Control {
             pst.setString(2,paymentNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -1092,10 +1107,10 @@ public class Control {
             pst.setString(2,accountNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
     }
 
@@ -1109,10 +1124,10 @@ public class Control {
             pst.setString(2,discountId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsccessful");
         }
 
     }
@@ -1126,10 +1141,10 @@ public class Control {
             pst.setString(2,discountId);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
 
     }
@@ -1176,10 +1191,10 @@ public class Control {
 
             rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Customer found");
+                JOptionPane.showMessageDialog(null, "Customer Found");
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Customer not found");
+                JOptionPane.showMessageDialog(null, "Customer Not Found");
                 return false;
             }
         }
@@ -1200,10 +1215,10 @@ public class Control {
 
             rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Customer found");
+                JOptionPane.showMessageDialog(null, "Job Found");
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Customer not found");
+                JOptionPane.showMessageDialog(null, "Job Not Found");
                 return false;
             }
         }
@@ -1224,10 +1239,10 @@ public class Control {
 
             rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Customer found");
+                JOptionPane.showMessageDialog(null, "Task Found");
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Customer not found");
+                JOptionPane.showMessageDialog(null, "Task Not Found");
                 return false;
             }
         }

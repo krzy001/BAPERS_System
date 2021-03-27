@@ -107,11 +107,9 @@ public class AddJob extends Screen {
                                     if (textField6.getText().length() > 0) {
                                         if (textField7.getText().length() > 0) {
                                             if (textField8.getText().length() > 0) {
-                                                if (textField9.getText().length() > 0) {
-                                                    system.getController().createJob(
-                                                            textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                                                            textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
-                                                }
+                                                system.getController().createJob(
+                                                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                                                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
                                             }
                                         }
                                     }
@@ -127,7 +125,7 @@ public class AddJob extends Screen {
             public void actionPerformed(ActionEvent e) {
                 if (textField1.getText().length() > 0) {
                     if (textField9.getText().length() > 0) {
-                        system.getController().updateCustomerName(textField1.getText(), textField9.getText());
+                        system.getController().updateJobStartTime(textField1.getText(), textField9.getText());
                     }
                 }
             }
@@ -135,49 +133,79 @@ public class AddJob extends Screen {
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateStartTime(textField2.getText(),textField9.getText());
+                if (textField2.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updatePriority(textField2.getText(), textField9.getText());
+                    }
+                }
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updatePriority(textField3.getText(),textField9.getText());
+                if (textField3.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updateSpecialInstruction(textField3.getText(), textField9.getText());
+                    }
+                }
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateSpecialInstruction(textField4.getText(),textField9.getText());
+                if (textField4.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updateJobStatus(textField4.getText(), textField9.getText());
+                    }
+                }
             }
         });
         updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateJobStatus(textField5.getText(),textField9.getText());
+                if (textField5.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updateDate(textField5.getText(), textField9.getText());
+                    }
+                }
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateDate(textField6.getText(),textField9.getText());
+                if (textField6.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updateDeadline(textField6.getText(), textField9.getText());
+                    }
+                }
             }
         });
         updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateDeadline(textField7.getText(),textField9.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updatePrice(textField7.getText(), textField9.getText());
+                    }
+                }
             }
         });
         updateButton7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updatePrice(textField8.getText(),textField9.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField9.getText().length() > 0) {
+                        system.getController().updateJobAccountNo(textField8.getText(), textField9.getText());
+                    }
+                }
             }
         });
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().removeJob(textField9.getText());
+                if (textField9.getText().length() > 0) {
+                    system.getController().removeJob(textField9.getText());
+                }
             }
         });
     }
