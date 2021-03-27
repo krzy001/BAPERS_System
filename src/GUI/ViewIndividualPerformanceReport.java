@@ -125,7 +125,6 @@ public class ViewIndividualPerformanceReport extends Screen {
                     }
                     file.close();
                 }
-
                 catch(Exception e1){
                     e1.printStackTrace();
                 }

@@ -121,10 +121,34 @@ public class AddTask extends Screen {
         btnAddJob.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().addTask(
-                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText(),
-                        textField9.getText(), textField10.getText(), textField11.getText(),textField12.getText());
+                if (textField1.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        if (textField3.getText().length() > 0) {
+                            if (textField4.getText().length() > 0) {
+                                if (textField5.getText().length() > 0) {
+                                    if (textField6.getText().length() > 0) {
+                                        if (textField7.getText().length() > 0) {
+                                            if (textField8.getText().length() > 0) {
+                                                if (textField9.getText().length() > 0) {
+                                                    if (textField10.getText().length() > 0) {
+                                                        if (textField11.getText().length() > 0) {
+                                                            if (textField12.getText().length() > 0) {
+                                                                system.getController().addTask(
+                                                                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                                                                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText(),
+                                                                        textField9.getText(), textField10.getText(), textField11.getText(), textField12.getText());
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         });
 

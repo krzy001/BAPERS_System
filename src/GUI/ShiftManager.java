@@ -11,7 +11,7 @@ public class ShiftManager extends Screen{
     private JPanel panelShiftManager;
     private JButton btnCreateCustomer;
     private JButton btnIdentifyCustomer;
-    private JButton btnReport;
+    private JButton btnSearchTask;
     private JButton backButton;
     private JPanel panelTwo;
     private JPanel panelThree;
@@ -40,7 +40,7 @@ public class ShiftManager extends Screen{
         btnIdentifyCustomer.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
         backButton.setPreferredSize(new Dimension(150,30));
-        btnReport.setPreferredSize(new Dimension(150,30));
+        btnSearchTask.setPreferredSize(new Dimension(150,30));
         addJobButton.setPreferredSize(new Dimension(150,30));
         addTaskButton.setPreferredSize(new Dimension(150,30));
         taskListButton.setPreferredSize(new Dimension(150,30));
@@ -90,10 +90,10 @@ public class ShiftManager extends Screen{
                 system.nextScreen(system.AddTask);
             }
         });
-        btnReport.addActionListener(new ActionListener() {
+        btnSearchTask.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.Reports);
+                system.nextScreen(system.SearchTask);
             }
         });
         taskListButton.addActionListener(new ActionListener() {

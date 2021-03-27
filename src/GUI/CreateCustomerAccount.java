@@ -75,9 +75,23 @@ public class CreateCustomerAccount extends Screen{
         btnCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().createCustomerAccount(
-                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                        textField5.getText(), textField6.getText(), textField7.getText());
+                if (textField1.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        if (textField3.getText().length() > 0) {
+                            if (textField4.getText().length() > 0) {
+                                if (textField5.getText().length() > 0) {
+                                    if (textField6.getText().length() > 0) {
+                                        if (textField7.getText().length() > 0) {
+                                            system.getController().createCustomerAccount(
+                                                    textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                                                    textField5.getText(), textField6.getText(), textField7.getText());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         });
     }

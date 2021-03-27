@@ -68,12 +68,7 @@ public class AddPayment extends Screen {
                 system.backScreen();
             }
         });
-        btnAddPayment.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
         btnAddPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

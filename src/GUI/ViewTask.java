@@ -17,7 +17,6 @@ public class ViewTask extends Screen {
     private JButton btnLogout;
     private JPanel panelMiddle;
     private JLabel jLabelTaskID;
-    private JLabel jLabelLoaction;
     private JLabel jLabelLocation;
     private JLabel jLabelPrice;
     private JLabel jLabelDuration;
@@ -28,17 +27,14 @@ public class ViewTask extends Screen {
     private JButton btnAddJob;
     private JButton taskListButton;
     private JPanel panelViewTask;
-    private JLabel jLabelJDescription;
+    private JLabel jLabelDescription;
     private JLabel jLabelCompletedBy;
     private JLabel jLabelStaffID;
-    private JLabel labelComletedBy;
+    private JLabel labelCompletedBy;
     private JLabel jLabelStartTime;
-    private JLabel jLabelTaskId;
     private JLabel jLabelJobNo;
-    private JLabel jLabelStaffId;
     private JLabel jLabelStatus;
     private JLabel jLabelTimeTaken;
-    private JButton completeButton;
 
     public ViewTask(BAPERS system) {
         super(system);
@@ -78,16 +74,16 @@ public class ViewTask extends Screen {
                 String timeTaken  = rs.getString(13);
 
                 jLabelTaskID.setText(taskID);
-                jLabelLoaction.setText(taskDescription);
+                jLabelDescription.setText(taskDescription);
                 jLabelStartTime.setText(startTime);
                 jLabelLocation.setText(location);
                 jLabelPrice.setText(price);
                 jLabelDuration.setText(duration);
                 jLabelShift.setText(shift);
                 jLabelDate.setText(date);
-                labelComletedBy.setText(status);
+                jLabelStatus.setText(status);
                 jLabelCompletedBy.setText(completedBy);
-                jLabelJDescription.setText(jobNo);
+                jLabelJobNo.setText(jobNo);
                 jLabelStaffID.setText(staffID);
                 jLabelTimeTaken.setText(timeTaken);
             }
@@ -119,10 +115,5 @@ public class ViewTask extends Screen {
                 system.nextScreen(system.AddTask);
             }
         });
-
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }
