@@ -83,11 +83,8 @@ public class OfficeManager extends Screen {
                     int deadlineYear = Integer.parseInt(deadline.substring(6, 10));
 
                     if (deadlineYear == year) {
-                        System.out.println("year");
                         if (deadlineMonth == month) {
-                            System.out.println("month");
                             if (deadlineDay - day <= 3) {
-                                System.out.println("day");
                                 system.addUrgentJobs(jobID);
                                 system.setUrgentJobsShown(true);
                             }

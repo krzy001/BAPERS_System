@@ -30,7 +30,7 @@ public class Report {
 
         //While loop add somewhere for each job
         try {
-            String sql = "SELECT * FROM task WHERE";
+            String sql = "SELECT * FROM task WHERE Job_ID="+1;
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
