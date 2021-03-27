@@ -98,25 +98,41 @@ public class AddPayment extends Screen {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updatePaymentAmount(textField.getText(),textField1.getText());
+                if (textField.getText().length() > 0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updatePaymentAmount(textField.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updatePaymentDate(textField4.getText(),textField1.getText());
+                if (textField4.getText().length() > 0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updatePaymentDate(textField4.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updatePaymentJobNo(textField3.getText(),textField1.getText());
+                if (textField3.getText().length() > 0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updatePaymentJobNo(textField3.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updatePaymentAccountNo(textField2.getText(),textField1.getText());
+                if (textField2.getText().length() > 0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updatePaymentAccountNo(textField2.getText(), textField1.getText());
+                    }
+                }
             }
         });
     }
