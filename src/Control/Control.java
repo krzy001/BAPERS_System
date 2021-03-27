@@ -4,9 +4,10 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -1296,27 +1297,52 @@ public class Control {
         }
     }
 
-    public void IndividualPerformanceReport(){
-        try{
+/*    public void IndividualPerformanceReport(){
+        try {
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+            PreparedStatement pst = (PreparedStatement) con.createStatement();
+            ResultSet rs = pst.executeQuery(sql);
+
             Workbook w = new XSSFWorkbook();
 
             Sheet s = w.createSheet("Individual Performance Report");
             String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken"};
+            ArrayList<String> Name = new ArrayList<>();
+
             Row row = s.createRow(0);
+//            pst.setString(1,taskId);
+            while (rs.next()) {
+                System.out.println("Working");
+                System.out.println(rs.getString(1));
 
-            for(int i = 0; i < headers.length; i++){
-                Cell cell = row.createCell(i);
-                cell.setCellValue(headers[i]);
+//                int rowNum = 1;
+               *//* for(int i = 0; i < Date.size(); ++i){
+                    row = s.createRow(rowNum++);
+                    row.createCell(0).setCellValue(Date.get(i));
+                    getData("Day Shift 1",row.getCell(0));
+                    row.createCell(1).setCellValue(Time.get(0));
+                    row.createCell(2).setCellValue(Time.get(1));
+                    row.createCell(3).setCellValue(Time.get(2));
+                    row.createCell(4).setCellValue(Time.get(3));
+                }*//*
 
-                FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
-                w.write(file);
-                file.close();
+                for (int i = 0; i < headers.length; i++) {
+                    Cell cell = row.createCell(i);
+                    cell.setCellValue(headers[i]);
+
+
+                    FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
+                    w.write(file);
+                    file.close();
+                }
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
-    }
+    }*/
 }
 
 

@@ -103,6 +103,7 @@ public class AddTask extends Screen {
         updateButton8.setPreferredSize(new Dimension(150,30));
         updateButton9.setPreferredSize(new Dimension(150,30));
         updateButton10.setPreferredSize(new Dimension(150,30));
+        updateButton11.setPreferredSize(new Dimension(150,30));
 
         btnBack.addActionListener(new ActionListener() {
             @Override
