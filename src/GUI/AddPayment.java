@@ -72,7 +72,15 @@ public class AddPayment extends Screen {
         btnAddPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().AddPayment(textField.getText(),textField4.getText(), textField3.getText(), textField2.getText());
+                if (textField.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        if (textField3.getText().length() > 0) {
+                            if (textField4.getText().length() > 0) {
+                                system.getController().AddPayment(textField.getText(), textField4.getText(), textField3.getText(), textField2.getText());
+                            }
+                        }
+                    }
+                }
             }
         });
         cardPaymentButton.addActionListener(new ActionListener() {
