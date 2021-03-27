@@ -77,21 +77,21 @@ public class ViewIndividualPerformanceReport extends Screen {
                     Sheet s = w.createSheet("Individual Performance Report");
                     String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken"};
                     ArrayList<String> Name = new ArrayList<>();
-                    ArrayList<Integer> TaskId = new ArrayList<>();
+                    ArrayList<String> TaskId = new ArrayList<>();
                     ArrayList<String> Department = new ArrayList<>();
                     ArrayList<String> Date = new ArrayList<>();
                     ArrayList<String> StartTime = new  ArrayList<>();
                     ArrayList<String> TimeTaken = new ArrayList<>();
 
-                    Row row = s.createRow(0);
+                    Row row = s.createRow(1);
 
                     while (rs.next()) {
-                        Name.add(rs.getString(9));
-                        TaskId.add(rs.getInt(1));
+                        Name.add(rs.getString(1));
+                        TaskId.add(rs.getString(2));
                         Department.add(rs.getString(3));
-                        Date.add(rs.getString(7));
-                        StartTime.add(rs.getString(7));
-                        TimeTaken.add(rs.getString(5));
+                        Date.add(rs.getString(4));
+                        StartTime.add(rs.getString(5));
+                        TimeTaken.add(rs.getString(6));
 
 
                         int rowNum = 1;
