@@ -38,7 +38,7 @@ public class Discount extends Screen {
         labelLogo.setForeground(Color.RED);
         labelDiscountId.setFont(labelLogo.getFont().deriveFont(size));
         labelRate.setFont(labelLogo.getFont().deriveFont(size));
-        labelRate.setFont(labelLogo.getFont().deriveFont(size));
+        labelAccountNo.setFont(labelLogo.getFont().deriveFont(size));
 
         btnBack.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
@@ -49,8 +49,12 @@ public class Discount extends Screen {
         btnCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().addDiscount(
-                        textField1.getText(), textField2.getText());
+                if(textField1.getText().length()>0){
+                    if(textField2.getText().length()>0) {
+                        system.getController().addDiscount(
+                                textField1.getText(), textField2.getText());
+                    }
+                }
             }
         });
 
@@ -71,13 +75,21 @@ public class Discount extends Screen {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateRate(textField1.getText(),textField3.getText());
+                if(textField1.getText().length()>0) {
+                    if (textField3.getText().length() > 0) {
+                        system.getController().updateRate(textField1.getText(), textField3.getText());
+                    }
+                }
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateAccountNo(textField1.getText(),textField3.getText());
+                if(textField2.getText().length()>0) {
+                    if (textField3.getText().length() > 0) {
+                        system.getController().updateAccountNo(textField1.getText(), textField3.getText());
+                    }
+                }
             }
         });
     }

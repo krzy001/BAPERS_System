@@ -86,15 +86,6 @@ public class UpdateCustomerInfo extends Screen {
             }
         });
 
-        //Update the whole row of information
-        /*btnUpdate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerInfo(
-                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText());
-            }
-        });*/
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

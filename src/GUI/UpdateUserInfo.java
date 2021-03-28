@@ -80,15 +80,6 @@ public class UpdateUserInfo extends Screen {
             }
         });
 
-        /*btnUpdate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserInfo(
-                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                        textField5.getText(), textField6.getText(), textField7.getText());
-            }
-        });*/
-
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

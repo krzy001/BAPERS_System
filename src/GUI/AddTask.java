@@ -155,78 +155,128 @@ public class AddTask extends Screen {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateDescription(textField1.getText(), textField13.getText());
+                if (textField1.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        system.getController().updateDescription(textField1.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton10.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskStartTime(textField2.getText(), textField13.getText());
+                if (textField2.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskStartTime(textField2.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateLocation(textField3.getText(), textField13.getText());
+                if (textField3.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateLocation(textField3.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskPrice(textField4.getText(), textField13.getText());
+                if (textField4.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskPrice(textField4.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateDuration(textField5.getText(), textField13.getText());
+                if (textField5.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateDuration(textField5.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskShift(textField6.getText(), textField13.getText());
+                if (textField6.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskShift(textField6.getText(), textField13.getText());
+                    }
+                }
             }
         });updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskDate(textField7.getText(), textField13.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskDate(textField7.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskStatus(textField8.getText(), textField13.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskStatus(textField8.getText(), textField13.getText());
+                    }
+                }
             }
         });updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCompletedBy(textField9.getText(), textField13.getText());
+                if (textField9.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateCompletedBy(textField9.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskJobsNo(textField10.getText(), textField13.getText());
+                if (textField10.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskJobsNo(textField10.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskStaffId(textField11.getText(), textField13.getText());
+                if (textField11.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskStaffId(textField11.getText(), textField13.getText());
+                    }
+                }
             }
         });
         updateButton11.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateTaskTimeTaken(textField12.getText(), textField13.getText());
+                if (textField12.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskTimeTaken(textField12.getText(), textField13.getText());
+                    }
+                }
             }
         });
 
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().removeTask(textField13.getText());
+                if (textField13.getText().length() > 0) {
+                    system.getController().removeTask(textField13.getText());
+                }
             }
         });
     }

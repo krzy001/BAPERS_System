@@ -38,6 +38,15 @@ public class CreateCustomerAccount extends Screen{
     private JLabel labelEmail;
     private JLabel labelDiscountPlan;
     private JLabel labelValue;
+    private JButton updateButton;
+    private JButton updateButton1;
+    private JButton updateButton2;
+    private JButton updateButton3;
+    private JButton updateButton4;
+    private JButton updateButton5;
+    private JButton updateButton6;
+    private JTextField textField8;
+    private JLabel labelAccountNo;
 
     public CreateCustomerAccount(BAPERS system) {
         super(system);
@@ -54,11 +63,19 @@ public class CreateCustomerAccount extends Screen{
         labelEmail.setFont(labelLogo.getFont().deriveFont(size));
         labelDiscountPlan.setFont(labelLogo.getFont().deriveFont(size));
         labelValue.setFont(labelLogo.getFont().deriveFont(size));
+        labelAccountNo.setFont(labelLogo.getFont().deriveFont(size));
 
 
         btnBack.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
         btnCreate.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
+        updateButton4.setPreferredSize(new Dimension(150,30));
+        updateButton5.setPreferredSize(new Dimension(150,30));
+        updateButton6.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
@@ -90,6 +107,77 @@ public class CreateCustomerAccount extends Screen{
                                 }
                             }
                         }
+                    }
+                }
+            }
+        });
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField1.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerName(textField1.getText(), textField8.getText());
+                    }
+                }
+            }
+        });
+        updateButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField2.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerContactName(textField2.getText(), textField8.getText());
+                    }
+                }
+            }
+        });
+        updateButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField3.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerAddress(textField3.getText(), textField8.getText());
+                    }
+                }
+            }
+        });
+        updateButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField4.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerPhone(textField4.getText(), textField8.getText());
+                    }
+                }
+            }
+        });
+        updateButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField5.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerEmail(textField5.getText(), textField8.getText());
+                    }
+                }
+            }
+        });
+        updateButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField6.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerDiscount(textField6.getText(), textField8.getText());
+                    }
+                }
+            }
+        });
+        updateButton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField7.getText().length() > 0) {
+                    if (textField8.getText().length() > 0) {
+                        system.getController().updateCustomerValued(textField7.getText(), textField8.getText());
                     }
                 }
             }
