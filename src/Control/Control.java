@@ -742,10 +742,9 @@ public class Control {
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "UPDATE staff SET Name=? WHERE Staff_ID=?";
+            String sql = "UPDATE staff SET Name=? WHERE Staff_ID="+id;
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, name);
-            pst.setString(2, id);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Update Successful");

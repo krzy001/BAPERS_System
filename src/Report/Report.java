@@ -1,13 +1,18 @@
 package Report;
 
 import database.dbConnection;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Report {
 
@@ -26,36 +31,97 @@ public class Report {
     public void getIndividualPerformanceReport(){
         model = new DefaultTableModel(new String[]{
                 "Name", "Task IDs", "Department", "Date",
-                "Start Time", "Time Taken", "Total"}, 0);
+                "Start Time", "Time Taken"}, 0);
 
         //While loop add somewhere for each job
         try {
-            String sql = "SELECT * FROM task WHERE Job_ID="+1;
+            Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            Statement s = con.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
+            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
 
-            // Needs to be some sql code to fetch data linking tasks and jobs
 
-            int Total = 0;
-            while(rs.next())
-            {
-                String name = rs.getString("Completed By");
-                String taskID = rs.getString("Task_ID");
-                String department = rs.getString("Location");
-                String date = rs.getString("Date");
-                //String startTime = rs.getString("????"); /////////////// Task needs start time
-                String timeTaken = rs.getString("Duration");
-                Total += Integer.parseInt(timeTaken);
+            while (rs.next()) {
+                String name = rs.getString(1);
+                String taskId = rs.getString(2);
+                String department = rs.getString(3);
+                String date = rs.getString(4);
+                String startTime = rs.getString(5);
+                String timeTaken = rs.getString(6);
+
 
                 model.addRow(new Object[]{
-                        name, taskID, department, date,
-                        //startTime,
-                        timeTaken, null});
+                        name, taskId, department, date,
+                        startTime, timeTaken});
+                }
+            }
+                catch(Exception e1){
+                e1.printStackTrace();
+        }
+    }
+
+    public void getSummaryReport(){
+        model = new DefaultTableModel(new String[]{
+                "Date", "Copy Room", "Development", "Finishing",
+                "Packing"}, 0);
+
+        try {
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+
+
+            while (rs.next()) {
+                String name = rs.getString(1);
+                String taskId = rs.getString(2);
+                String department = rs.getString(3);
+                String date = rs.getString(4);
+                String startTime = rs.getString(5);
+                String timeTaken = rs.getString(6);
+
+                model.addRow(new Object[]{
+                        name, taskId, department, date,
+                        startTime, timeTaken});
             }
         }
-        catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+        catch(Exception e1){
+            e1.printStackTrace();
+        }
+    }
+
+    public void getCustomerSalesReport(){
+        model = new DefaultTableModel(new String[]{
+                "Name", "Task IDs", "Department", "Date",
+                "Start Time", "Time Taken"}, 0);
+
+        //While loop add somewhere for each job
+        try {
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery(sql);
+
+
+            while (rs.next()) {
+                String name = rs.getString(1);
+                String taskId = rs.getString(2);
+                String department = rs.getString(3);
+                String date = rs.getString(4);
+                String startTime = rs.getString(5);
+                String timeTaken = rs.getString(6);
+
+
+                model.addRow(new Object[]{
+                        name, taskId, department, date,
+                        startTime, timeTaken});
+            }
+        }
+        catch(Exception e1){
+            e1.printStackTrace();
         }
     }
 

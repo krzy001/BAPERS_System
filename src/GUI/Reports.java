@@ -60,5 +60,17 @@ public class Reports extends Screen {
                 system.nextScreen(system.ViewIndividualPerformanceReport);
             }
         });
+        btnView3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.ViewSummaryReport);
+            }
+        });
+        btnView1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.ViewCustomerSalesReport);
+            }
+        });
     }
 }

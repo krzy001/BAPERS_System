@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class ViewIndividualPerformanceReport extends Screen {
     private JPanel panelTop;
     private JPanel panelMiddle;
-    private JPanel scrollPane;
     private JButton btnBack;
     private JPanel panelBottom;
     private JPanel panelIndividualPerformanceReport;
@@ -45,7 +44,8 @@ public class ViewIndividualPerformanceReport extends Screen {
         btnBack.setPreferredSize(new Dimension(150,30));
         printButton.setPreferredSize(new Dimension(150,30));
 
-        //DefaultTableModel model = system.generateIndividualPerformanceReport();
+        DefaultTableModel model = system.generateIndividualPerformanceReport();
+        table1.setModel(model);
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

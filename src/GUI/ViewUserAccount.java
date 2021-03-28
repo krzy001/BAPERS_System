@@ -21,9 +21,10 @@ public class ViewUserAccount extends Screen {
     private JButton btnLogout;
     private JLabel jLabelName;
     private JLabel jLabelUsername;
-    private JLabel jPanelRole;
-    private JLabel jPanelDepartment;
+    private JLabel jLabelRole;
+    private JLabel jLabelDepartment;
     private JLabel labelLogo;
+    private JLabel jLabelEmail;
 
     public ViewUserAccount(BAPERS system){
         super(system);
@@ -51,12 +52,14 @@ public class ViewUserAccount extends Screen {
                 String name = rs.getString(2);
                 String username = rs.getString(3);
                 String role = rs.getString(5);
-                String department = rs.getString(6);
+                String email = rs.getString(6);
+                String department = rs.getString(7);
 
                 jLabelName.setText(name);
                 jLabelUsername.setText(username);
-                jPanelRole.setText(role);
-                jPanelDepartment.setText(department);
+                jLabelRole.setText(role);
+                jLabelEmail.setText(email);
+                jLabelDepartment.setText(department);
 
             }
         } catch (Exception e1){

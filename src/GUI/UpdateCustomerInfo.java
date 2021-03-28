@@ -98,43 +98,71 @@ public class UpdateCustomerInfo extends Screen {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerName(textField1.getText(),textField8.getText());
+                if(textField8.getText().length()>0) {
+                    if(textField1.getText().length()>0) {
+                        system.getController().updateCustomerName(textField1.getText(), textField8.getText());
+                    }
+                }
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerContactName(textField2.getText(),textField8.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        system.getController().updateCustomerContactName(textField2.getText(), textField8.getText());
+                    }
+                }
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerAddress(textField3.getText(),textField8.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField3.getText().length() > 0) {
+                        system.getController().updateCustomerAddress(textField3.getText(), textField8.getText());
+                    }
+                }
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerPhone(textField4.getText(),textField8.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField4.getText().length() > 0) {
+                        system.getController().updateCustomerPhone(textField4.getText(), textField8.getText());
+                    }
+                }
             }
         });
         updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerEmail(textField5.getText(),textField8.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateCustomerEmail(textField5.getText(), textField8.getText());
+                    }
+                }
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerDiscount(textField6.getText(),textField8.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField6.getText().length() > 0) {
+                        system.getController().updateCustomerDiscount(textField6.getText(), textField8.getText());
+                    }
+                }
             }
         });
         updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCustomerValued(textField7.getText(),textField8.getText());
+                if (textField8.getText().length() > 0) {
+                    if (textField7.getText().length() > 0) {
+                        system.getController().updateCustomerValued(textField7.getText(), textField8.getText());
+                    }
+                }
             }
         });
     }

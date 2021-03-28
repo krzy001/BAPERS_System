@@ -31,7 +31,7 @@ public class BAPERS {
     public final String CreateNewUser = "CNU";
     public final String IdentifyCustomer = "IC";
     public final String IdentifyUser = "IU";
-    public final String ViewIndividualJobReport = "VIJR";
+    public final String ViewCustomerSalesReport = "VCSR";
     public final String ViewIndividualPerformanceReport = "VIPR";
     public final String JobEnquiry = "JE";
     public final String JobList = "JL";
@@ -124,8 +124,8 @@ public class BAPERS {
         else if(page == IdentifyUser){
             screen = new SearchUser(this);
         }
-        else if(page == ViewIndividualJobReport){
-            screen = new ViewIndividualJobReport(this);
+        else if(page == ViewCustomerSalesReport){
+            screen = new ViewCustomerSalesReport(this);
         }
         else if(page == ViewIndividualPerformanceReport) {
             screen = new ViewIndividualPerformanceReport(this);
@@ -215,6 +215,15 @@ public class BAPERS {
 
     public DefaultTableModel generateSummaryReport(){
         report = new Report();
+        report.getSummaryReport();
+
+        return report.getModel();
+    }
+
+    public DefaultTableModel generateCustomerSalesReport(){
+        report = new Report();
+        report.getCustomerSalesReport();
+
         return report.getModel();
     }
 
@@ -257,6 +266,7 @@ public class BAPERS {
     public boolean isUrgentJobsShown(){
         return urgentJobsShown;
     }
+
     public void setUrgentJobsShown(boolean bool){
         urgentJobsShown = bool;
     }

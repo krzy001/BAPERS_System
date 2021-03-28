@@ -92,43 +92,67 @@ public class UpdateUserInfo extends Screen {
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserName(
-                        textField1.getText(),textField7.getText());
+                if(textField7.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateUserName(
+                                textField1.getText(), textField7.getText());
+                    }
+                }
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserUsername(
-                        textField2.getText(),textField7.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        system.getController().updateUserUsername(
+                                textField2.getText(), textField7.getText());
+                    }
+                }
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserPassword(
-                        textField3.getText(),textField7.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField3.getText().length() > 0) {
+                        system.getController().updateUserPassword(
+                                textField3.getText(), textField7.getText());
+                    }
+                }
             }
         });
         updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserRole(
-                        textField4.getText(),textField7.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField4.getText().length() > 0) {
+                        system.getController().updateUserRole(
+                                textField4.getText(), textField7.getText());
+                    }
+                }
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserEmail(
-                        textField5.getText(),textField7.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateUserEmail(
+                                textField5.getText(), textField7.getText());
+                    }
+                }
             }
         });
         updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateUserDepartment(
-                        textField6.getText(),textField7.getText());
+                if (textField7.getText().length() > 0) {
+                    if (textField6.getText().length() > 0) {
+                        system.getController().updateUserDepartment(
+                                textField6.getText(), textField7.getText());
+                    }
+                }
             }
         });
     }

@@ -3,23 +3,23 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ViewIndividualJobReport extends Screen {
+public class ViewCustomerSalesReport extends Screen {
     private JPanel panelTop;
     private JButton btnBack;
     private JPanel panelMiddle;
     private JPanel panelIndividualJobReport;
     private JPanel panelBottom;
-    private JPanel scrollPane;
     private JButton btnLogout;
     private JLabel labelLogo;
     private JButton printButton;
     private JTable table1;
 
-    public ViewIndividualJobReport(BAPERS system) {
+    public ViewCustomerSalesReport(BAPERS system) {
         super(system);
         this.setContentPane(this.panelIndividualJobReport);
         this.pack();
@@ -31,7 +31,8 @@ public class ViewIndividualJobReport extends Screen {
         btnBack.setPreferredSize(new Dimension(150,30));
         printButton.setPreferredSize(new Dimension(150,30));
 
-        //system.generateIndividualJobReport();
+        DefaultTableModel model = system.generateSummaryReport();
+        table1.setModel(model);
 
 
         btnLogout.addActionListener(new ActionListener() {
@@ -44,6 +45,12 @@ public class ViewIndividualJobReport extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.backScreen();
+            }
+        });
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
