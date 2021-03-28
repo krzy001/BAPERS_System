@@ -26,6 +26,7 @@ public class Discount extends Screen {
     private JLabel labelDiscountId;
     private JLabel labelRate;
     private JLabel labelAccountNo;
+    private JButton removeButton;
 
     public Discount(BAPERS system) {
         super(system);
@@ -45,6 +46,7 @@ public class Discount extends Screen {
         btnCreate.setPreferredSize(new Dimension(150,30));
         updateButton.setPreferredSize(new Dimension(150,30));
         updateButton1.setPreferredSize(new Dimension(150,30));
+        removeButton.setPreferredSize(new Dimension(150,30));
 
         btnCreate.addActionListener(new ActionListener() {
             @Override
@@ -87,8 +89,16 @@ public class Discount extends Screen {
             public void actionPerformed(ActionEvent e) {
                 if(textField2.getText().length()>0) {
                     if (textField3.getText().length() > 0) {
-                        system.getController().updateAccountNo(textField1.getText(), textField3.getText());
+                        system.getController().updateAccountNo(textField2.getText(), textField3.getText());
                     }
+                }
+            }
+        });
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(textField3.getText().length()>0) {
+                    system.getController().removeDiscount(textField3.getText());
                 }
             }
         });

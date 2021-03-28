@@ -1013,10 +1013,10 @@ public class Control {
             pst.setString(2,accountNo);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Update Successful");
+            JOptionPane.showMessageDialog(null,"Discount Added Successful");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Update Unsuccessful");
+            JOptionPane.showMessageDialog(null,"Discount Not Added");
         }
     }
 
@@ -1051,6 +1051,22 @@ public class Control {
         }
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,"Update Unsuccessful");
+        }
+
+    }
+    public void removeDiscount(String discountId){
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "DELETE FROM discount WHERE Discount_ID=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,discountId);
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Remove Successful");
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,"Remove Unsuccessful");
         }
 
     }

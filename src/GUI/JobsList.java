@@ -81,7 +81,7 @@ public class JobsList extends Screen{
         }
 
         try {
-            String sql = "SELECT * FROM jobs ORDER BY Job_Status='In process'";
+            String sql = "SELECT * FROM jobs ORDER BY Job_Status='Active'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
@@ -132,10 +132,10 @@ public class JobsList extends Screen{
             public void actionPerformed(ActionEvent e) {
                 checkBox1.setFocusable(false);
                 if(checkBox1.isSelected()) {
-                    jobsTable.setModel(model1);
+                    jobsTable.setModel(model2);
                 }
                 else{
-                    jobsTable.setModel(model2);
+                    jobsTable.setModel(model1);
                 }
             }
         });

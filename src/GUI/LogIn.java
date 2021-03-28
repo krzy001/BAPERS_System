@@ -44,19 +44,10 @@ public class LogIn extends Screen {
 
         buttonLogIn.setPreferredSize(new Dimension(250,50));
 
-        /*
-        buttonLogIn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.OfficeManager);
-            }
-        });
-         */
 
         buttonLogIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*system.LogIn(textField1.getText(), passwordField1.getText(),String.valueOf(comboBox1.getSelectedItem()));*/
                 try {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
@@ -87,9 +78,6 @@ public class LogIn extends Screen {
                         system.setRoleLoggedIn(role);
 
                         system.setRoleLoggedIn(system.OfficeManager);
-                        //system.setRoleLoggedIn(system.ShiftManager);
-                        //system.setRoleLoggedIn(system.Receptionist);
-                        //system.setRoleLoggedIn(system.Technician);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "Username & Password Incorrect");
