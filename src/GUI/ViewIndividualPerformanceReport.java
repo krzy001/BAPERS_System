@@ -120,8 +120,6 @@ public class ViewIndividualPerformanceReport extends Screen {
                     e1.printStackTrace();
                 }
                 getStaffID();
-
-
             }
             public void getStaffID()
             {
