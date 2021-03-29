@@ -154,5 +154,11 @@ public class TaskList extends Screen{
                 }
             }
         });
+        btnSearchTask.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchTask);
+            }
+        });
     }
 }
