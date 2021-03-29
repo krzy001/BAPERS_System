@@ -99,21 +99,26 @@ public class Report {
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "SELECT task.Task_ID,task.Price,Sum(task.Price) FROM task INNER JOIN jobs ON task.JobsJob_No = jobs.Job_No";
+            String sql = "SELECT task.Task_ID,task.Price FROM task INNER JOIN jobs ON task.JobsJob_No = jobs.Job_No";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery(sql);
 
-            double subTotal = rs.getDouble(3);
+            double subTotal = 0;
             String discountRate = "0%";
-            double total = subTotal*1.2; //*discount rate
+
 
             while (rs.next()) {
                 String taskID = rs.getString(1);
-                String price = rs.getString(2);
+                double price = rs.getDouble(2);
+
+                subTotal+=price;
 
                 model.addRow(new Object[]{
                         taskID, price});
             }
+
+            double total = subTotal*1.2; //*discount rate
+
             model.addRow(new Object[]{
                     "Sub-Total", subTotal});
 
@@ -121,7 +126,8 @@ public class Report {
                     "Discount agreed", discountRate});
 
             model.addRow(new Object[]{
-                    "Total payable (VAT at 20%)", total});
+                    "Total payable (VAT at 20%)", String.format("%.2f",total)});
+
         }
         catch(Exception e1){
             e1.printStackTrace();

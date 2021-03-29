@@ -86,8 +86,9 @@ public class ViewIndividualPerformanceReport extends Screen {
                     ArrayList<String> Department = new ArrayList<>();
                     ArrayList<String> Date = new ArrayList<>();
                     ArrayList<String> StartTime = new  ArrayList<>();
-                    ArrayList<String> TimeTaken = new ArrayList<>();
+                    ArrayList<Integer> TimeTaken = new ArrayList<>();
                     ArrayList<String> TotalTimeTaken = new ArrayList<>();
+                    int TotalEffort = 0;
 
                     while (rs.next()) {
                         Name.add(rs.getString(1));
@@ -95,7 +96,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                         Department.add(rs.getString(3));
                         Date.add(rs.getString(4));
                         StartTime.add(rs.getString(5));
-                        TimeTaken.add(rs.getString(6));
+                        TimeTaken.add(rs.getInt(6));
                         TotalTimeTaken.add(rs.getString(7));
 
                         int rowNum = 1;

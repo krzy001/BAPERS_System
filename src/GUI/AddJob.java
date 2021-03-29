@@ -130,26 +130,6 @@ public class AddJob extends Screen {
                 }
             }
         });
-        updateButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (textField2.getText().length() > 0) {
-                    if (textField9.getText().length() > 0) {
-                        system.getController().updatePriority(textField2.getText(), textField9.getText());
-                    }
-                }
-            }
-        });
-        updateButton2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (textField3.getText().length() > 0) {
-                    if (textField9.getText().length() > 0) {
-                        system.getController().updateSpecialInstruction(textField3.getText(), textField9.getText());
-                    }
-                }
-            }
-        });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

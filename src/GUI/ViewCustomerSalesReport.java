@@ -65,8 +65,8 @@ public class ViewCustomerSalesReport extends Screen {
                 try {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
-                    //String sql = "SELECT * FROM task WHERE JobsJob_No =";
-                    String sql = "SELECT task.Task_ID,task.Price,Sum(task.Price) FROM task INNER JOIN jobs ON task.JobsJob_No = jobs.Job_No";
+
+                    String sql = "SELECT task.Task_ID,task.Price FROM task INNER JOIN jobs ON task.JobsJob_No = jobs.Job_No"; // WHERE task.JobsJob_No="+system.getID();
                     PreparedStatement pst = con.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery(sql);
 
@@ -81,31 +81,45 @@ public class ViewCustomerSalesReport extends Screen {
                         cell.setCellValue(headers[i]);
                     }
 
+                    /*
                     ArrayList<String> TaskID = new ArrayList<>();
-                    ArrayList<String> Price = new ArrayList<>();
-                    ArrayList<Double> subTotal = new ArrayList<>();
-                    subTotal.add(rs.getDouble(3));
-                    String discountRate = "0%";
-                    double total = (subTotal.get(0) *1.20);
-                    int numRows = 1;
+                    ArrayList<Double> Price = new ArrayList<>();
+
+                     */
+
+                    double subTotal = 0;
+                    double discountRate = 0.97;
+                    int numRows = 0;
 
                     while (rs.next()) {
-                        TaskID.add(rs.getString(1));
-                        Price.add(rs.getString(2));
+                        String TaskID = rs.getString(1);
+                        double Price = rs.getDouble(2);
 
-                        int rowNum = 1;
+                        numRows+=1;
 
+                        row = s.createRow(numRows);
+                        row.createCell(0).setCellValue(TaskID);
+                        row.createCell(1).setCellValue(Price);
+                        subTotal+=Price;
+
+
+                        /*
                         for(int i = 0; i < TaskID.size(); ++i){
                             row = s.createRow(rowNum++);
                             row.createCell(0).setCellValue(TaskID.get(i));
                             row.createCell(1).setCellValue(Price.get(i));
+                            subTotal+=Price.get(i);
                             numRows+=1;
                         }
+
+                         */
                     }
+
+                    double total = (subTotal *discountRate*1.20);
 
                     row = s.createRow(numRows+1);
                     row.createCell(0).setCellValue("Sub-Total");
-                    row.createCell(1).setCellValue(subTotal.get(0));
+                    row.createCell(1).setCellValue(subTotal);
 
                     row = s.createRow(numRows+2);
                     row.createCell(0).setCellValue("Discount agreed:");
@@ -113,7 +127,7 @@ public class ViewCustomerSalesReport extends Screen {
 
                     row = s.createRow(numRows+3);
                     row.createCell(0).setCellValue("Total Payable (VAT at 20%)");
-                    row.createCell(1).setCellValue(total);
+                    row.createCell(1).setCellValue(String.format("%.2f",total));
 
                     FileOutputStream file = new FileOutputStream(new File("Customer Sales Report.xlsx"));
                     w.write(file);
