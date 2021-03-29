@@ -122,21 +122,42 @@ public class AddTask extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (textField1.getText().length() > 0) {
-                    if (textField3.getText().length() > 0) {
-                        if (textField4.getText().length() > 0) {
-                            if (textField5.getText().length() > 0) {
-                                if (textField8.getText().length() > 0) {
-                                    if (textField10.getText().length() > 0) {
-                                        if (textField11.getText().length() > 0) {
-                                            system.getController().addTask(
-                                                    textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
-                                                    textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText(),
-                                                    textField9.getText(), textField10.getText(), textField11.getText(), textField12.getText());
+                    if (textField2.getText().length() > 0) {
+                        if (textField3.getText().length() > 0) {
+                            if (textField4.getText().length() > 0) {
+                                if (textField5.getText().length() > 0) {
+                                    if (textField6.getText().length() > 0) {
+                                        if (textField7.getText().length() > 0) {
+                                            if (textField8.getText().length() > 0) {
+                                                if (textField9.getText().length() > 0) {
+                                                    if (textField10.getText().length() > 0) {
+                                                        if (textField11.getText().length() > 0) {
+                                                            if (textField12.getText().length() > 0) {
+                                                                system.getController().addTask(
+                                                                        textField1.getText(), textField2.getText(), textField3.getText(), textField4.getText(),
+                                                                        textField5.getText(), textField6.getText(), textField7.getText(), textField8.getText(),
+                                                                        textField9.getText(), textField10.getText(), textField11.getText(), textField12.getText());
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
+                    }
+                }
+            }
+        });
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField1.getText().length() > 0) {
+                    if (textField2.getText().length() > 0) {
+                        system.getController().updateDescription(textField1.getText(), textField13.getText());
                     }
                 }
             }
@@ -151,6 +172,36 @@ public class AddTask extends Screen {
                 }
             }
         });
+        updateButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField3.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateLocation(textField3.getText(), textField13.getText());
+                    }
+                }
+            }
+        });
+        updateButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField4.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskPrice(textField4.getText(), textField13.getText());
+                    }
+                }
+            }
+        });
+        updateButton9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField5.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateDuration(textField5.getText(), textField13.getText());
+                    }
+                }
+            }
+        });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -160,8 +211,7 @@ public class AddTask extends Screen {
                     }
                 }
             }
-        });
-        updateButton4.addActionListener(new ActionListener() {
+        });updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (textField7.getText().length() > 0) {
@@ -180,13 +230,32 @@ public class AddTask extends Screen {
                     }
                 }
             }
-        });
-        updateButton6.addActionListener(new ActionListener() {
+        });updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (textField9.getText().length() > 0) {
                     if (textField13.getText().length() > 0) {
                         system.getController().updateCompletedBy(textField9.getText(), textField13.getText());
+                    }
+                }
+            }
+        });
+        updateButton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField10.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskJobsNo(textField10.getText(), textField13.getText());
+                    }
+                }
+            }
+        });
+        updateButton8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textField11.getText().length() > 0) {
+                    if (textField13.getText().length() > 0) {
+                        system.getController().updateTaskStaffId(textField11.getText(), textField13.getText());
                     }
                 }
             }
@@ -201,6 +270,7 @@ public class AddTask extends Screen {
                 }
             }
         });
+
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

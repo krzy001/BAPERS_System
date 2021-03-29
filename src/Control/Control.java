@@ -95,7 +95,7 @@ public class Control {
             JOptionPane.showMessageDialog(null,"Job Created");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Job Created");
+            JOptionPane.showMessageDialog(null,"Job Create Unsuccessful");
         }
     }
 
@@ -146,7 +146,6 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
-
     }
     public void updateJobStatus(String jobStatus,String jobNo){
         try{
