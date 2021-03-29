@@ -40,6 +40,8 @@ public class Receptionist extends Screen{
         addTaskButton.setPreferredSize(new Dimension(250,50));
         jobListButton.setPreferredSize(new Dimension(250,50));
         taskListButton.setPreferredSize(new Dimension(250,50));
+        btnCreateCustomer.setPreferredSize(new Dimension(250,50));
+        btnIdentifyCustomer.setPreferredSize(new Dimension(250,50));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override

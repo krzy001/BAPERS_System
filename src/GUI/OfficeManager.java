@@ -104,7 +104,7 @@ public class OfficeManager extends Screen {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.backScreen();
+                system.LogOut();
             }
         });
         searchCustomerButton.addActionListener(new ActionListener() {

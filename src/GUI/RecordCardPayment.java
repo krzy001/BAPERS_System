@@ -76,44 +76,72 @@ public class RecordCardPayment extends Screen {
         btnAddCardPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().recordCardPayment(
-                        textField3.getText(), textField2.getText(), textField1.getText(), textField4.getText(),
-                        textField5.getText(),textField6.getText());
+                if(textField1.getText().length()>0) {
+                    if (textField2.getText().length() > 0) {
+                        if (textField3.getText().length() > 0) {
+                            if (textField4.getText().length() > 0) {
+                                if (textField5.getText().length() > 0) {
+                                    if (textField6.getText().length() > 0) {
+                                        system.getController().recordCardPayment(
+                                                textField3.getText(), textField2.getText(), textField1.getText(), textField4.getText(),
+                                                textField5.getText(), textField6.getText());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCardExpiryDate(textField2.getText(),textField1.getText());
+                if(textField2.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCardExpiryDate(textField2.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCardHolderName(textField3.getText(),textField1.getText());
+                if(textField3.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCardHolderName(textField3.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCardPaid(textField4.getText(),textField1.getText());
+                if(textField4.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCardPaid(textField4.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCardCVV(textField6.getText(),textField1.getText());
+                if(textField6.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCardCVV(textField6.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCardPaymentTransaction(textField5.getText(),textField1.getText());
+                if(textField5.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCardPaymentTransaction(textField5.getText(), textField1.getText());
+                    }
+                }
             }
         });
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

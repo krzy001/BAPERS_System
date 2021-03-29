@@ -58,20 +58,32 @@ public class RecordCashPayment extends Screen{
         btnAddCashPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().recordCashPayment(
-                        textField1.getText(), textField2.getText(), textField3.getText());
+                if(textField1.getText().length()>0) {
+                    if (textField2.getText().length() > 0) {
+                        system.getController().recordCashPayment(
+                                textField1.getText(), textField2.getText(), textField3.getText());
+                    }
+                }
             }
         });
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCashPaymentPaid(textField2.getText(),textField1.getText());
+                if(textField2.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCashPaymentPaid(textField2.getText(), textField1.getText());
+                    }
+                }
             }
         });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.getController().updateCashPaymentTransaction(textField3.getText(),textField1.getText());
+                if(textField3.getText().length()>0) {
+                    if (textField1.getText().length() > 0) {
+                        system.getController().updateCashPaymentTransaction(textField3.getText(), textField1.getText());
+                    }
+                }
             }
         });
     }
