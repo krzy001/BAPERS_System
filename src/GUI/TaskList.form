@@ -108,19 +108,22 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="c4631" class="javax.swing.JCheckBox" binding="checkBox1">
+          <component id="d2755" class="javax.swing.JCheckBox" binding="checkBox2">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Sort Active Tasks"/>
+              <text value="Completed Tasks"/>
             </properties>
           </component>
-          <hspacer id="da8a5">
+          <component id="c4631" class="javax.swing.JCheckBox" binding="checkBox1">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
-          </hspacer>
+            <properties>
+              <text value="Active Tasks"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>

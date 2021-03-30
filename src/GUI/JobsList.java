@@ -26,6 +26,7 @@ public class JobsList extends Screen{
     private JTable jobsTable;
     private JScrollPane scrTbl;
     private JCheckBox checkBox1;
+    private JCheckBox checkBox2;
 
     public JobsList(BAPERS system){
         super(system);
@@ -49,7 +50,12 @@ public class JobsList extends Screen{
         DefaultTableModel model2 = new DefaultTableModel(new String[]{
                 "Job ID", "Start Time", "Priority", "Special Instructions",
                 "Job Status", "Date", "Deadline", "Price",
-                "Customer ID"}, 0);;
+                "Customer ID"}, 0);
+
+        DefaultTableModel model3 = new DefaultTableModel(new String[]{
+                "Job ID", "Start Time", "Priority", "Special Instructions",
+                "Job Status", "Date", "Deadline", "Price",
+                "Customer ID"}, 0);
 
         try {
             String sql = "SELECT * FROM jobs";
@@ -81,7 +87,7 @@ public class JobsList extends Screen{
         }
 
         try {
-            String sql = "SELECT * FROM jobs ORDER BY Job_Status='Active'";
+            String sql = "SELECT * FROM jobs WHERE Job_Status='Active'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
@@ -101,8 +107,31 @@ public class JobsList extends Screen{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
             }
+        }catch (Exception e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
 
-            jobsTable.setModel(model2);
+        try {
+            String sql = "SELECT * FROM jobs WHERE Job_Status='Completed'";
+            Connection con = DriverManager.getConnection(url, user, pass);
+            Statement s = con.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String jobID = rs.getString(1);
+                String startTime = rs.getString(2);
+                String priority = rs.getString(3);
+                String specialInstructions = rs.getString(4);
+                String jobStatus = rs.getString(5);
+                String date = rs.getString(6);
+                String deadline = rs.getString(7);
+                String price = rs.getString(8);
+                String customerID = rs.getString(9);
+                model3.addRow(new Object[]{
+                        jobID, startTime, priority, specialInstructions,
+                        jobStatus, date, deadline, price, customerID});
+            }
         }catch (Exception e1) {
             JOptionPane.showMessageDialog(null, e1);
         }
@@ -133,6 +162,7 @@ public class JobsList extends Screen{
                 checkBox1.setFocusable(false);
                 if(checkBox1.isSelected()) {
                     jobsTable.setModel(model2);
+                    checkBox2.setSelected(false);
                 }
                 else{
                     jobsTable.setModel(model1);
@@ -143,6 +173,19 @@ public class JobsList extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.SearchJob);
+            }
+        });
+        checkBox2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkBox2.setFocusable(false);
+                if(checkBox2.isSelected()) {
+                    jobsTable.setModel(model3);
+                    checkBox1.setSelected(false);
+                }
+                else{
+                    jobsTable.setModel(model1);
+                }
             }
         });
     }

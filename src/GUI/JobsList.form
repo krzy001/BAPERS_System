@@ -110,17 +110,20 @@
         <children>
           <component id="cf740" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
             <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Active Jobs"/>
+            </properties>
+          </component>
+          <component id="624b4" class="javax.swing.JCheckBox" binding="checkBox2">
+            <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Sort Active Job"/>
+              <text value="Completed Jobs"/>
             </properties>
           </component>
-          <hspacer id="9bb07">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
         </children>
       </grid>
     </children>
