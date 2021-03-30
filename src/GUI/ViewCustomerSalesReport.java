@@ -86,7 +86,7 @@ public class ViewCustomerSalesReport extends Screen {
                      */
                     getDiscountRate();
                     double subTotal = 0;
-                    //double discountRate = 0.97;
+
                     int numRows = 0;
 
                     while (rs.next()) {

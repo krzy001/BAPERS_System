@@ -96,6 +96,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                         cell.setCellValue(headers[i]);
                     }
 
+                    /*
                     ArrayList<String> Name = new ArrayList<>();
                     ArrayList<Integer> TaskId = new ArrayList<>();
                     ArrayList<String> Department = new ArrayList<>();
@@ -103,9 +104,13 @@ public class ViewIndividualPerformanceReport extends Screen {
                     ArrayList<String> StartTime = new  ArrayList<>();
                     ArrayList<Integer> TimeTaken = new ArrayList<>();
                     ArrayList<String> TotalTimeTaken = new ArrayList<>();
+                    */
                     int TotalEffort = 0;
 
+                    int numRows = 0;
+
                     while (rs.next()) {
+                        /*
                         Name.add(rs.getString(1));
                         TaskId.add(rs.getInt(3));
                         Department.add(rs.getString(2));
@@ -113,6 +118,29 @@ public class ViewIndividualPerformanceReport extends Screen {
                         StartTime.add(rs.getString(6));
                         TimeTaken.add(rs.getInt(4));
 
+                         */
+                        String Name = rs.getString(1);
+                        String Department = rs.getString(2);
+                        String TaskId = rs.getString(3);
+                        int TimeTaken = rs.getInt(4);
+                        String Date = rs.getString(5);
+                        String StartTime = rs.getString(6);
+
+
+                        numRows+=1;
+
+                        row = s.createRow(numRows);
+                        row.createCell(0).setCellValue(Name);
+                        row.createCell(1).setCellValue(TaskId);
+                        row.createCell(0).setCellValue(Department);
+                        row.createCell(1).setCellValue(Date);
+                        row.createCell(0).setCellValue(StartTime);
+                        row.createCell(1).setCellValue(TimeTaken);
+                        row.createCell(0).setCellValue(StaffHours.get(numRows-1));
+
+                        TotalEffort+=TimeTaken;
+
+                        /*
                         int rowNum = 1;
 
                        for(int i = 0; i < Name.size(); ++i)
@@ -127,7 +155,14 @@ public class ViewIndividualPerformanceReport extends Screen {
                             row.createCell(6).setCellValue(StaffHours.get(i));
                         }
 
+                         */
+
                     }
+
+                    row = s.createRow(numRows+1);
+                    row.createCell(0).setCellValue("Total effort:");
+                    row.createCell(6).setCellValue(TotalEffort);
+
                     FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
                     w.write(file);
                     file.close();
