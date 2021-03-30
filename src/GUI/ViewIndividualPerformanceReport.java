@@ -66,17 +66,32 @@ public class ViewIndividualPerformanceReport extends Screen {
                     ArrayList<Integer> TotalStaff = new ArrayList<>();
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
-                    String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken,Sum(task.Time_Taken) FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+
+
+                    //String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken,Sum(task.Time_Taken) FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+                    String sql = "SELECT\n" +
+                            "  staff.Name,\n" +
+                            "  staff.Department,\n" +
+                            "  task.Task_ID,\n" +
+                            "  task.Time_Taken,\n" +
+                            "  task.Date,\n" +
+                            "  task.Start_Time\n" +
+                            "FROM task\n" +
+                            "  INNER JOIN staff\n" +
+                            "    ON task.StaffStaff_Id = staff.Staff_ID\n" +
+                            "ORDER BY staff.Staff_ID ASC";
                     PreparedStatement pst = con.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery(sql);
 
+                    //initialising workbook - ignore
                     Workbook w = new XSSFWorkbook();
-
                     Sheet s = w.createSheet("Individual Performance Report");
                     String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken", "Total Time"};
                     Row row = s.createRow(0);
 
-                    for (int i = 0; i < headers.length; i++) {
+                    // creates headers for the excel file
+                    for (int i = 0; i < headers.length; i++)
+                    {
                         Cell cell = row.createCell(i);
                         cell.setCellValue(headers[i]);
                     }
@@ -92,16 +107,16 @@ public class ViewIndividualPerformanceReport extends Screen {
 
                     while (rs.next()) {
                         Name.add(rs.getString(1));
-                        TaskId.add(rs.getInt(2));
-                        Department.add(rs.getString(3));
-                        Date.add(rs.getString(4));
-                        StartTime.add(rs.getString(5));
-                        TimeTaken.add(rs.getInt(6));
-                        TotalTimeTaken.add(rs.getString(7));
+                        TaskId.add(rs.getInt(3));
+                        Department.add(rs.getString(2));
+                        Date.add(rs.getString(5));
+                        StartTime.add(rs.getString(6));
+                        TimeTaken.add(rs.getInt(4));
 
                         int rowNum = 1;
 
-                       for(int i = 0; i < Name.size(); ++i){
+                       for(int i = 0; i < Name.size(); ++i)
+                       {
                             row = s.createRow(rowNum++);
                             row.createCell(0).setCellValue(Name.get(i));
                             row.createCell(1).setCellValue(TaskId.get(i));
@@ -109,7 +124,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                             row.createCell(3).setCellValue(Date.get(i));
                             row.createCell(4).setCellValue(StartTime.get(i));
                             row.createCell(5).setCellValue(TimeTaken.get(i));
-                            row.createCell(6).setCellValue(TotalTimeTaken.get(i));
+                            row.createCell(6).setCellValue(StaffHours.get(i));
                         }
 
                     }
