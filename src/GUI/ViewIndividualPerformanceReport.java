@@ -109,6 +109,8 @@ public class ViewIndividualPerformanceReport extends Screen {
 
                     int numRows = 0;
 
+                    getStaffID();
+
                     while (rs.next()) {
                         /*
                         Name.add(rs.getString(1));
@@ -132,11 +134,11 @@ public class ViewIndividualPerformanceReport extends Screen {
                         row = s.createRow(numRows);
                         row.createCell(0).setCellValue(Name);
                         row.createCell(1).setCellValue(TaskId);
-                        row.createCell(0).setCellValue(Department);
-                        row.createCell(1).setCellValue(Date);
-                        row.createCell(0).setCellValue(StartTime);
-                        row.createCell(1).setCellValue(TimeTaken);
-                        row.createCell(0).setCellValue(StaffHours.get(numRows-1));
+                        row.createCell(2).setCellValue(Department);
+                        row.createCell(3).setCellValue(Date);
+                        row.createCell(4).setCellValue(StartTime);
+                        row.createCell(5).setCellValue(TimeTaken);
+                        row.createCell(6).setCellValue(StaffHours.get(numRows-1));
 
                         TotalEffort+=TimeTaken;
 
@@ -170,14 +172,12 @@ public class ViewIndividualPerformanceReport extends Screen {
                 catch(Exception e1){
                     e1.printStackTrace();
                 }
-                getStaffID();
             }
             public void getStaffID()
             {
                 try
                 {
                     //Connection IGNORE
-                    //ArrayList<Integer> StaffID = new ArrayList<>();
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
 
@@ -186,7 +186,6 @@ public class ViewIndividualPerformanceReport extends Screen {
                     ResultSet rs = pst.executeQuery(sql);
                     while(rs.next())
                     {
-                        System.out.println(rs.getInt(1));
                         StaffID.add(rs.getInt(1));
                     }
 
