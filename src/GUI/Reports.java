@@ -69,7 +69,7 @@ public class Reports extends Screen {
         btnView1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.ViewCustomerSalesReport);
+                system.nextScreen(system.EnterJobID);
             }
         });
     }

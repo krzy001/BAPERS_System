@@ -78,13 +78,13 @@ public class OfficeManager extends Screen {
                     String jobID = rs.getString(1);
                     String deadline = rs.getString(7);
 
-                    int deadlineDay = Integer.parseInt(deadline.substring(0, 2));
-                    int deadlineMonth = Integer.parseInt(deadline.substring(3, 5));
-                    int deadlineYear = Integer.parseInt(deadline.substring(6, 10));
+                    int deadlineDay = Integer.parseInt(deadline.substring(8, 10));
+                    int deadlineMonth = Integer.parseInt(deadline.substring(5, 7));
+                    int deadlineYear = Integer.parseInt(deadline.substring(0, 4));
 
                     if (deadlineYear == year) {
                         if (deadlineMonth == month) {
-                            if (deadlineDay - day <= 3) {
+                            if (deadlineDay == day) {
                                 system.addUrgentJobs(jobID);
                                 system.setUrgentJobsShown(true);
                             }

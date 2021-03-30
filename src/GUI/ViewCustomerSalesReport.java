@@ -64,7 +64,7 @@ public class ViewCustomerSalesReport extends Screen {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
 
-                    String sql = "SELECT task.Task_ID,task.Price FROM task INNER JOIN jobs ON task.JobsJob_No = jobs.Job_No"; // WHERE task.JobsJob_No="+system.getID();
+                    String sql = "SELECT task.Task_ID,task.Price FROM task INNER JOIN jobs ON task.JobsJob_No = jobs.Job_No WHERE task.JobsJob_No="+system.getID();
                     PreparedStatement pst = con.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery(sql);
 
@@ -149,7 +149,8 @@ public class ViewCustomerSalesReport extends Screen {
                             "  INNER JOIN customer\n" +
                             "    ON jobs.CustomerAccount_No = customer.Account_No\n" +
                             "  INNER JOIN discount\n" +
-                            "    ON discount.CustomerAccount_No = customer.Account_No");
+                            "    ON discount.CustomerAccount_No = customer.Account_No\n" +
+                            "WHERE Job_No = "+system.getID());
                     PreparedStatement st = con.prepareStatement(query);
                     ResultSet data = st.executeQuery(query);
 

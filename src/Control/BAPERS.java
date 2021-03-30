@@ -57,6 +57,7 @@ public class BAPERS {
     public final String RecordCashPayment = "RCHP";
     public final String UrgentJobsList = "UJL";
     public final String Discount = "D";
+    public final String EnterJobID = "EJID";
 
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
@@ -202,27 +203,30 @@ public class BAPERS {
         else if(page == Discount){
             screen = new Discount(this);
         }
-        screen.setSize(1000,800);
-        screen.setLocationRelativeTo(null);
+        else if(page == EnterJobID) {
+            screen = new EnterJobID(this);
+        }
+            screen.setSize(1000, 800);
+            screen.setLocationRelativeTo(null);
     }
 
     public DefaultTableModel generateIndividualPerformanceReport(){
         report = new Report();
-        report.getIndividualPerformanceReport();
+        report.getIndividualPerformanceReport(this);
 
         return report.getModel();
     }
 
     public DefaultTableModel generateSummaryReport(){
         report = new Report();
-        report.getSummaryReport();
+        report.getSummaryReport(this);
 
         return report.getModel();
     }
 
     public DefaultTableModel generateCustomerSalesReport(){
         report = new Report();
-        report.getCustomerSalesReport();
+        report.getCustomerSalesReport(this);
 
         return report.getModel();
     }
