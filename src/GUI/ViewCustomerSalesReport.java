@@ -14,10 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ViewCustomerSalesReport extends Screen {
@@ -30,6 +27,7 @@ public class ViewCustomerSalesReport extends Screen {
     private JLabel labelLogo;
     private JButton printButton;
     private JTable table1;
+    double discountRate = 1;
 
     public ViewCustomerSalesReport(BAPERS system) {
         super(system);
@@ -86,9 +84,9 @@ public class ViewCustomerSalesReport extends Screen {
                     ArrayList<Double> Price = new ArrayList<>();
 
                      */
-
+                    getDiscountRate();
                     double subTotal = 0;
-                    double discountRate = 0.97;
+                    //double discountRate = 0.97;
                     int numRows = 0;
 
                     while (rs.next()) {
@@ -135,6 +133,35 @@ public class ViewCustomerSalesReport extends Screen {
                 }
                 catch(Exception e1){
                     e1.printStackTrace();
+                }
+            }
+
+            public void getDiscountRate()
+            {
+                try
+                {
+                    Class.forName(driver);
+                    Connection con = DriverManager.getConnection(url, user, pass);
+
+                    String query = ("SELECT\n" +
+                            "  discount.DiscountRate\n" +
+                            "FROM jobs\n" +
+                            "  INNER JOIN customer\n" +
+                            "    ON jobs.CustomerAccount_No = customer.Account_No\n" +
+                            "  INNER JOIN discount\n" +
+                            "    ON discount.CustomerAccount_No = customer.Account_No");
+                    PreparedStatement st = con.prepareStatement(query);
+                    ResultSet data = st.executeQuery(query);
+
+                    while(data.next())
+                    {
+                       discountRate = data.getDouble(1);
+                    }
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
                 }
             }
         });
