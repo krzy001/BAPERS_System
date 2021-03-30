@@ -3,7 +3,6 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
-import javax.swing.text.DateFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,8 +27,8 @@ public class OfficeManager extends Screen {
     private JButton searchUserButton;
     private JButton createUserButton;
     private JButton addTaskButton;
-    private JButton searchJobButton;
-    private JButton searchTaskButton;
+    private JButton jobListButton;
+    private JButton taskListButton;
     private JButton backupButton;
     private JButton restoreButton;
     private JLabel labelOfficeManager;
@@ -54,8 +53,8 @@ public class OfficeManager extends Screen {
         searchUserButton.setPreferredSize(new Dimension(250,50));
         createUserButton.setPreferredSize(new Dimension(250,50));
         addTaskButton.setPreferredSize(new Dimension(250,50));
-        searchJobButton.setPreferredSize(new Dimension(250,50));
-        searchTaskButton.setPreferredSize(new Dimension(250,50));
+        jobListButton.setPreferredSize(new Dimension(250,50));
+        taskListButton.setPreferredSize(new Dimension(250,50));
         backupButton.setPreferredSize(new Dimension(250,50));
         restoreButton.setPreferredSize(new Dimension(250,50));
 
@@ -159,16 +158,16 @@ public class OfficeManager extends Screen {
                 system.nextScreen(system.AddJob);
             }
         });
-        searchJobButton.addActionListener(new ActionListener() {
+        jobListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.SearchJob);
+                system.nextScreen(system.JobList);
             }
         });
-        searchTaskButton.addActionListener(new ActionListener() {
+        taskListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.SearchTask);
+                system.nextScreen(system.TaskList);
             }
         });
         addTaskButton.addActionListener(new ActionListener() {
