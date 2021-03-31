@@ -63,6 +63,7 @@ public class BAPERS {
     public final String SearchPayment = "SP";
     public final String ViewPayment = "VP";
     public final String PaymentList = "PL";
+    public final String StaffList = "SL";
 
     // When BAPERS object is created, database connection is established.
     // Some important variables/objects are also established.
@@ -82,6 +83,8 @@ public class BAPERS {
         nextScreen(LogIn); // Go to log in page
         pages.empty(); // Empties user's history with system
         setRoleLoggedIn("LoggedOff"); // Sets the role logged in to logged off
+        setUrgentJobsShown(false);
+        urgentJobs = new ArrayList<String>();
     }
 
     //Go to the next screen of the system (Whatever the user has selected.
@@ -209,6 +212,9 @@ public class BAPERS {
         }
         else if(page == ViewPayment){
             screen = new ViewPayment(this);
+        }
+        else if(page == StaffList){
+            screen = new StaffList(this);
         }
 
         //Reset the size and location of the screen

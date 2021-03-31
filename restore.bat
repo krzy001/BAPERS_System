@@ -24,7 +24,7 @@ if '%errorlevel%' NEQ '0' (
 :--------------------------------------"
 C:
 cd/
-cd Users\SHAJE\Documents\IN2018\BAPERS_System
-mysql -u root -p risinggen < D:\Backup\risinggen.sql
+cd TeamProject/BAPERS_System
+mysql -u root -p risinggen < "C:\TeamProject\BAPERS_System\backup\risinggen.sql"
 EXIT
 

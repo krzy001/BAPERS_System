@@ -17,7 +17,6 @@ public class OfficeManager extends Screen {
     private JPanel panelOfficeManager;
     private JPanel panelTop;
     private JButton btnReport;
-    private JButton btnBack;
     private JPanel panelBottom;
     private JButton btnLogOut;
     private JButton addJobButton;
@@ -34,6 +33,7 @@ public class OfficeManager extends Screen {
     private JLabel labelOfficeManager;
     private JButton searchPaymentButton;
     private JButton paymentListButton;
+    private JButton staffListButton;
 
     public OfficeManager(BAPERS system){
         super(system);
@@ -46,7 +46,6 @@ public class OfficeManager extends Screen {
         labelOfficeManager.setFont(labelLogo.getFont().deriveFont(size));
 
         btnReport.setPreferredSize(new Dimension(250,50));
-        btnBack.setPreferredSize(new Dimension(250,50));
         btnLogOut.setPreferredSize(new Dimension(250,50));
         addJobButton.setPreferredSize(new Dimension(250,50));
         addTaskButton.setPreferredSize(new Dimension(250,50));
@@ -70,7 +69,7 @@ public class OfficeManager extends Screen {
 
         if(!system.isUrgentJobsShown()) {
             try {
-                String sql = "SELECT * FROM jobs WHERE Job_Status = 'Active'";
+                String sql = "SELECT * FROM jobs WHERE Job_Status != 'Completed'";
                 Connection con = DriverManager.getConnection(url, user, pass);
                 Statement s = con.prepareStatement(sql);
                 ResultSet rs = s.executeQuery(sql);
@@ -83,9 +82,9 @@ public class OfficeManager extends Screen {
                     int deadlineMonth = Integer.parseInt(deadline.substring(5, 7));
                     int deadlineYear = Integer.parseInt(deadline.substring(0, 4));
 
-                    if (deadlineYear == year) {
-                        if (deadlineMonth == month) {
-                            if (deadlineDay == day) {
+                    if (deadlineYear <= year) {
+                        if (deadlineMonth <= month) {
+                            if (deadlineDay <= day) {
                                 system.addUrgentJobs(jobID);
                                 system.setUrgentJobsShown(true);
                             }
@@ -102,12 +101,6 @@ public class OfficeManager extends Screen {
             }
         }
 
-        btnBack.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.LogOut();
-            }
-        });
         searchCustomerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -188,6 +181,12 @@ public class OfficeManager extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.PaymentList);
+            }
+        });
+        staffListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.StaffList);
             }
         });
     }

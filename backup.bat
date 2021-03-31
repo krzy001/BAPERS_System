@@ -28,6 +28,6 @@ FOR /F "TOKENS=2,3 DELIMS=/ " %%A IN ('echo %CDATE%') DO SET yyyy=%%B
 SET date=%mm%%dd%%yyyy%
 C:
 cd/
-cd Users/SHAJE/Documents/IN2018/BAPERS_System
-mysqldump -uroot risinggen > "C:\Users\SHAJE\Documents\IN2018\BAPERS_System\backup\January12.sql"
+cd TeamProject/BAPERS_System
+mysqldump -uroot risinggen > "C:\TeamProject\BAPERS_System\backup\risinggen.sql"
 EXIT

@@ -172,12 +172,6 @@ public class TaskList extends Screen{
                 system.nextScreen(system.AddTask);
             }
         });
-        btnSearchTask.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         checkBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

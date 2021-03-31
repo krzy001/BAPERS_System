@@ -13,7 +13,6 @@ public class Receptionist extends Screen{
     private JButton btnCreateCustomer;
     private JButton btnIdentifyCustomer;
     private JPanel panelTwo;
-    private JPanel panelThree;
     private JButton btnLogout;
     private JLabel labelLogo;
     private JButton backButton;
@@ -23,6 +22,8 @@ public class Receptionist extends Screen{
     private JButton searchTaskButton;
     private JButton jobListButton;
     private JButton taskListButton;
+    private JButton searchPaymentButton;
+    private JButton paymentListButton;
 
     public Receptionist(BAPERS system){
         super(system);
@@ -96,6 +97,18 @@ public class Receptionist extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.TaskList);
+            }
+        });
+        searchPaymentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchPayment);
+            }
+        });
+        paymentListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.PaymentList);
             }
         });
     }

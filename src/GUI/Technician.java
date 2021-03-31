@@ -11,10 +11,8 @@ import java.io.IOException;
 public class Technician extends Screen {
     private JPanel panelTechnician;
     private JPanel panelTop;
-    private JButton btnBack;
     private JPanel panelTwo;
     private JPanel panelThree;
-    private JPanel panelBottom;
     private JButton btnLogout;
     private JLabel labelLogo;
     private JButton jobListButton;
@@ -31,7 +29,6 @@ public class Technician extends Screen {
         labelLogo.setForeground(Color.RED);
 
         btnLogout.setPreferredSize(new Dimension(150,30));
-        btnBack.setPreferredSize(new Dimension(150,30));
         jobListButton.setPreferredSize(new Dimension(150,30));
         taskListButton.setPreferredSize(new Dimension(150,30));
         searchJobButton.setPreferredSize(new Dimension(150,30));
@@ -53,12 +50,6 @@ public class Technician extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.TaskList);
-            }
-        });
-        btnBack.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.backScreen();
             }
         });
         searchJobButton.addActionListener(new ActionListener() {

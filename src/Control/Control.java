@@ -154,7 +154,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE jobs SET Job_Status WHERE Job_No=?";
+            String sql = "UPDATE jobs SET Job_Status=? WHERE Job_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,jobStatus);
             pst.setString(2,jobNo);
@@ -867,7 +867,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcardpayment SET Expiry_Date=? WHERE Card_No=?";
+            String sql = "UPDATE recordcardpayment SET Expiry_Date=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,expiryDate);
             pst.setString(2,transactionId);
@@ -883,7 +883,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcardpayment SET Card_Holder_Name=? WHERE Card_No=?";
+            String sql = "UPDATE recordcardpayment SET Card_Holder_Name=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,name);
             pst.setString(2,cardNo);
@@ -900,7 +900,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcardpayment SET Paid=? WHERE Card_No=?";
+            String sql = "UPDATE recordcardpayment SET Paid=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,paid);
             pst.setString(2,cardNo);
@@ -917,7 +917,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcardpayment SET PaymentTransaction_ID=? WHERE Card_No=?";
+            String sql = "UPDATE recordcardpayment SET PaymentTransaction_ID=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,transactionId);
             pst.setString(2,cardNo);
@@ -933,7 +933,7 @@ public class Control {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcardpayment SET CVV=? WHERE Card_No=?";
+            String sql = "UPDATE recordcardpayment SET CVV=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,cvv);
             pst.setString(2,cardNo);
@@ -1165,35 +1165,11 @@ public class Control {
         }
     }
 
-    public void viewCustomerInfo(){
-
-    }
-
-    public void viewUserInfo(){
-
-    }
-
-    public void createInvoice(){
-
-    }
-
-    public void generateIndividualJobReport(int accountID){
-
-    }
-
-    public void generateIndividualPerformanceReport(int accountID){
-
-    }
-
-    public void generateSummaryPerformanceReport(
-            LocalDate startDate, LocalDate endDate, String department, LocalTime totalTime, String shift){
-    }
-
 
     public void backupDatabase()
     {
-        //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -uroot risinggen > D:\\Backup\\risinggen.sql");
-        String executeCmd = ("cmd /c start C:\\Users\\SHAJE\\Documents\\IN2018\\BAPERS_System\\backup2.bat");
+        String executeCmd = ("cmd /c start C:\\TeamProject\\BAPERS_System\\backup.bat");
+        //String executeCmd = ("cmd /c start C:\\Users\\SHAJE\\Documents\\IN2018\\BAPERS_System\\backup2.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
@@ -1209,8 +1185,8 @@ public class Control {
     }
 
     public void restoreDatabase() {
-        String executeCmd = ("cmd /c start C:\\Users\\SHAJE\\Documents\\IN2018\\BAPERS_System\\restore.bat");
-        //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -uroot risinggen < D:\\Backup\\risinggen.sql");
+        //String executeCmd = ("cmd /c start C:\\Users\\SHAJE\\Documents\\IN2018\\BAPERS_System\\restore.bat");
+        String executeCmd = ("cmd /c start C:\\TeamProject\\BAPERS_System\\restore.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
@@ -1224,53 +1200,6 @@ public class Control {
             e.printStackTrace();
         }
     }
-
-/*    public void IndividualPerformanceReport(){
-        try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
-            PreparedStatement pst = (PreparedStatement) con.createStatement();
-            ResultSet rs = pst.executeQuery(sql);
-
-            Workbook w = new XSSFWorkbook();
-
-            Sheet s = w.createSheet("Individual Performance Report");
-            String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken"};
-            ArrayList<String> Name = new ArrayList<>();
-
-            Row row = s.createRow(0);
-//            pst.setString(1,taskId);
-            while (rs.next()) {
-                System.out.println("Working");
-                System.out.println(rs.getString(1));
-
-//                int rowNum = 1;
-               *//* for(int i = 0; i < Date.size(); ++i){
-                    row = s.createRow(rowNum++);
-                    row.createCell(0).setCellValue(Date.get(i));
-                    getData("Day Shift 1",row.getCell(0));
-                    row.createCell(1).setCellValue(Time.get(0));
-                    row.createCell(2).setCellValue(Time.get(1));
-                    row.createCell(3).setCellValue(Time.get(2));
-                    row.createCell(4).setCellValue(Time.get(3));
-                }*//*
-
-                for (int i = 0; i < headers.length; i++) {
-                    Cell cell = row.createCell(i);
-                    cell.setCellValue(headers[i]);
-
-
-                    FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
-                    w.write(file);
-                    file.close();
-                }
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }*/
 }
 
 

@@ -16,8 +16,6 @@ public class Report {
 
     DefaultTableModel model;
     double discountRate = 1;
-    ArrayList<Integer> StaffHours = new ArrayList<>();
-    ArrayList<Integer> StaffID = new ArrayList<>();
 
     public Report() {
         dbConnection dbConnect = new dbConnection();
@@ -32,13 +30,11 @@ public class Report {
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
-            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+            String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken, staff.Staff_ID FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery(sql);
 
             int totalEffort = 0;
-
-            getStaffID();
 
             int numRows = 0;
 
@@ -49,13 +45,14 @@ public class Report {
                 String date = rs.getString(4);
                 String startTime = rs.getString(5);
                 int timeTaken = rs.getInt(6);
+                int staffID = rs.getInt(7);
 
                 totalEffort+=timeTaken;
                 numRows+=1;
 
                 model.addRow(new Object[]{
                         name, taskId, department, date,
-                        startTime, timeTaken, StaffHours.get(numRows-1)});
+                        startTime, timeTaken, getHours(staffID)});
             }
 
             model.addRow(new Object[]{
@@ -168,33 +165,8 @@ public class Report {
         }
     }
 
-    public void getStaffID()
-    {
-        try
-        {
-            //Connection IGNORE
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(url, user, pass);
 
-            String sql = ("select Staff_ID from staff");
-            PreparedStatement pst = con.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery(sql);
-            while(rs.next())
-            {
-                StaffID.add(rs.getInt(1));
-            }
-
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < StaffID.size(); i++)
-        {
-
-            getHours(StaffID.get(i));
-        }
-    }
-
-    public void getHours(int id)
+    public int getHours(int id)
     {
         try
         {
@@ -209,18 +181,14 @@ public class Report {
             ResultSet data = st.executeQuery(query);
             while(data.next())
             {
-                StaffHours.add(data.getInt(1));
-            }
-
-            for (int i = 0; i < StaffHours.size(); i++)
-            {
-                System.out.println(StaffHours.get(i));
+                return data.getInt(1);
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return 0;
     }
 }
 

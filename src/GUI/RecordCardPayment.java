@@ -94,7 +94,7 @@ public class RecordCardPayment extends Screen {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textField2.getText().length()>0) {
+                if(textField1.getText().length()>0) {
                     if (textField5.getText().length() > 0) {
                         system.getController().updateCardCardNo(textField1.getText(), textField5.getText());
                     }

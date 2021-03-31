@@ -20,8 +20,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ViewIndividualPerformanceReport extends Screen {
-    ArrayList<Integer> StaffHours = new ArrayList<>();
-    ArrayList<Integer> StaffID = new ArrayList<>();
     private JPanel panelTop;
     private JPanel panelMiddle;
     private JButton btnBack;
@@ -63,7 +61,6 @@ public class ViewIndividualPerformanceReport extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ArrayList<Integer> TotalStaff = new ArrayList<>();
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
 
@@ -75,8 +72,9 @@ public class ViewIndividualPerformanceReport extends Screen {
                             "  task.Task_ID,\n" +
                             "  task.Time_Taken,\n" +
                             "  task.Date,\n" +
-                            "  task.Start_Time\n" +
-                            "FROM task\n" +
+                            "  task.Start_Time,\n" +
+                            " staff.Staff_ID\n" +
+                            " FROM task\n" +
                             "  INNER JOIN staff\n" +
                             "    ON task.StaffStaff_Id = staff.Staff_ID\n" +
                             "ORDER BY staff.Staff_ID ASC";
@@ -90,8 +88,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                     Row row = s.createRow(0);
 
                     // creates headers for the excel file
-                    for (int i = 0; i < headers.length; i++)
-                    {
+                    for (int i = 0; i < headers.length; i++) {
                         Cell cell = row.createCell(i);
                         cell.setCellValue(headers[i]);
                     }
@@ -109,8 +106,6 @@ public class ViewIndividualPerformanceReport extends Screen {
 
                     int numRows = 0;
 
-                    getStaffID();
-
                     while (rs.next()) {
                         /*
                         Name.add(rs.getString(1));
@@ -127,9 +122,10 @@ public class ViewIndividualPerformanceReport extends Screen {
                         int TimeTaken = rs.getInt(4);
                         String Date = rs.getString(5);
                         String StartTime = rs.getString(6);
+                        int staffID = rs.getInt(7);
 
 
-                        numRows+=1;
+                        numRows += 1;
 
                         row = s.createRow(numRows);
                         row.createCell(0).setCellValue(Name);
@@ -138,9 +134,9 @@ public class ViewIndividualPerformanceReport extends Screen {
                         row.createCell(3).setCellValue(Date);
                         row.createCell(4).setCellValue(StartTime);
                         row.createCell(5).setCellValue(TimeTaken);
-                        row.createCell(6).setCellValue(StaffHours.get(numRows-1));
+                        row.createCell(6).setCellValue(getHours(staffID));
 
-                        TotalEffort+=TimeTaken;
+                        TotalEffort += TimeTaken;
 
                         /*
                         int rowNum = 1;
@@ -161,71 +157,38 @@ public class ViewIndividualPerformanceReport extends Screen {
 
                     }
 
-                    row = s.createRow(numRows+1);
+                    row = s.createRow(numRows + 1);
                     row.createCell(0).setCellValue("Total effort:");
                     row.createCell(6).setCellValue(TotalEffort);
 
                     FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
                     w.write(file);
                     file.close();
-                }
-                catch(Exception e1){
-                    e1.printStackTrace();
-                }
-            }
-            public void getStaffID()
-            {
-                try
-                {
-                    //Connection IGNORE
-                    Class.forName(driver);
-                    Connection con = DriverManager.getConnection(url, user, pass);
-
-                    String sql = ("select Staff_ID from staff");
-                    PreparedStatement pst = con.prepareStatement(sql);
-                    ResultSet rs = pst.executeQuery(sql);
-                    while(rs.next())
-                    {
-                        StaffID.add(rs.getInt(1));
-                    }
-
-                } catch (SQLException | ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                for (int i = 0; i < StaffID.size(); i++)
-                {
-
-                    getHours(StaffID.get(i));
+                } catch (Exception e1) {
+                    JOptionPane.showMessageDialog(null,e1);
                 }
             }
 
-            public void getHours(int id)
-            {
-                try
-                {
+            public int getHours(int id) {
+                try {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
 
                     String query = ("SELECT Sum(task.Time_Taken), staffStaff_ID\n" +
                             "FROM Task \n" +
                             "INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID\n" +
-                            "WHERE task.StaffStaff_Id='" +id + "'");
+                            "WHERE task.StaffStaff_Id='" + id + "'");
                     PreparedStatement st = con.prepareStatement(query);
                     ResultSet data = st.executeQuery(query);
-                    while(data.next())
-                    {
-                        StaffHours.add(data.getInt(1));
-                    }
-
-                    for (int i = 0; i < StaffHours.size(); i++)
-                    {
-                        System.out.println(StaffHours.get(i));
+                    if (data.next()) {
+                        return data.getInt(1);
                     }
                 } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null,e);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
+                return 0;
             }
         });
     }

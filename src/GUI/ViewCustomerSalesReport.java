@@ -79,11 +79,6 @@ public class ViewCustomerSalesReport extends Screen {
                         cell.setCellValue(headers[i]);
                     }
 
-                    /*
-                    ArrayList<String> TaskID = new ArrayList<>();
-                    ArrayList<Double> Price = new ArrayList<>();
-
-                     */
                     getDiscountRate();
                     double subTotal = 0;
 
@@ -100,17 +95,6 @@ public class ViewCustomerSalesReport extends Screen {
                         row.createCell(1).setCellValue(Price);
                         subTotal+=Price;
 
-
-                        /*
-                        for(int i = 0; i < TaskID.size(); ++i){
-                            row = s.createRow(rowNum++);
-                            row.createCell(0).setCellValue(TaskID.get(i));
-                            row.createCell(1).setCellValue(Price.get(i));
-                            subTotal+=Price.get(i);
-                            numRows+=1;
-                        }
-
-                         */
                     }
 
                     double total = (subTotal *discountRate*1.20);
