@@ -18,8 +18,6 @@ public class RecordCashPayment extends Screen{
     private JButton btnAddCashPayment;
     private JButton btnBack;
     private JButton updateButton;
-    private JButton updateButton1;
-    private JLabel labelPaymentNo;
     private JLabel labelPaymentMade;
     private JLabel labelTransactionId;
 
@@ -31,7 +29,6 @@ public class RecordCashPayment extends Screen{
         float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
-        labelPaymentNo.setFont(labelLogo.getFont().deriveFont(size));
         labelPaymentMade.setFont(labelLogo.getFont().deriveFont(size));
         labelTransactionId.setFont(labelLogo.getFont().deriveFont(size));
 
@@ -40,7 +37,6 @@ public class RecordCashPayment extends Screen{
         btnLogout.setPreferredSize(new Dimension(250,50));
         btnAddCashPayment.setPreferredSize(new Dimension(250,50));
         updateButton.setPreferredSize(new Dimension(250,50));
-        updateButton1.setPreferredSize(new Dimension(250,50));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
@@ -69,7 +65,9 @@ public class RecordCashPayment extends Screen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (textField2.getText().length() > 0) {
-                    system.getController().updateCashPaymentPaid(textField2.getText(),textField3.getText());
+                    if (textField3.getText().length() > 0) {
+                        system.getController().updateCashPaymentPaid(textField2.getText(), textField3.getText());
+                    }
                 }
             }
         });
