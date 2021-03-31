@@ -526,7 +526,7 @@ public class Control {
             JOptionPane.showMessageDialog(null,"Customer Account Created");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Customer Account Not Created");
+            JOptionPane.showMessageDialog(null,e1);
         }
 
     }
@@ -843,18 +843,18 @@ public class Control {
             JOptionPane.showMessageDialog(null,"Card Payment Recorded");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Card Payment Not Recorded");
+            JOptionPane.showMessageDialog(null,e1);
         }
     }
 
-    /*public void updateCardCardNo(String cardNo,String primaryCardNo){
+    public void updateCardCardNo(String cardNo,String transactionId){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcardpayment SET Card_No=? WHERE Card_No";
+            String sql = "UPDATE recordcardpayment SET Card_No=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,cardNo);
-            pst.setString(2,primaryCardNo);
+            pst.setString(2,transactionId);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Saved");
@@ -862,7 +862,7 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
         }
-    }*/
+    }
     public void updateCardExpiryDate(String expiryDate,String transactionId){
         try{
             Class.forName(driver);
@@ -1193,7 +1193,7 @@ public class Control {
     public void backupDatabase()
     {
         //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -uroot risinggen > D:\\Backup\\risinggen.sql");
-        String executeCmd = ("cmd /c start C:\\xampp\\mysql\\bin\\backup.bat");
+        String executeCmd = ("cmd /c start C:\\Users\\SHAJE\\Documents\\IN2018\\BAPERS_System\\backup2.bat");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);
             int processComplete = p.waitFor();
@@ -1209,7 +1209,7 @@ public class Control {
     }
 
     public void restoreDatabase() {
-        String executeCmd = ("cmd /c start C:\\xxamp\\mysql\\bin\\restore.bat");
+        String executeCmd = ("cmd /c start C:\\Users\\SHAJE\\Documents\\IN2018\\BAPERS_System\\restore.bat");
         //String executeCmd = ("C:\\xxamp\\mysql\\bin\\mysqldump -uroot risinggen < D:\\Backup\\risinggen.sql");
         try {
             Process p = Runtime.getRuntime().exec(executeCmd);

@@ -27,13 +27,13 @@ public class RecordCardPayment extends Screen {
     private JButton updateButton3;
     private JButton updateButton4;
     private JTextField textField7;
-    private JButton updateButton5;
     private JLabel labelCardNo;
     private JLabel labelExpiryDate;
     private JLabel labelCardHolderName;
     private JLabel labelPaymentMade;
     private JLabel labelTransactionId;
     private JLabel labelCVV;
+    private JButton updateButton;
 
     public RecordCardPayment(BAPERS system){
         super(system);
@@ -58,7 +58,6 @@ public class RecordCardPayment extends Screen {
         updateButton2.setPreferredSize(new Dimension(250,50));
         updateButton3.setPreferredSize(new Dimension(250,50));
         updateButton4.setPreferredSize(new Dimension(250,50));
-        updateButton5.setPreferredSize(new Dimension(250,50));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
@@ -92,12 +91,22 @@ public class RecordCardPayment extends Screen {
                 }
             }
         });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(textField2.getText().length()>0) {
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateCardCardNo(textField1.getText(), textField5.getText());
+                    }
+                }
+            }
+        });
         updateButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textField2.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCardExpiryDate(textField2.getText(), textField1.getText());
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateCardExpiryDate(textField2.getText(), textField5.getText());
                     }
                 }
             }
@@ -106,8 +115,8 @@ public class RecordCardPayment extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textField3.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCardHolderName(textField3.getText(), textField1.getText());
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateCardHolderName(textField3.getText(), textField5.getText());
                     }
                 }
             }
@@ -116,8 +125,8 @@ public class RecordCardPayment extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textField4.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCardPaid(textField4.getText(), textField1.getText());
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateCardPaid(textField4.getText(), textField5.getText());
                     }
                 }
             }
@@ -126,18 +135,8 @@ public class RecordCardPayment extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textField6.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCardCVV(textField6.getText(), textField1.getText());
-                    }
-                }
-            }
-        });
-        updateButton5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(textField5.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCardPaymentTransaction(textField5.getText(), textField1.getText());
+                    if (textField5.getText().length() > 0) {
+                        system.getController().updateCardCVV(textField6.getText(), textField5.getText());
                     }
                 }
             }
