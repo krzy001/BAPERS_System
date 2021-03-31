@@ -22,7 +22,6 @@ public class RecordCardPayment extends Screen {
     private JTextField textField3;
     private JLabel labelLogo;
     private JTextField textField6;
-    private JButton updateButton;
     private JButton updateButton1;
     private JButton updateButton2;
     private JButton updateButton3;
@@ -83,8 +82,8 @@ public class RecordCardPayment extends Screen {
                                 if (textField5.getText().length() > 0) {
                                     if (textField6.getText().length() > 0) {
                                         system.getController().recordCardPayment(
-                                                textField3.getText(), textField2.getText(), textField1.getText(), textField4.getText(),
-                                                textField5.getText(), textField6.getText());
+                                                textField1.getText(),textField2.getText(), textField3.getText(),
+                                                textField4.getText(), textField5.getText(), textField6.getText());
                                     }
                                 }
                             }

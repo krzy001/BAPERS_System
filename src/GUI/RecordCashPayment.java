@@ -12,7 +12,6 @@ public class RecordCashPayment extends Screen{
     private JPanel panelTop;
     private JLabel labelLogo;
     private JButton btnLogout;
-    private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
     private JPanel panelFive;
@@ -58,10 +57,10 @@ public class RecordCashPayment extends Screen{
         btnAddCashPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textField1.getText().length()>0) {
-                    if (textField2.getText().length() > 0) {
+                if(textField2.getText().length()>0) {
+                    if (textField3.getText().length() > 0) {
                         system.getController().recordCashPayment(
-                                textField1.getText(), textField2.getText(), textField3.getText());
+                                textField2.getText(), textField3.getText());
                     }
                 }
             }
@@ -69,20 +68,8 @@ public class RecordCashPayment extends Screen{
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(textField2.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCashPaymentPaid(textField2.getText(), textField1.getText());
-                    }
-                }
-            }
-        });
-        updateButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(textField3.getText().length()>0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updateCashPaymentTransaction(textField3.getText(), textField1.getText());
-                    }
+                if (textField2.getText().length() > 0) {
+                    system.getController().updateCashPaymentPaid(textField2.getText(),textField3.getText());
                 }
             }
         });

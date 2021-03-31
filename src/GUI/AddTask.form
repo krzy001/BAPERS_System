@@ -43,7 +43,7 @@
           </component>
         </children>
       </grid>
-      <grid id="3a763" binding="panelTwo" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="3a763" binding="panelTwo" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -67,14 +67,6 @@
             </constraints>
             <properties>
               <text value=""/>
-            </properties>
-          </component>
-          <component id="50ee2" class="javax.swing.JButton" binding="updateButton" default-binding="true">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Update"/>
             </properties>
           </component>
         </children>
@@ -115,7 +107,7 @@
           </component>
         </children>
       </grid>
-      <grid id="5047a" binding="panelFour" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="5047a" binding="panelFour" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -138,14 +130,6 @@
               </grid>
             </constraints>
             <properties/>
-          </component>
-          <component id="d0ea7" class="javax.swing.JButton" binding="updateButton2">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Update"/>
-            </properties>
           </component>
         </children>
       </grid>
@@ -357,7 +341,7 @@
           </component>
         </children>
       </grid>
-      <grid id="e81e0" binding="panelNine" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e81e0" binding="panelNine" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -380,14 +364,6 @@
               </grid>
             </constraints>
             <properties/>
-          </component>
-          <component id="8aab0" class="javax.swing.JButton" binding="updateButton7" default-binding="true">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Update"/>
-            </properties>
           </component>
         </children>
       </grid>

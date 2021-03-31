@@ -19,15 +19,11 @@ public class dbConnection {
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Database Connection Unsuccessful");
             e.printStackTrace();
-
         }
         return null;
     }
-
     public void CloseConnection()throws SQLException{
         Connect.close();
         System.out.println("Database Connection Closed");
     }
-
-
 }

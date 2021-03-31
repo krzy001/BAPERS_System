@@ -20,12 +20,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Control {
+    //details used for accessing the database
     String driver="com.mysql.cj.jdbc.Driver";
     String url="jdbc:mysql://localhost/risinggen";
     String user="root";
     String pass="";
 
-
+    //Used to search for a user in the database using their account ID.
     public boolean identifyUserAccount(String accountID){
         ResultSet rs=null;
         try{
@@ -34,17 +35,19 @@ public class Control {
             String sql = "SELECT Staff_ID FROM staff WHERE Staff_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,accountID);
-
             rs = pst.executeQuery();
+
+            //If a user has been found with that account ID, true is returned so the next screen is executed to show that user's details
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "User found");
                 return true;
-
+            //Otherwise, user hasn't been found. False is returned to stop the next screen from being executed since there is no details to show.
             } else {
                 JOptionPane.showMessageDialog(null, "User not found");
                 return false;
             }
         }
+        //If an error has occurred with the database, display error and return false
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
             return false;
@@ -733,13 +736,7 @@ public class Control {
             JOptionPane.showMessageDialog(null, "Update Unsuccessful");
         }
     }
-    public void assignJob(){
 
-    }
-
-    public void applyDiscount(){
-
-    }
     public void AddPayment(
             String amount, String date, String jobNo,
             String accountNO){
@@ -835,9 +832,9 @@ public class Control {
             Connection con = DriverManager.getConnection(url,user,pass);
             String sql = "INSERT INTO recordcardpayment (Card_No,Expiry_Date,Card_Holder_Name,Paid,PaymentTransaction_ID,CVV) values (?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,name);
+            pst.setString(1,cardNo);
             pst.setString(2,expiryDate);
-            pst.setString(3,cardNo);
+            pst.setString(3,name);
             pst.setString(4,paid);
             pst.setString(5,paymentTransactionId);
             pst.setString(6,cvv);
@@ -949,33 +946,32 @@ public class Control {
         }
     }
 
-    public void recordCashPayment(String paymentNo, String paid, String transactionId){
+    public void recordCashPayment(String paid, String transactionId){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "INSERT INTO recordcashpayment (Payment_No,Paid,PaymentTransaction_ID) values (?,?,?)";
+            String sql = "INSERT INTO recordcashpayment (Paid,PaymentTransaction_ID) values (?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,paymentNo);
-            pst.setString(2,paid);
-            pst.setString(3,transactionId);
+            pst.setString(1,paid);
+            pst.setString(2,transactionId);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Cash Payment Recorded");
         }
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Cash Payment Not Recorded");
+            JOptionPane.showMessageDialog(null,e1);
         }
 
     }
 
-    public void updateCashPaymentPaid(String paid, String paymentNo){
+    public void updateCashPaymentPaid(String paid, String transactionID){
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
-            String sql = "UPDATE recordcashpayment SET Paid=? WHERE Payment_No=?";
+            String sql = "UPDATE recordcashpayment SET Paid=? WHERE PaymentTransaction_ID=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,paid);
-            pst.setString(2,paymentNo);
+            pst.setString(2,transactionID);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Update Successful");
@@ -1051,8 +1047,8 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,"Update Unsuccessful");
         }
-
     }
+
     public void removeDiscount(String discountId){
         try{
             Class.forName(driver);
@@ -1067,40 +1063,33 @@ public class Control {
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,"Remove Unsuccessful");
         }
-
     }
 
-    public void recordCardPayment(){
+    public boolean searchPayment(String accountID){
+        ResultSet rs=null;
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url,user,pass);
+            String sql = "SELECT CustomerAccount_No FROM payment WHERE CustomerAccount_No=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,accountID);
+            rs = pst.executeQuery();
 
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Payment Found");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Payment Not Found");
+                return false;
+            }
+        }
+        catch(Exception e1){
+            JOptionPane.showMessageDialog(null,e1);
+            return false;
+        }
     }
 
-    public void printReport(int reportID){
-
-    }
-
-    public void viewReport(int reportID){
-
-    }
-
-    public void assignUrgency(){
-
-    }
-
-    public void recordDeadline(){
-
-    }
-
-    //Maybe the parameters could be simplified to the customer account
-    public void acceptJob(
-            String customerName, String contactName, LocalDate dateOfBirth, String email,
-            String address){
-
-    }
-
-    public void updateCustomerStatus(){
-
-    }
-
+    //Used to search for a customer in the database using their account ID.
     public boolean identifyCustomerAccount(String accountID){
         ResultSet rs=null;
         try{
@@ -1109,16 +1098,19 @@ public class Control {
             String sql = "SELECT Account_No FROM customer WHERE Account_No=?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,accountID);
-
             rs = pst.executeQuery();
+
+            //If a customer has been found with that account ID, true is returned so the next screen is executed to show that customer's details
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Customer Found");
                 return true;
+            //Otherwise, user hasn't been found. False is returned to stop the next screen from being executed since there is no details to show.
             } else {
                 JOptionPane.showMessageDialog(null, "Customer Not Found");
                 return false;
             }
         }
+        //If an error has occurred with the database, display error and return false
         catch(Exception e1){
             JOptionPane.showMessageDialog(null,e1);
             return false;

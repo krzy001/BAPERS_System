@@ -32,6 +32,8 @@ public class OfficeManager extends Screen {
     private JButton backupButton;
     private JButton restoreButton;
     private JLabel labelOfficeManager;
+    private JButton searchPaymentButton;
+    private JButton paymentListButton;
 
     public OfficeManager(BAPERS system){
         super(system);
@@ -68,7 +70,7 @@ public class OfficeManager extends Screen {
 
         if(!system.isUrgentJobsShown()) {
             try {
-                String sql = "SELECT * FROM jobs WHERE Job_Status = 'In progress'";
+                String sql = "SELECT * FROM jobs WHERE Job_Status = 'Active'";
                 Connection con = DriverManager.getConnection(url, user, pass);
                 Statement s = con.prepareStatement(sql);
                 ResultSet rs = s.executeQuery(sql);
@@ -174,6 +176,18 @@ public class OfficeManager extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.AddTask);
+            }
+        });
+        searchPaymentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchPayment);
+            }
+        });
+        paymentListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.PaymentList);
             }
         });
     }

@@ -12,18 +12,20 @@ public class BAPERS {
 
     //private final JFrame frame = new JFrame("BAPERS_SYSTEM");
 
-    private Screen screen;
-    private Report report;
-    private Control controller;
-    private String currentPage;
-    private String ID;
-    ArrayList<String> urgentJobs = new ArrayList<String>();
-    private boolean urgentJobsShown = false;
-    private Stack<String> pages = new Stack<String>();
+    //Important global variables.
+    private Screen screen; // The "screen" of the system. Changes for each screen the user enters
+    private Report report; // Report object. Used to generate reports to be viewed on screen
+    private Control controller; // Control class as an object. used for certain sql tasks used by GUI
+    private String currentPage; // Used to store the current page the user is on. Helps to keep track of user's history on system
+    private Stack<String> pages = new Stack<String>(); // Keeps track of user's history on system.
+    private String ID; // Stores whatever ID is being used to search the database
+    ArrayList<String> urgentJobs = new ArrayList<String>(); // List of urgent job IDs that needs to be shown to the office manager
+    private boolean urgentJobsShown = false; // Has the urgent jobs list been shown
 
+    // What role has logged into the system
     private String roleLoggedIn = "LoggedOff";
 
-
+    //Variables used to label pages of the system.
     public final String AddJob = "AJ";
     public final String AddPayment = "AP";
     public final String Backup = "B";
@@ -58,7 +60,13 @@ public class BAPERS {
     public final String UrgentJobsList = "UJL";
     public final String Discount = "D";
     public final String EnterJobID = "EJID";
+    public final String SearchPayment = "SP";
+    public final String ViewPayment = "VP";
+    public final String PaymentList = "PL";
 
+    // When BAPERS object is created, database connection is established.
+    // Some important variables/objects are also established.
+    // Screen size established.
     public BAPERS(){
         dbConnection dbConnect = new dbConnection();
         dbConnect.DBConnectivity();
@@ -69,40 +77,27 @@ public class BAPERS {
         screen.setLocationRelativeTo(null);
     }
 
-    public String getRoleLoggedIn(){
-        return roleLoggedIn;
-    }
-
-   /* public void LogIn(String text, String username, String password){
-        controller.login(this, username, password);
-
-        if (roleLoggedIn != "LoggedOff"){
-            nextScreen(roleLoggedIn);
-        }
-    }*/
-
+    // Method to log out the system
     public void LogOut(){
-        nextScreen(LogIn);
-        pages.empty();
-        setRoleLoggedIn("LoggedOff");
+        nextScreen(LogIn); // Go to log in page
+        pages.empty(); // Empties user's history with system
+        setRoleLoggedIn("LoggedOff"); // Sets the role logged in to logged off
     }
 
-    public Stack<String> getPages(){
-        return pages;
-    }
-
+    //Go to the next screen of the system (Whatever the user has selected.
     public void nextScreen(String nextPage){
-        pages.push(currentPage);
-        setScreen(nextPage);
+        pages.push(currentPage); //Push whatever the current page was onto the stack to save as history
+        setScreen(nextPage); // Set the screen to the next page
     }
 
     public void backScreen(){
-        setScreen(pages.pop());
+        setScreen(pages.pop()); //Pop the last page entered onto the screen out and set that screen
     }
 
+    //Sets the screen to whatever page has been fed. One if statement per page
     private void setScreen(String page){
-        screen.setVisible(false);
-        setCurrentPage(page);
+        screen.setVisible(false); //The last page goes away for the new page
+        setCurrentPage(page); // Set the new page as the current page
 
         if(page == LogIn){
             screen = new LogIn(this);
@@ -206,10 +201,22 @@ public class BAPERS {
         else if(page == EnterJobID) {
             screen = new EnterJobID(this);
         }
-            screen.setSize(1000, 800);
-            screen.setLocationRelativeTo(null);
+        else if(page == PaymentList){
+            screen = new PaymentList(this);
+        }
+        else if(page == SearchPayment){
+            screen = new SearchPayment(this);
+        }
+        else if(page == ViewPayment){
+            screen = new ViewPayment(this);
+        }
+
+        //Reset the size and location of the screen
+        screen.setSize(1000, 800);
+        screen.setLocationRelativeTo(null);
     }
 
+    // creates a new individual performance report under report object to return to GUI for it to be displayed on screen
     public DefaultTableModel generateIndividualPerformanceReport(){
         report = new Report();
         report.getIndividualPerformanceReport(this);
@@ -217,6 +224,7 @@ public class BAPERS {
         return report.getModel();
     }
 
+    // creates a new summary report under report object to return to GUI for it to be displayed on screen
     public DefaultTableModel generateSummaryReport(){
         report = new Report();
         report.getSummaryReport(this);
@@ -224,6 +232,7 @@ public class BAPERS {
         return report.getModel();
     }
 
+    // creates a new customer sales report under report object to return to GUI for it to be displayed on screen
     public DefaultTableModel generateCustomerSalesReport(){
         report = new Report();
         report.getCustomerSalesReport(this);
@@ -231,47 +240,53 @@ public class BAPERS {
         return report.getModel();
     }
 
+    //Return the controller object. Mainly used by GUI screens that need to save information onto the database
     public Control getController(){
         return controller;
     }
 
+    //set the current page the system is on
     public void setCurrentPage(String currentPage){
         this.currentPage = currentPage;
     }
 
-    public String getCurrentPage(){
-        return currentPage;
-    }
-
+    //return the ID that is needed to get certain data from the database
     public String getID(){
         return ID;
     }
 
+    //Set an ID that'll later be used to get certain data from the database
     public void setID(String ID){
         this.ID = ID;
     }
 
-    public static void main(String[] args){
-        new BAPERS();
-    }
-
+    //Set the role that is logged into the system
     public void setRoleLoggedIn(String role) {
         roleLoggedIn = role;
     }
 
+    //Return the list of urgent jobs IDs that need to be shown to the office manager
     public ArrayList<String> getUrgentJobs() {
         return urgentJobs;
     }
 
+    //Add a job the the list of urgent jobs that need to be shown to the office manager
     public void addUrgentJobs(String jobID){
         urgentJobs.add(jobID);
     }
 
+    //If urgents jobs is already shown, it doesnt need to be shown again.
     public boolean isUrgentJobsShown(){
         return urgentJobsShown;
     }
 
+    //Set to true once the urgent jobs list has been shown
     public void setUrgentJobsShown(boolean bool){
         urgentJobsShown = bool;
+    }
+
+    //Main method: this is where the system begins. Creates a new BAPERS object.
+    public static void main(String[] args){
+        new BAPERS();
     }
 }
