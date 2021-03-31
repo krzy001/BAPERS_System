@@ -69,6 +69,7 @@ public class Report {
                 "Date", "Copy Room", "Development", "Finishing",
                 "Packing"}, 0);
 
+        /*
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, user, pass);
@@ -92,6 +93,8 @@ public class Report {
         } catch (Exception e1) {
             e1.printStackTrace();
         }
+
+             */
     }
 
     public void getCustomerSalesReport(BAPERS system) {

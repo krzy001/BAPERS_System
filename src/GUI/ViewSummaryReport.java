@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -69,6 +70,27 @@ public class ViewSummaryReport extends Screen {
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                Workbook w = new XSSFWorkbook();
+
+                Sheet s = w.createSheet("Summary Report");
+                String[] headers = {"Date", "Copy Room", "Development", "Finishing", "Packing"};
+                Row row = s.createRow(0);
+
+                for (int i = 0; i < headers.length; i++) {
+                    Cell cell = row.createCell(i);
+                    cell.setCellValue(headers[i]);
+                }
+
+
+                try {
+                    FileOutputStream file = new FileOutputStream(new File("Summary Report.xlsx"));
+                    w.write(file);
+                    file.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                /*
                 try {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
@@ -76,16 +98,6 @@ public class ViewSummaryReport extends Screen {
                     PreparedStatement pst = con.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery(sql);
 
-                    Workbook w = new XSSFWorkbook();
-
-                    Sheet s = w.createSheet("Summary Report");
-                    String[] headers = {"Date", "Copy Room", "Development", "Finishing", "Packing"};
-                    Row row = s.createRow(0);
-
-                    for (int i = 0; i < headers.length; i++) {
-                        Cell cell = row.createCell(i);
-                        cell.setCellValue(headers[i]);
-                    }
 
                     ArrayList<String> Date = new ArrayList<>();
                     ArrayList<String> Location = new ArrayList<>();
@@ -112,13 +124,12 @@ public class ViewSummaryReport extends Screen {
                         }
 
                     }
-                    FileOutputStream file = new FileOutputStream(new File("Summary Report.xlsx"));
-                    w.write(file);
-                    file.close();
+
                 }
                 catch(Exception e1){
                     e1.printStackTrace();
                 }
+                 */
             }
         });
 

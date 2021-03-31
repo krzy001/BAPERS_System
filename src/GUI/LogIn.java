@@ -23,6 +23,7 @@ public class LogIn extends Screen {
     private JLabel labelPassword;
     private JComboBox comboBox1;
     private JLabel labelStaffRole;
+    private JButton recoveryBtn;
     String driver="com.mysql.cj.jdbc.Driver";
     String url="jdbc:mysql://localhost/risinggen";
     String user="root";
@@ -32,6 +33,8 @@ public class LogIn extends Screen {
         super(system);
         this.setContentPane(this.panelLogIn);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));

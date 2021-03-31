@@ -37,7 +37,6 @@ public class AddTask extends Screen {
     private JTextField textField13;
     private JButton updateButton1;
     private JButton updateButton3;
-    private JButton updateButton4;
     private JButton updateButton5;
     private JButton updateButton6;
     private JButton updateButton8;
@@ -68,6 +67,7 @@ public class AddTask extends Screen {
         float logo = 80;
         float size = 20;
 
+        //Font and size of buttons established for the interface
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
@@ -91,7 +91,6 @@ public class AddTask extends Screen {
         btnAddJob.setPreferredSize(new Dimension(150,30));
         updateButton1.setPreferredSize(new Dimension(150,30));
         updateButton3.setPreferredSize(new Dimension(150,30));
-        updateButton4.setPreferredSize(new Dimension(150,30));
         updateButton5.setPreferredSize(new Dimension(150,30));
         updateButton6.setPreferredSize(new Dimension(150,30));
         updateButton8.setPreferredSize(new Dimension(150,30));
@@ -181,15 +180,6 @@ public class AddTask extends Screen {
                     }
                 }
             }
-        });updateButton4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (textField7.getText().length() > 0) {
-                    if (textField13.getText().length() > 0) {
-                        system.getController().updateTaskDate(textField7.getText(), textField13.getText());
-                    }
-                }
-            }
         });
         updateButton5.addActionListener(new ActionListener() {
             @Override
@@ -200,7 +190,8 @@ public class AddTask extends Screen {
                     }
                 }
             }
-        });updateButton6.addActionListener(new ActionListener() {
+        });
+        updateButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (textField9.getText().length() > 0) {

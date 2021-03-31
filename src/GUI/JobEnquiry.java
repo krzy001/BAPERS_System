@@ -26,6 +26,8 @@ public class JobEnquiry extends Screen {
         super(system);
         this.setContentPane(this.panelEnquiry);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));

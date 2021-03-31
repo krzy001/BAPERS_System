@@ -50,6 +50,8 @@ public class CreateNewUser extends Screen{
         this.pack();
         float logo = 80;
         float size = 20;
+
+        //Font and size of buttons established for the interface
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
         labelName.setFont(labelLogo.getFont().deriveFont(size));

@@ -23,8 +23,6 @@ public class AddPayment extends Screen {
     private JTextField textField4;
     private JButton updateButton;
     private JButton updateButton1;
-    private JButton updateButton2;
-    private JButton updateButton3;
     private JTextField textField1;
     private JLabel labelTransactionId;
     private JLabel labelAmount;
@@ -39,6 +37,7 @@ public class AddPayment extends Screen {
         float logo = 80;
         float size = 20;
 
+        //Font and size of buttons established for the interface
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
         labelTransactionId.setFont(labelLogo.getFont().deriveFont(size));
@@ -53,8 +52,6 @@ public class AddPayment extends Screen {
         cashPaymentButton.setPreferredSize(new Dimension(150,30));
         updateButton.setPreferredSize(new Dimension(150,30));
         updateButton1.setPreferredSize(new Dimension(150,30));
-        updateButton2.setPreferredSize(new Dimension(150,30));
-        updateButton3.setPreferredSize(new Dimension(150,30));
 
         btnLogout.addActionListener(new ActionListener() {
             @Override
@@ -111,26 +108,6 @@ public class AddPayment extends Screen {
                 if (textField4.getText().length() > 0) {
                     if (textField1.getText().length() > 0) {
                         system.getController().updatePaymentDate(textField4.getText(), textField1.getText());
-                    }
-                }
-            }
-        });
-        updateButton2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (textField3.getText().length() > 0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updatePaymentJobNo(textField3.getText(), textField1.getText());
-                    }
-                }
-            }
-        });
-        updateButton3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (textField2.getText().length() > 0) {
-                    if (textField1.getText().length() > 0) {
-                        system.getController().updatePaymentAccountNo(textField2.getText(), textField1.getText());
                     }
                 }
             }

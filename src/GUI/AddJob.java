@@ -47,12 +47,14 @@ public class AddJob extends Screen {
     private JLabel labelCustomerAccountNo;
     private JLabel labelAddJob;
 
+    //Class for the interface adding a job
     public AddJob(BAPERS system){
         super(system);
         this.setContentPane(this.panelAddJob);
         this.pack();
         float logo = 80;
         float size = 20;
+        //Font and size of buttons established for the interface
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
         labelJobNo.setFont(labelJobNo.getFont().deriveFont(size));

@@ -21,7 +21,6 @@ public class Discount extends Screen {
     private JPanel panelId;
     private JTextField textField3;
     private JButton updateButton;
-    private JButton updateButton1;
     private JPanel panelDiscount;
     private JLabel labelDiscountId;
     private JLabel labelRate;
@@ -33,6 +32,7 @@ public class Discount extends Screen {
         this.setContentPane(this.panelDiscount);
         this.pack();
 
+        //Font and size of buttons established for the interface
         float logo = 80;
         float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
@@ -45,7 +45,6 @@ public class Discount extends Screen {
         btnLogout.setPreferredSize(new Dimension(150,30));
         btnCreate.setPreferredSize(new Dimension(150,30));
         updateButton.setPreferredSize(new Dimension(150,30));
-        updateButton1.setPreferredSize(new Dimension(150,30));
         removeButton.setPreferredSize(new Dimension(150,30));
 
         btnCreate.addActionListener(new ActionListener() {
@@ -80,16 +79,6 @@ public class Discount extends Screen {
                 if(textField1.getText().length()>0) {
                     if (textField3.getText().length() > 0) {
                         system.getController().updateRate(textField1.getText(), textField3.getText());
-                    }
-                }
-            }
-        });
-        updateButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(textField2.getText().length()>0) {
-                    if (textField3.getText().length() > 0) {
-                        system.getController().updateAccountNo(textField2.getText(), textField3.getText());
                     }
                 }
             }

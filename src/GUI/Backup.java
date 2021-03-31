@@ -21,6 +21,7 @@ public class Backup extends Screen{
         this.setContentPane(this.panelBackup);
         this.pack();
         float logo = 80;
+        //Font and size of buttons established for the interface
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
