@@ -19,6 +19,9 @@ public class Technician extends Screen {
     private JButton taskListButton;
     private JButton searchJobButton;
     private JButton searchTaskButton;
+    private JButton updateJobButton;
+    private JButton updateTaskButton;
+    private JButton jobEnquiryButton;
 
     public Technician(BAPERS system){
         super(system);
@@ -62,6 +65,24 @@ public class Technician extends Screen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.SearchTask);
+            }
+        });
+        updateJobButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.AddJob);
+            }
+        });
+        updateTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.AddTask);
+            }
+        });
+        jobEnquiryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.JobEnquiry);
             }
         });
     }

@@ -251,5 +251,11 @@ public class StaffList extends Screen {
                 }
             }
         });
+        btnLogout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.LogOut();
+            }
+        });
     }
 }

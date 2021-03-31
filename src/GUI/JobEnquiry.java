@@ -12,15 +12,15 @@ public class JobEnquiry extends Screen {
     private JPanel panelTop;
     private JPanel panelMiddle;
     private JPanel panelBottom;
-    private JTextField textField1;
     private JTextField textField2;
     private JButton btnSend;
     private JPanel panelButton;
     private JButton btnBack;
     private JButton btnLogout;
     private JLabel labelLogo;
-    private JLabel labelQuestion;
+    private JLabel labelQuestionHeader;
     private JLabel labelResponse;
+    private JLabel labelQuestion;
 
     public JobEnquiry(BAPERS system){
         super(system);
@@ -30,7 +30,7 @@ public class JobEnquiry extends Screen {
         float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
-        labelQuestion.setFont(labelLogo.getFont().deriveFont(size));
+        labelQuestionHeader.setFont(labelLogo.getFont().deriveFont(size));
         labelResponse.setFont(labelLogo.getFont().deriveFont(size));
 
         btnBack.setPreferredSize(new Dimension(150,30));
