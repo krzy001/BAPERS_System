@@ -45,15 +45,18 @@ public class ShiftManager extends Screen{
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        btnCreateCustomer.setPreferredSize(new Dimension(150,30));
-        btnIdentifyCustomer.setPreferredSize(new Dimension(150,30));
-        btnLogout.setPreferredSize(new Dimension(150,30));
-        btnSearchTask.setPreferredSize(new Dimension(150,30));
-        addJobButton.setPreferredSize(new Dimension(150,30));
-        addTaskButton.setPreferredSize(new Dimension(150,30));
-        taskListButton.setPreferredSize(new Dimension(150,30));
-        jobListButton.setPreferredSize(new Dimension(150,30));
-        reportButton.setPreferredSize(new Dimension(150,30));
+        btnCreateCustomer.setPreferredSize(new Dimension(250,50));
+        btnIdentifyCustomer.setPreferredSize(new Dimension(250,50));
+        btnLogout.setPreferredSize(new Dimension(250,50));
+        btnSearchTask.setPreferredSize(new Dimension(250,50));
+        searchJobButton.setPreferredSize(new Dimension(250,50));
+        addJobButton.setPreferredSize(new Dimension(250,50));
+        addTaskButton.setPreferredSize(new Dimension(250,50));
+        taskListButton.setPreferredSize(new Dimension(250,50));
+        jobListButton.setPreferredSize(new Dimension(250,50));
+        reportButton.setPreferredSize(new Dimension(250,50));
+        searchPaymentButton.setPreferredSize(new Dimension(250,50));
+        paymentListButton.setPreferredSize(new Dimension(250,50));
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  ;
         LocalDate now = LocalDate.now();

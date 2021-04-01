@@ -46,6 +46,7 @@ public class LogIn extends Screen {
         comboBox1.setFont(comboBox1.getFont().deriveFont(size));
 
         buttonLogIn.setPreferredSize(new Dimension(250,50));
+        recoveryBtn.setPreferredSize(new Dimension(175,30));
 
         buttonLogIn.addActionListener(new ActionListener() {
             @Override

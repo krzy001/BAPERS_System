@@ -53,13 +53,14 @@ public class RecordCardPayment extends Screen {
         labelCVV.setFont(labelLogo.getFont().deriveFont(size));
 
 
-        btnBack.setPreferredSize(new Dimension(250,50));
-        btnAddCardPayment.setPreferredSize(new Dimension(250,50));
-        btnLogout.setPreferredSize(new Dimension(250,50));
-        updateButton1.setPreferredSize(new Dimension(250,50));
-        updateButton2.setPreferredSize(new Dimension(250,50));
-        updateButton3.setPreferredSize(new Dimension(250,50));
-        updateButton4.setPreferredSize(new Dimension(250,50));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        btnAddCardPayment.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton2.setPreferredSize(new Dimension(150,30));
+        updateButton3.setPreferredSize(new Dimension(150,30));
+        updateButton4.setPreferredSize(new Dimension(150,30));
 
         //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {

@@ -34,15 +34,17 @@ public class Receptionist extends Screen{
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        addJobButton.setPreferredSize(new Dimension(250,50));
+        btnCreateCustomer.setPreferredSize(new Dimension(250,50));
         btnLogout.setPreferredSize(new Dimension(250,50));
+        btnIdentifyCustomer.setPreferredSize(new Dimension(250,50));
+        searchPaymentButton.setPreferredSize(new Dimension(250,50));
+        paymentListButton.setPreferredSize(new Dimension(250,50));
+        addJobButton.setPreferredSize(new Dimension(250,50));
         searchJobButton.setPreferredSize(new Dimension(250,50));
-        searchTaskButton.setPreferredSize(new Dimension(250,50));
         addTaskButton.setPreferredSize(new Dimension(250,50));
+        searchTaskButton.setPreferredSize(new Dimension(250,50));
         jobListButton.setPreferredSize(new Dimension(250,50));
         taskListButton.setPreferredSize(new Dimension(250,50));
-        btnCreateCustomer.setPreferredSize(new Dimension(250,50));
-        btnIdentifyCustomer.setPreferredSize(new Dimension(250,50));
 
         //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {

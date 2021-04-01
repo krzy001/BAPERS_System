@@ -60,6 +60,10 @@ public class OfficeManager extends Screen {
         taskListButton.setPreferredSize(new Dimension(250,50));
         backupButton.setPreferredSize(new Dimension(250,50));
         restoreButton.setPreferredSize(new Dimension(250,50));
+        searchPaymentButton.setPreferredSize(new Dimension(250,50));
+        paymentListButton.setPreferredSize(new Dimension(250,50));
+        staffListButton.setPreferredSize(new Dimension(250,50));
+
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  ;
         LocalDate now = LocalDate.now();

@@ -12,7 +12,6 @@ public class Technician extends Screen {
     private JPanel panelTechnician;
     private JPanel panelTop;
     private JPanel panelTwo;
-    private JPanel panelThree;
     private JButton btnLogout;
     private JLabel labelLogo;
     private JButton jobListButton;
@@ -33,11 +32,14 @@ public class Technician extends Screen {
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        btnLogout.setPreferredSize(new Dimension(150,30));
-        jobListButton.setPreferredSize(new Dimension(150,30));
-        taskListButton.setPreferredSize(new Dimension(150,30));
-        searchJobButton.setPreferredSize(new Dimension(150,30));
-        searchTaskButton.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(250,50));
+        jobListButton.setPreferredSize(new Dimension(250,50));
+        taskListButton.setPreferredSize(new Dimension(250,50));
+        searchJobButton.setPreferredSize(new Dimension(250,50));
+        searchTaskButton.setPreferredSize(new Dimension(250,50));
+        updateJobButton.setPreferredSize(new Dimension(250,50));
+        updateTaskButton.setPreferredSize(new Dimension(250,50));
+        jobEnquiryButton.setPreferredSize(new Dimension(250,50));
 
         //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {

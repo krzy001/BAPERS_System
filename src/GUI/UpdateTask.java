@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,6 +51,30 @@ public class UpdateTask extends Screen {
         super(system);
         this.setContentPane(this.panelUpdateTask);
         this.pack();
+        float logo = 80;
+        float size = 20;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
+        labelTaskId.setFont(labelLogo.getFont().deriveFont(size));
+        labelStartTime.setFont(labelLogo.getFont().deriveFont(size));
+        labelLocation.setFont(labelLogo.getFont().deriveFont(size));
+        labelDuration.setFont(labelLogo.getFont().deriveFont(size));
+        labelShift.setFont(labelLogo.getFont().deriveFont(size));
+        labelStatus.setFont(labelLogo.getFont().deriveFont(size));
+        labelCompletedBy.setFont(labelLogo.getFont().deriveFont(size));
+        labelStaffId.setFont(labelLogo.getFont().deriveFont(size));
+        labelTimeTaken.setFont(labelLogo.getFont().deriveFont(size));
+
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        updateStartTime.setPreferredSize(new Dimension(150,30));
+        updateLocation.setPreferredSize(new Dimension(150,30));
+        updateDuration.setPreferredSize(new Dimension(150,30));
+        updateShift.setPreferredSize(new Dimension(150,30));
+        updateStatus.setPreferredSize(new Dimension(150,30));
+        updateCompleted.setPreferredSize(new Dimension(150,30));
+        updateStaffID.setPreferredSize(new Dimension(150,30));
+        updateTimeTaken.setPreferredSize(new Dimension(150,30));
 
         updateStartTime.addActionListener(new ActionListener() {
             @Override

@@ -3,6 +3,7 @@ package GUI;
 import Control.BAPERS;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,11 +28,27 @@ public class UpdateJob extends Screen{
     private JButton btnBack;
     private JTextField txtJobID;
     private JPanel panelUpdateJob;
+    private JLabel labelJobId;
 
     public UpdateJob(BAPERS system) {
         super(system);
         this.setContentPane(this.panelUpdateJob);
         this.pack();
+        float logo = 80;
+        float size = 20;
+        labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
+        labelLogo.setForeground(Color.RED);
+        labelAddJob.setFont(labelLogo.getFont().deriveFont(size));
+        labelStartTime.setFont(labelLogo.getFont().deriveFont(size));
+        labelJobStatus.setFont(labelLogo.getFont().deriveFont(size));
+        labelDate.setFont(labelLogo.getFont().deriveFont(size));
+        labelJobId.setFont(labelLogo.getFont().deriveFont(size));
+
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        updateStartTime.setPreferredSize(new Dimension(150,30));
+        updateJobStatus.setPreferredSize(new Dimension(150,30));
+        updateDate.setPreferredSize(new Dimension(150,30));
 
 
         updateStartTime.addActionListener(new ActionListener() {

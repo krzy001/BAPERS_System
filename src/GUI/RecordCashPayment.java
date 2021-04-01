@@ -34,11 +34,11 @@ public class RecordCashPayment extends Screen{
         labelPaymentMade.setFont(labelLogo.getFont().deriveFont(size));
         labelTransactionId.setFont(labelLogo.getFont().deriveFont(size));
 
-        btnBack.setPreferredSize(new Dimension(250,50));
-        panelRecordCashPayment.setPreferredSize(new Dimension(250,50));
-        btnLogout.setPreferredSize(new Dimension(250,50));
-        btnAddCashPayment.setPreferredSize(new Dimension(250,50));
-        updateButton.setPreferredSize(new Dimension(250,50));
+        btnBack.setPreferredSize(new Dimension(150,30));
+        panelRecordCashPayment.setPreferredSize(new Dimension(150,30));
+        btnLogout.setPreferredSize(new Dimension(150,30));
+        btnAddCashPayment.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
 
         //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
