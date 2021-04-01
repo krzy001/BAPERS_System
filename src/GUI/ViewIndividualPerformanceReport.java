@@ -61,6 +61,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                 system.backScreen();
             }
         });
+        //When pressed, the system creates an excel sheet with the report information for the user to print
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,8 +69,8 @@ public class ViewIndividualPerformanceReport extends Screen {
                     Class.forName(driver);
                     Connection con = DriverManager.getConnection(url, user, pass);
 
-
-                    //String sql = "SELECT staff.Name,task.Task_ID,staff.Department,task.Date,task.Start_Time,task.Time_Taken,Sum(task.Time_Taken) FROM task INNER JOIN staff ON task.StaffStaff_Id = staff.Staff_ID";
+                    //Select all the necessary  attributes from staff and task for the report
+                    //links the two tables by matching the staff ID on task is equal to the staff ID of staff
                     String sql = "SELECT\n" +
                             "  staff.Name,\n" +
                             "  staff.Department,\n" +
@@ -85,9 +86,10 @@ public class ViewIndividualPerformanceReport extends Screen {
                     PreparedStatement pst = con.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery(sql);
 
-                    //initialising workbook - ignore
+                    //initialising workbook
                     Workbook w = new XSSFWorkbook();
                     Sheet s = w.createSheet("Individual Performance Report");
+                    //Establish headers for the report
                     String[] headers = {"Name", "Task Id", "Department", "Date", "Start Time", "Time Taken", "Total Time"};
                     Row row = s.createRow(0);
 
@@ -97,29 +99,12 @@ public class ViewIndividualPerformanceReport extends Screen {
                         cell.setCellValue(headers[i]);
                     }
 
-                    /*
-                    ArrayList<String> Name = new ArrayList<>();
-                    ArrayList<Integer> TaskId = new ArrayList<>();
-                    ArrayList<String> Department = new ArrayList<>();
-                    ArrayList<String> Date = new ArrayList<>();
-                    ArrayList<String> StartTime = new  ArrayList<>();
-                    ArrayList<Integer> TimeTaken = new ArrayList<>();
-                    ArrayList<String> TotalTimeTaken = new ArrayList<>();
-                    */
                     int TotalEffort = 0;
-
                     int numRows = 0;
 
+                    //For every row of attributes...
                     while (rs.next()) {
-                        /*
-                        Name.add(rs.getString(1));
-                        TaskId.add(rs.getInt(3));
-                        Department.add(rs.getString(2));
-                        Date.add(rs.getString(5));
-                        StartTime.add(rs.getString(6));
-                        TimeTaken.add(rs.getInt(4));
-
-                         */
+                        //All attributes are saved as variables
                         String Name = rs.getString(1);
                         String Department = rs.getString(2);
                         String TaskId = rs.getString(3);
@@ -131,6 +116,7 @@ public class ViewIndividualPerformanceReport extends Screen {
 
                         numRows += 1;
 
+                        //Create a row and insert all the attributes in cells of the row
                         row = s.createRow(numRows);
                         row.createCell(0).setCellValue(Name);
                         row.createCell(1).setCellValue(TaskId);
@@ -140,31 +126,17 @@ public class ViewIndividualPerformanceReport extends Screen {
                         row.createCell(5).setCellValue(TimeTaken);
                         row.createCell(6).setCellValue(getHours(staffID));
 
+                        //Total effort is updated with time taken to keep a record of the total effort for the report
                         TotalEffort += TimeTaken;
-
-                        /*
-                        int rowNum = 1;
-
-                       for(int i = 0; i < Name.size(); ++i)
-                       {
-                            row = s.createRow(rowNum++);
-                            row.createCell(0).setCellValue(Name.get(i));
-                            row.createCell(1).setCellValue(TaskId.get(i));
-                            row.createCell(2).setCellValue(Department.get(i));
-                            row.createCell(3).setCellValue(Date.get(i));
-                            row.createCell(4).setCellValue(StartTime.get(i));
-                            row.createCell(5).setCellValue(TimeTaken.get(i));
-                            row.createCell(6).setCellValue(StaffHours.get(i));
-                        }
-
-                         */
 
                     }
 
+                    //At the bottom of the report, a row for total effort is added
                     row = s.createRow(numRows + 1);
                     row.createCell(0).setCellValue("Total effort:");
                     row.createCell(6).setCellValue(TotalEffort);
 
+                    //File is created for the workbook to be written in the file, then the file closes
                     FileOutputStream file = new FileOutputStream(new File("Individual Performance Report.xlsx"));
                     w.write(file);
                     file.close();
@@ -173,6 +145,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                 }
             }
 
+            //Method to receive the total time of a staff member related to the report
             public int getHours(int id) {
                 try {
                     Class.forName(driver);

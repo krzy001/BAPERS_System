@@ -115,6 +115,7 @@ public class AddJob extends Screen {
                 }
             }
         });
+        // When button is pressed, start time for a job us updated
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

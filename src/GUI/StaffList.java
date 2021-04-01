@@ -44,6 +44,7 @@ public class StaffList extends Screen {
         btnAddStaff.setPreferredSize(new Dimension(150,30));
         btnSearchStaff.setPreferredSize(new Dimension(150,30));
 
+        //Creating models for the checkboxes to swap between for listing different staff members with certain criteria.
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Staff ID", "Name", "Username","Role", "Email",
                 "Department"}, 0);
@@ -65,13 +66,16 @@ public class StaffList extends Screen {
                 "Department"}, 0);
 
         try {
+            //Select all staff from the database
             String sql = "SELECT * FROM staff";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every staff member found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String staffID = rs.getString(1);
                 String name = rs.getString(2);
                 String username = rs.getString(3);
@@ -81,6 +85,7 @@ public class StaffList extends Screen {
                 model1.addRow(new Object[]{
                         staffID, name, username, role, email, department});
             }
+            //Initial model with all the staff members listed are set to the jTable to be displayed
             taskTable.setModel(model1);
         }
         catch (Exception e1){
@@ -88,13 +93,16 @@ public class StaffList extends Screen {
         }
 
         try {
+            //Select all staff from the database where their job role is the Office Manager
             String sql = "SELECT * FROM staff WHERE Job_Role = 'Office Manager'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every staff member found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String staffID = rs.getString(1);
                 String name = rs.getString(2);
                 String username = rs.getString(3);
@@ -110,13 +118,16 @@ public class StaffList extends Screen {
         }
 
         try {
+            //Select all staff from the database where their job role is the shift manager
             String sql = "SELECT * FROM staff WHERE Job_Role = 'Shift Manager'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every staff member found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String staffID = rs.getString(1);
                 String name = rs.getString(2);
                 String username = rs.getString(3);
@@ -132,13 +143,16 @@ public class StaffList extends Screen {
         }
 
         try {
+            //Select all staff from the database where their job role is the receptionist
             String sql = "SELECT * FROM staff WHERE Job_Role = 'Receptionist'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every staff member found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String staffID = rs.getString(1);
                 String name = rs.getString(2);
                 String username = rs.getString(3);
@@ -154,13 +168,16 @@ public class StaffList extends Screen {
         }
 
         try {
+            //Select all staff from the database where their job role is "Technician"
             String sql = "SELECT * FROM staff WHERE Job_Role = 'Technician'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every staff member found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String staffID = rs.getString(1);
                 String name = rs.getString(2);
                 String username = rs.getString(3);
@@ -194,6 +211,10 @@ public class StaffList extends Screen {
                 system.nextScreen(system.CreateNewUser);
             }
         });
+
+        //Listeners for checkboxes. When a checkbox is selected, the corresponding model is set to be displayed for the jTable
+        //All other checkboxes are unselected
+        //If no checkboxes are selected, the first model with all the jobs is set to be displayed on the jTable
         checkBoxOffice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

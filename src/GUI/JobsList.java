@@ -45,6 +45,7 @@ public class JobsList extends Screen{
         btnSearchJob.setPreferredSize(new Dimension(150,30));
         btnAddJob.setPreferredSize(new Dimension(150,30));
 
+        //Creating models for the checkboxes to swap between for listing jobs with certain criteria.
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Job ID", "Start Time", "Priority", "Special Instructions",
                 "Job Status", "Date", "Deadline", "Price",
@@ -66,13 +67,16 @@ public class JobsList extends Screen{
                 "Customer ID"}, 0);
 
         try {
+            //Select all jobs from the database
             String sql = "SELECT * FROM jobs";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while(rs.next())
             {
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -82,11 +86,12 @@ public class JobsList extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model1.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
             }
-
+            //This is the initial model that is set on the jTable to display for the user
             jobsTable.setModel(model1);
 
         }
@@ -95,13 +100,15 @@ public class JobsList extends Screen{
         }
 
         try {
+            //Select all jobs from the database with job status as "Commenced"
             String sql = "SELECT * FROM jobs WHERE Job_Status='Commenced'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while (rs.next()) {
-
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -111,6 +118,7 @@ public class JobsList extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model2.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
@@ -120,13 +128,15 @@ public class JobsList extends Screen{
         }
 
         try {
+            //Select all jobs from the database with job status as "Active"
             String sql = "SELECT * FROM jobs WHERE Job_Status='Active'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while (rs.next()) {
-
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -136,6 +146,7 @@ public class JobsList extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model3.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
@@ -145,13 +156,15 @@ public class JobsList extends Screen{
         }
 
         try {
+            //Select all jobs from the database with job status as "Completed"
             String sql = "SELECT * FROM jobs WHERE Job_Status='Completed'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while (rs.next()) {
-
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -161,6 +174,7 @@ public class JobsList extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model4.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
@@ -168,7 +182,6 @@ public class JobsList extends Screen{
         }catch (Exception e1) {
             JOptionPane.showMessageDialog(null, e1);
         }
-
 
         btnAddJob.addActionListener(new ActionListener() {
             @Override
@@ -191,6 +204,9 @@ public class JobsList extends Screen{
             }
         });
 
+        //Listeners for checkboxes. When a checkbox is selected, the corresponding model is set to be displayed for the jTable
+        //All other checkboxes are unselected
+        //If no checkboxes are selected, the first model with all the jobs is set to be displayed on the jTable
         commencedJobsCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -205,7 +221,6 @@ public class JobsList extends Screen{
                 }
             }
         });
-
         checkBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

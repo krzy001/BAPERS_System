@@ -47,6 +47,7 @@ public class ViewPayment extends Screen {
         PaymentListButton.setPreferredSize(new Dimension(150,30));
         btnAddPayment.setPreferredSize(new Dimension(150,30));
 
+        //Creating models for the checkboxes to swap between for listing payments with certain criteria.
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Transaction ID", "Total Amount", "Date", "Job ID",
                 "Customer ID"}, 0);
@@ -60,19 +61,23 @@ public class ViewPayment extends Screen {
                 "Customer ID"}, 0);
 
         try {
+            //Select all payments from the database where the payment's
+            //Where the customer account ID is equal to the one inputted by the user
             String sql = "SELECT * FROM payment WHERE CustomerAccount_No =  '"+ system.getID() + "' ";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every payment found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String transactionID = rs.getString(1);
                 String totalAmount = rs.getString(2);
                 String date = rs.getString(3);
                 String jobID = rs.getString(4);
                 String customerID = rs.getString(5);
-
+                //All the variables added to a row of the model
                 model1.addRow(new Object[]{
                         transactionID, totalAmount, date, jobID,
                         customerID});
@@ -84,8 +89,12 @@ public class ViewPayment extends Screen {
         }
 
         ///////////////////////////////////////////////////////////////////////// Model for unpaid payments
+        //Multiple sql statements used to get both unpaid payments from cash as well as card
 
         try {
+            //Selecting payments and the record of card payments and matching rows together using their transaction IDs.
+            //Where the card payment isn't paid
+            //And where the customer account ID is equal to the one inputted by the user
             String sql =
                     "SELECT payment.Transaction_ID, payment.Total_amount, payment.Date,payment.JobsJob_No, payment.CustomerAccount_No " +
                             "FROM payment " +
@@ -96,14 +105,16 @@ public class ViewPayment extends Screen {
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every payment found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String transactionID = rs.getString(1);
                 String totalAmount = rs.getString(2);
                 String date = rs.getString(3);
                 String jobID = rs.getString(4);
                 String customerID = rs.getString(5);
-
+                //All the variables added to a row of the model
                 model2.addRow(new Object[]{
                         transactionID, totalAmount, date, jobID,
                         customerID});
@@ -114,6 +125,9 @@ public class ViewPayment extends Screen {
         }
 
         try {
+            //Selecting payments and the record of cash payments and matching rows together using their transaction IDs.
+            //Where the cash payment isn't paid
+            //And where the customer account ID is equal to the one inputted by the user
             String sql =
                     "SELECT payment.Transaction_ID, payment.Total_amount, payment.Date,payment.JobsJob_No, payment.CustomerAccount_No " +
                             "FROM payment " +
@@ -124,14 +138,16 @@ public class ViewPayment extends Screen {
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every payment found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String transactionID = rs.getString(1);
                 String totalAmount = rs.getString(2);
                 String date = rs.getString(3);
                 String jobID = rs.getString(4);
                 String customerID = rs.getString(5);
-
+                //All the variables added to a row of the model
                 model2.addRow(new Object[]{
                         transactionID, totalAmount, date, jobID,
                         customerID});
@@ -142,6 +158,9 @@ public class ViewPayment extends Screen {
         }
 
         try {
+            //Selecting payments where their transaction IDs dont exist in the records of cash and card payments.
+            //Where the customer account ID is equal to the one inputted by the user
+            //And where the customer account ID is equal to the one inputted by the user
             String sql =
                     "SELECT * FROM payment " +
                             "WHERE Transaction_ID NOT IN (SELECT PaymentTransaction_ID FROM recordcashpayment) " +
@@ -151,14 +170,16 @@ public class ViewPayment extends Screen {
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every payment found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String transactionID = rs.getString(1);
                 String totalAmount = rs.getString(2);
                 String date = rs.getString(3);
                 String jobID = rs.getString(4);
                 String customerID = rs.getString(5);
-
+                //All the variables added to a row of the model
                 model2.addRow(new Object[]{
                         transactionID, totalAmount, date, jobID,
                         customerID});
@@ -169,8 +190,12 @@ public class ViewPayment extends Screen {
         }
 
         ///////////////////////////////////////////////////////////////////////// Model for paid payments
+        //Multiple sql statements used to get both paid payments from cash as well as card
 
         try {
+            //Selecting payments and the record of cash payments and matching rows together using their transaction IDs.
+            //Where the card payment is paid
+            //And where the customer account ID is equal to the one inputted by the user
             String sql =
                     "SELECT payment.Transaction_ID, payment.Total_amount, payment.Date,payment.JobsJob_No, payment.CustomerAccount_No " +
                             "FROM payment " +
@@ -181,14 +206,16 @@ public class ViewPayment extends Screen {
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every payment found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String transactionID = rs.getString(1);
                 String totalAmount = rs.getString(2);
                 String date = rs.getString(3);
                 String jobID = rs.getString(4);
                 String customerID = rs.getString(5);
-
+                //All the variables added to a row of the model
                 model3.addRow(new Object[]{
                         transactionID, totalAmount, date, jobID,
                         customerID});
@@ -199,6 +226,9 @@ public class ViewPayment extends Screen {
         }
 
         try {
+            //Selecting payments and the record of cash payments and matching rows together using their transaction IDs.
+            //Where the cash payment is paid
+            //And where the customer account ID is equal to the one inputted by the user
             String sql =
                     "SELECT payment.Transaction_ID, payment.Total_amount, payment.Date,payment.JobsJob_No, payment.CustomerAccount_No " +
                             "FROM payment " +
@@ -209,14 +239,16 @@ public class ViewPayment extends Screen {
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every payment found...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String transactionID = rs.getString(1);
                 String totalAmount = rs.getString(2);
                 String date = rs.getString(3);
                 String jobID = rs.getString(4);
                 String customerID = rs.getString(5);
-
+                //All the variables added to a row of the model
                 model3.addRow(new Object[]{
                         transactionID, totalAmount, date, jobID,
                         customerID});
@@ -252,6 +284,10 @@ public class ViewPayment extends Screen {
                 system.nextScreen(system.AddPayment);
             }
         });
+
+        //Listeners for checkboxes. When a checkbox is selected, the corresponding model is set to be displayed for the jTable
+        //All other checkboxes are unselected
+        //If no checkboxes are selected, the first model with all the jobs is set to be displayed on the jTable
         unpaidPaymentsCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

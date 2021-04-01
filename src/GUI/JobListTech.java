@@ -41,6 +41,8 @@ public class JobListTech extends Screen{
         btnBack.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
 
+
+        //Creating models for the checkboxes to swap between for listing jobs with certain criteria.
         DefaultTableModel model1 = new DefaultTableModel(new String[]{
                 "Job ID", "Start Time", "Priority", "Special Instructions",
                 "Job Status", "Date", "Deadline", "Price",
@@ -62,13 +64,16 @@ public class JobListTech extends Screen{
                 "Customer ID"}, 0);
 
         try {
+            //Select all jobs from the database
             String sql = "SELECT * FROM jobs";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while(rs.next())
             {
+                //...variables created for each column in a row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -78,26 +83,29 @@ public class JobListTech extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model1.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
             }
-
+            //The first model with all the jobs listed are set
             jobsTable.setModel(model1);
-
         }
         catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);
         }
 
+
         try {
+            //Select all jobs from the database with job status as "Commenced"
             String sql = "SELECT * FROM jobs WHERE Job_Status='Commenced'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while (rs.next()) {
-
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -107,6 +115,7 @@ public class JobListTech extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model2.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
@@ -116,13 +125,15 @@ public class JobListTech extends Screen{
         }
 
         try {
+            //Select all jobs from the database with job status as "Active"
             String sql = "SELECT * FROM jobs WHERE Job_Status='Active'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while (rs.next()) {
-
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -132,6 +143,7 @@ public class JobListTech extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model3.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
@@ -141,13 +153,15 @@ public class JobListTech extends Screen{
         }
 
         try {
+            //Select all jobs from the database with job status as "Completed"
             String sql = "SELECT * FROM jobs WHERE Job_Status='Completed'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
 
+            //For every job...
             while (rs.next()) {
-
+                //...variables created for each column in the row
                 String jobID = rs.getString(1);
                 String startTime = rs.getString(2);
                 String priority = rs.getString(3);
@@ -157,6 +171,7 @@ public class JobListTech extends Screen{
                 String deadline = rs.getString(7);
                 String price = rs.getString(8);
                 String customerID = rs.getString(9);
+                //All the variables added to a row of the model
                 model4.addRow(new Object[]{
                         jobID, startTime, priority, specialInstructions,
                         jobStatus, date, deadline, price, customerID});
@@ -180,6 +195,9 @@ public class JobListTech extends Screen{
             }
         });
 
+        //Listeners for checkboxes. When a checkbox is selected, the corresponding model is set to be displayed for the jTable
+        //All other checkboxes are unselected
+        //If no checkboxes are selected, the first model with all the jobs is set to be displayed on the jTable
         commencedJobsCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
