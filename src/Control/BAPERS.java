@@ -10,8 +10,6 @@ import java.util.Stack;
 
 public class BAPERS {
 
-    //private final JFrame frame = new JFrame("BAPERS_SYSTEM");
-
     //Important global variables.
     private Screen screen; // The "screen" of the system. Changes for each screen the user enters
     private Report report; // Report object. Used to generate reports to be viewed on screen

@@ -168,7 +168,6 @@ public class Report {
         }
     }
 
-
     public int getHours(int id, Connection con)
     {
         try
@@ -194,4 +193,3 @@ public class Report {
         return 0;
     }
 }
-
