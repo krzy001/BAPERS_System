@@ -15,7 +15,6 @@ public class Receptionist extends Screen{
     private JPanel panelTwo;
     private JButton btnLogout;
     private JLabel labelLogo;
-    private JButton backButton;
     private JButton addJobButton;
     private JButton searchJobButton;
     private JButton addTaskButton;
@@ -35,7 +34,6 @@ public class Receptionist extends Screen{
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
 
-        backButton.setPreferredSize(new Dimension(250,50));
         addJobButton.setPreferredSize(new Dimension(250,50));
         btnLogout.setPreferredSize(new Dimension(250,50));
         searchJobButton.setPreferredSize(new Dimension(250,50));

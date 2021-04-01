@@ -164,5 +164,11 @@ public class ShiftManager extends Screen{
                 system.nextScreen(system.PaymentList);
             }
         });
+        reportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.Reports);
+            }
+        });
     }
 }
