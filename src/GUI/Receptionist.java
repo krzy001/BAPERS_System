@@ -29,6 +29,8 @@ public class Receptionist extends Screen{
         super(system);
         this.setContentPane(this.panelReceptionist);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);

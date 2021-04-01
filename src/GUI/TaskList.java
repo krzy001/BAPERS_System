@@ -32,6 +32,8 @@ public class TaskList extends Screen{
         super(system);
         this.setContentPane(this.panelTaskList);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
@@ -159,6 +161,7 @@ public class TaskList extends Screen{
                 system.LogOut();
             }
         });
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

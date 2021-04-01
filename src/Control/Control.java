@@ -1026,8 +1026,8 @@ public class Control {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,pass);
             //Find the details of a payment using a customer's accountID
-            String sql = "SELECT CustomerAccount_No FROM payment WHERE CustomerAccount_No=?";
-            PreparedStatement pst = con.prepareStatement(sql);
+            String sql1 = "SELECT CustomerAccount_No FROM payment WHERE CustomerAccount_No=?";
+            PreparedStatement pst = con.prepareStatement(sql1);
             pst.setString(1,accountID);
             rs = pst.executeQuery();
 

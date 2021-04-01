@@ -58,7 +58,7 @@ public class UrgentJobsList extends Screen {
         catch (Exception e1){
             JOptionPane.showMessageDialog(null,e1);
         }
-
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -47,7 +47,6 @@ public class LogIn extends Screen {
 
         buttonLogIn.setPreferredSize(new Dimension(250,50));
 
-
         buttonLogIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,6 +88,12 @@ public class LogIn extends Screen {
                 catch(Exception e1){
                     JOptionPane.showMessageDialog(null,e1);
                 }
+            }
+        });
+        recoveryBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.Restore);
             }
         });
     }

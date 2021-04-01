@@ -52,9 +52,10 @@ public class AddJob extends Screen {
         super(system);
         this.setContentPane(this.panelAddJob);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         float size = 20;
-        //Font and size of buttons established for the interface
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
         labelJobNo.setFont(labelJobNo.getFont().deriveFont(size));
@@ -75,6 +76,7 @@ public class AddJob extends Screen {
         updateButton3.setPreferredSize(new Dimension(150,30));
         updateButton4.setPreferredSize(new Dimension(150,30));
 
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

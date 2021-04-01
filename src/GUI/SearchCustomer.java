@@ -24,6 +24,8 @@ public class SearchCustomer extends Screen {
         super(system);
         this.setContentPane(this.panelIdentifyCustomer);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         float size = 20;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
@@ -40,6 +42,7 @@ public class SearchCustomer extends Screen {
                 system.LogOut();
             }
         });
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

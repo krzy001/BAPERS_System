@@ -59,6 +59,7 @@ public class AddPayment extends Screen {
                 system.LogOut();
             }
         });
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

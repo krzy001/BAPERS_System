@@ -67,7 +67,6 @@ public class CreateCustomerAccount extends Screen{
         labelValue.setFont(labelLogo.getFont().deriveFont(size));
         labelAccountNo.setFont(labelLogo.getFont().deriveFont(size));
 
-
         btnBack.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
         btnCreate.setPreferredSize(new Dimension(150,30));
@@ -85,6 +84,7 @@ public class CreateCustomerAccount extends Screen{
                 system.LogOut();
             }
         });
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

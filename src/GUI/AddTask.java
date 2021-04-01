@@ -98,6 +98,7 @@ public class AddTask extends Screen {
         updateButton10.setPreferredSize(new Dimension(150,30));
         updateButton11.setPreferredSize(new Dimension(150,30));
 
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

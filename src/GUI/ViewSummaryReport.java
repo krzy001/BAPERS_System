@@ -40,6 +40,8 @@ public class ViewSummaryReport extends Screen {
         super(system);
         this.setContentPane(this.panelSummaryReport);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
         labelLogo.setForeground(Color.RED);
@@ -61,6 +63,7 @@ public class ViewSummaryReport extends Screen {
                 system.LogOut();
             }
         });
+        //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

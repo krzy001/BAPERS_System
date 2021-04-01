@@ -39,6 +39,8 @@ public class OfficeManager extends Screen {
         super(system);
         this.setContentPane(this.panelOfficeManager);
         this.pack();
+
+        //Font and size of buttons established for the interface
         float logo = 80;
         float size = 30;
         labelLogo.setFont(labelLogo.getFont().deriveFont(logo));
@@ -82,15 +84,22 @@ public class OfficeManager extends Screen {
                     int deadlineMonth = Integer.parseInt(deadline.substring(5, 7));
                     int deadlineYear = Integer.parseInt(deadline.substring(0, 4));
 
-                    if (deadlineYear <= year) {
-                        if (deadlineMonth <= month) {
+                    if (deadlineYear < year) {
+                        system.addUrgentJobs(jobID);
+                        system.setUrgentJobsShown(true);
+                    }
+                    else if(deadlineYear == year){
+                        if (deadlineMonth < month) {
+                            system.addUrgentJobs(jobID);
+                            system.setUrgentJobsShown(true);
+                        }
+                        else if(deadlineMonth == month)
                             if (deadlineDay <= day) {
                                 system.addUrgentJobs(jobID);
                                 system.setUrgentJobsShown(true);
                             }
                         }
                     }
-                }
 
             } catch (Exception e1) {
                 JOptionPane.showMessageDialog(null, e1);
@@ -127,7 +136,9 @@ public class OfficeManager extends Screen {
         });
         restoreButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {system.nextScreen(system.Restore);}
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.Restore);
+            }
         });
         searchUserButton.addActionListener(new ActionListener() {
             @Override

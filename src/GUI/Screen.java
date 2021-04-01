@@ -14,6 +14,7 @@ public class Screen extends JFrame {
     protected String user="root";
     protected String pass="";
 
+    //The class all the interfaces are subclasses of. Sets visibility to true and to makes sure all GUI is BAPERS object
     Screen(BAPERS system){
         super("BAPERS System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
