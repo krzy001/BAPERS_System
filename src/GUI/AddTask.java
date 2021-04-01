@@ -113,6 +113,8 @@ public class AddTask extends Screen {
             }
         });
 
+        //If all the text fields are filled in, then the add Task method in the control object is called, using the text from the text fields
+        //The if statements are to make sure no blank spaces are entered into the database.
         btnAddJob.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

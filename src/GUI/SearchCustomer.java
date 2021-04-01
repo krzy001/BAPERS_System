@@ -50,15 +50,19 @@ public class SearchCustomer extends Screen {
                 system.backScreen();
             }
         });
+
+        //when the button is pressed, the identify customer account is called to check if the ID entered exists in the database.
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 customerFound = system.getController().identifyCustomerAccount(textField1.getText());
 
+                //If it does exist, the user is taken to the customer details relating to that customerID.
                 if(customerFound){
                     system.setID(textField1.getText());
                     system.nextScreen(system.ViewCustomerAccount);
                 }
+                //Otherwise, nothing happens.
             }
         });
     }

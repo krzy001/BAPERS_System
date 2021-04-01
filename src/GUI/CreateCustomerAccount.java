@@ -92,6 +92,8 @@ public class CreateCustomerAccount extends Screen{
                 system.backScreen();
             }
         });
+        //If all the text fields are filled in, then the create customer account method in the control object is called, using the text from the text fields
+        //The if statements are to make sure no blank spaces are entered into the database.
         btnCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

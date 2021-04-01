@@ -56,7 +56,7 @@ public class RecordCardPayment extends Screen {
         btnBack.setPreferredSize(new Dimension(150,30));
         btnAddCardPayment.setPreferredSize(new Dimension(150,30));
         btnLogout.setPreferredSize(new Dimension(150,30));
-        updateButton1.setPreferredSize(new Dimension(150,30));
+        updateButton.setPreferredSize(new Dimension(150,30));
         updateButton1.setPreferredSize(new Dimension(150,30));
         updateButton2.setPreferredSize(new Dimension(150,30));
         updateButton3.setPreferredSize(new Dimension(150,30));
@@ -76,6 +76,9 @@ public class RecordCardPayment extends Screen {
                 system.backScreen();
             }
         });
+
+        //If all the text fields are filled in, then the record carh payment method in the control object is called, using the text from the text fields
+        //The if statements are to make sure no blank spaces are entered into the database.
         btnAddCardPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

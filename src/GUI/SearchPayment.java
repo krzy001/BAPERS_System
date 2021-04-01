@@ -50,6 +50,8 @@ public class SearchPayment extends Screen {
                 system.backScreen();
             }
         });
+
+
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -68,6 +68,8 @@ public class AddPayment extends Screen {
             }
         });
 
+        //If all the text fields are filled in, then the add payment method in the control object is called, using the text from the text fields
+        //The if statements are to make sure no blank spaces are entered into the database.
         btnAddPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -50,15 +50,19 @@ public class SearchJobTech extends Screen {
                 system.backScreen();
             }
         });
+
+        //when the button is pressed, the search job method is called to check if the ID entered exists in the database
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 jobFound = system.getController().searchJob(textField1.getText());
 
+                //If it does exist, the user is taken to the job details relating to that jobID.
                 if(jobFound){
                     system.setID(textField1.getText());
                     system.nextScreen(system.ViewJobTech);
                 }
+                //Otherwise, nothing happens.
             }
         });
     }

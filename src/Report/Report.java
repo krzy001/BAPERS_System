@@ -52,7 +52,7 @@ public class Report {
 
                 model.addRow(new Object[]{
                         name, taskId, department, date,
-                        startTime, timeTaken, getHours(staffID)});
+                        startTime, timeTaken, getHours(staffID, con)});
             }
 
             model.addRow(new Object[]{
@@ -169,12 +169,11 @@ public class Report {
     }
 
 
-    public int getHours(int id)
+    public int getHours(int id, Connection con)
     {
         try
         {
             Class.forName(driver);
-            Connection con = DriverManager.getConnection(url, user, pass);
 
             String query = ("SELECT Sum(task.Time_Taken), staffStaff_ID\n" +
                     "FROM Task \n" +
@@ -188,7 +187,8 @@ public class Report {
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (SQLException throwables) {
+        }
+        catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return 0;

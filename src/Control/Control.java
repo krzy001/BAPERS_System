@@ -823,11 +823,11 @@ public class Control {
 
             //If everything went well, the card details were successfully updated in the database
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Saved");
+            JOptionPane.showMessageDialog(null,"Update Successful");
         }
         //If something went wrong, the card details couldn't be updated in the database
         catch(Exception e1){
-            JOptionPane.showMessageDialog(null,"Couldn't be saved");
+            JOptionPane.showMessageDialog(null,"Couldn't be updated");
         }
     }
 

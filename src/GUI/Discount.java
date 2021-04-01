@@ -47,6 +47,8 @@ public class Discount extends Screen {
         updateButton.setPreferredSize(new Dimension(150,30));
         removeButton.setPreferredSize(new Dimension(150,30));
 
+        //If all the text fields are filled in, then the add discount method in the control object is called, using the text from the text fields
+        //The if statements are to make sure no blank spaces are entered into the database.
         btnCreate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

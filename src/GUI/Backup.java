@@ -43,6 +43,8 @@ public class Backup extends Screen{
                 system.backScreen();
             }
         });
+
+        //when the button is pressed, the method backupDatabase is called with the control object to back up the database
         btnBackup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
