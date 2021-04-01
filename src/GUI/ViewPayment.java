@@ -80,7 +80,7 @@ public class ViewPayment extends Screen {
             paymentList.setModel(model1);
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         ///////////////////////////////////////////////////////////////////////// Model for unpaid payments
@@ -110,7 +110,7 @@ public class ViewPayment extends Screen {
             }
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         try {
@@ -138,7 +138,7 @@ public class ViewPayment extends Screen {
             }
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         try {
@@ -165,7 +165,7 @@ public class ViewPayment extends Screen {
             }
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         ///////////////////////////////////////////////////////////////////////// Model for paid payments
@@ -195,7 +195,7 @@ public class ViewPayment extends Screen {
             }
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         try {
@@ -223,7 +223,7 @@ public class ViewPayment extends Screen {
             }
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         PaymentListButton.addActionListener(new ActionListener() {

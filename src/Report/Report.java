@@ -3,6 +3,7 @@ package Report;
 import Control.BAPERS;
 import database.dbConnection;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.util.ArrayList;
@@ -133,7 +134,7 @@ public class Report {
                     "Total payable (VAT at 20%)", String.format("%.2f", total)});
 
         } catch (Exception e1) {
-            e1.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
     }
 
@@ -162,7 +163,7 @@ public class Report {
             }
 
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -185,7 +186,7 @@ public class Report {
                 return data.getInt(1);
             }
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();

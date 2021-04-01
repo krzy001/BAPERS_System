@@ -56,7 +56,7 @@ public class UrgentJobsList extends Screen {
             jobsTable.setModel(model);
         }
         catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
         //When pressed, system goes back by one screen, using the system's stack of history of pages
         backButton.addActionListener(new ActionListener() {

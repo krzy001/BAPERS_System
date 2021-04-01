@@ -87,7 +87,7 @@ public class ViewTaskTech extends Screen {
                 jLabelTimeTaken.setText(timeTaken);
             }
         } catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
+            JOptionPane.showMessageDialog(null,"Error Occurred");
         }
 
         //When pressed, system logs the user out, resetting certain attributes of the system object in the process

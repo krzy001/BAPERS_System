@@ -169,7 +169,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                     w.write(file);
                     file.close();
                 } catch (Exception e1) {
-                    JOptionPane.showMessageDialog(null,e1);
+                    JOptionPane.showMessageDialog(null,"Error Occurred");
                 }
             }
 
@@ -188,7 +188,7 @@ public class ViewIndividualPerformanceReport extends Screen {
                         return data.getInt(1);
                     }
                 } catch (ClassNotFoundException e) {
-                    JOptionPane.showMessageDialog(null,e);
+                    JOptionPane.showMessageDialog(null,"Error Occurred");
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }

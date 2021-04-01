@@ -119,7 +119,7 @@ public class ViewCustomerSalesReport extends Screen {
                     file.close();
                 }
                 catch(Exception e1){
-                    e1.printStackTrace();
+                    JOptionPane.showMessageDialog(null,"Error Occurred");
                 }
             }
 
@@ -147,7 +147,7 @@ public class ViewCustomerSalesReport extends Screen {
                     }
 
                 } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null,"Error Occurred");
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
