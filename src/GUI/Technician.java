@@ -61,13 +61,13 @@ public class Technician extends Screen {
         searchJobButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.SearchJob);
+                system.nextScreen(system.SearchJobTech);
             }
         });
         searchTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.SearchTask);
+                system.nextScreen(system.SearchTaskTech);
             }
         });
         updateJobButton.addActionListener(new ActionListener() {

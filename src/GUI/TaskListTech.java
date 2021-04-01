@@ -24,6 +24,7 @@ public class TaskListTech extends Screen {
     private JCheckBox checkBox1;
     private JPanel panelTaskListTech;
     private JCheckBox commencedTasksCheckBox;
+    private JButton btnTaskList;
 
     public TaskListTech(BAPERS system) {
         super(system);
@@ -237,6 +238,12 @@ public class TaskListTech extends Screen {
                 else{
                     taskTable.setModel(model1);
                 }
+            }
+        });
+        btnTaskList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchTaskTech);
             }
         });
     }

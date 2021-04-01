@@ -25,6 +25,7 @@ public class JobListTech extends Screen{
     private JCheckBox checkBox2;
     private JPanel panelJobsListTech;
     private JCheckBox commencedJobsCheckBox;
+    private JButton jobListButton;
 
     public JobListTech(BAPERS system) {
         super(system);
@@ -217,6 +218,12 @@ public class JobListTech extends Screen{
                 else{
                     jobsTable.setModel(model1);
                 }
+            }
+        });
+        jobListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                system.nextScreen(system.SearchJobTech);
             }
         });
     }

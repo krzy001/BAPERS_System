@@ -54,9 +54,13 @@ public class BAPERS {
     public final String TaskList = "TL";
     public final String TaskListTech = "TLT";
     public final String SearchJob = "SJ";
+    public final String SearchJobTech = "SJT";
     public final String SearchTask = "ST";
+    public final String SearchTaskTech = "STT";
     public final String ViewJob = "VJ";
+    public final String ViewJobTech = "VJT";
     public final String ViewTask = "VT";
+    public final String ViewTaskTech = "VTT";
     public final String RecordCardPayment = "RCP";
     public final String RecordCashPayment = "RCHP";
     public final String UrgentJobsList = "UJL";
@@ -231,6 +235,18 @@ public class BAPERS {
         }
         else if(page == TaskListTech){
             screen = new TaskListTech(this);
+        }
+        else if(page == SearchJobTech){
+            screen = new SearchJobTech(this);
+        }
+        else if(page == SearchTaskTech){
+            screen = new SearchTaskTech(this);
+        }
+        else if(page == ViewJobTech){
+            screen = new ViewJobTech(this);
+        }
+        else if(page == ViewTaskTech){
+            screen = new ViewTaskTech(this);
         }
 
         //Reset the size and location of the screen
