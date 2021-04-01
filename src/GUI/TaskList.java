@@ -27,6 +27,7 @@ public class TaskList extends Screen{
     private JTable taskTable;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
+    private JCheckBox commencedTasksCheckBox;
 
     public TaskList(BAPERS system){
         super(system);
@@ -54,6 +55,11 @@ public class TaskList extends Screen{
                 "Completed By","Job ID", "Staff ID","Time Taken"}, 0);
 
         DefaultTableModel model3 = new DefaultTableModel(new String[]{
+                "Task ID", "Task Description","Start Time", "Location", "Price",
+                "Duration", "Shift", "Date", "Status",
+                "Completed By","Job ID", "Staff ID","Time Taken"}, 0);
+
+        DefaultTableModel model4 = new DefaultTableModel(new String[]{
                 "Task ID", "Task Description","Start Time", "Location", "Price",
                 "Duration", "Shift", "Date", "Status",
                 "Completed By","Job ID", "Staff ID","Time Taken"}, 0);
@@ -93,7 +99,7 @@ public class TaskList extends Screen{
         }
 
         try {
-            String sql = "SELECT * FROM task WHERE Status='Active'";
+            String sql = "SELECT * FROM task WHERE Status='Commenced'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
@@ -124,7 +130,7 @@ public class TaskList extends Screen{
         }
 
         try {
-            String sql = "SELECT * FROM task WHERE Status='Completed'";
+            String sql = "SELECT * FROM task WHERE Status='Active'";
             Connection con = DriverManager.getConnection(url, user, pass);
             Statement s = con.prepareStatement(sql);
             ResultSet rs = s.executeQuery(sql);
@@ -154,7 +160,38 @@ public class TaskList extends Screen{
             JOptionPane.showMessageDialog(null, e1);
         }
 
+        try {
+            String sql = "SELECT * FROM task WHERE Status='Completed'";
+            Connection con = DriverManager.getConnection(url, user, pass);
+            Statement s = con.prepareStatement(sql);
+            ResultSet rs = s.executeQuery(sql);
 
+            while (rs.next()) {
+
+                String taskID = rs.getString(1);
+                String taskDescription = rs.getString(2);
+                String startTime = rs.getString(3);
+                String location = rs.getString(4);
+                String price = rs.getString(5);
+                String duration = rs.getString(6);
+                String shift = rs.getString(7);
+                String date = rs.getString(8);
+                String status = rs.getString(9);
+                String completedBy = rs.getString(10);
+                String jobID = rs.getString(11);
+                String staffID = rs.getString(12);
+                String timeTaken = rs.getString(13);
+                model4.addRow(new Object[]{
+                        taskID, taskDescription, startTime, location, price,
+                        duration, shift, date, status,
+                        completedBy,jobID,staffID,timeTaken});
+
+            }
+        }catch (Exception e1) {
+            JOptionPane.showMessageDialog(null, e1);
+        }
+
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -175,13 +212,28 @@ public class TaskList extends Screen{
                 system.nextScreen(system.AddTask);
             }
         });
+        commencedTasksCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                commencedTasksCheckBox.setFocusable(false);
+                if(commencedTasksCheckBox.isSelected()) {
+                    taskTable.setModel(model2);
+                    checkBox2.setSelected(false);
+                    checkBox1.setSelected(false);
+                }
+                else{
+                    taskTable.setModel(model1);
+                }
+            }
+        });
         checkBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 checkBox1.setFocusable(false);
                 if(checkBox1.isSelected()) {
-                    taskTable.setModel(model2);
+                    taskTable.setModel(model3);
                     checkBox2.setSelected(false);
+                    commencedTasksCheckBox.setSelected(false);
                 }
                 else{
                     taskTable.setModel(model1);
@@ -199,8 +251,9 @@ public class TaskList extends Screen{
             public void actionPerformed(ActionEvent e) {
                 checkBox2.setFocusable(false);
                 if(checkBox2.isSelected()) {
-                    taskTable.setModel(model3);
+                    taskTable.setModel(model4);
                     checkBox1.setSelected(false);
+                    commencedTasksCheckBox.setSelected(false);
                 }
                 else{
                     taskTable.setModel(model1);

@@ -33,14 +33,6 @@
               <text value="RisingGen"/>
             </properties>
           </component>
-          <component id="122fd" class="javax.swing.JButton" binding="btnLogout">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Logout"/>
-            </properties>
-          </component>
         </children>
       </grid>
       <grid id="d00fc" binding="panelTwo" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

@@ -57,6 +57,7 @@ public class ViewSummaryReport extends Screen {
 
         table1.setModel(day1Model);
 
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

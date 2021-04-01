@@ -14,7 +14,6 @@ public class Restore extends Screen {
     private JButton btnRestore;
     private JPanel panelTwo;
     private JPanel panelFour;
-    private JButton btnLogout;
     private JLabel labelLogo;
 
     public Restore(BAPERS system){
@@ -29,14 +28,7 @@ public class Restore extends Screen {
 
         btnRestore.setPreferredSize(new Dimension(400,150));
         btnBack.setPreferredSize(new Dimension(150,30));
-        btnLogout.setPreferredSize(new Dimension(150,30));
 
-        btnLogout.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                system.LogOut();
-            }
-        });
         //When pressed, system goes back by one screen, using the system's stack of history of pages
         btnBack.addActionListener(new ActionListener() {
             @Override

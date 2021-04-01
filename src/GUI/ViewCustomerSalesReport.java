@@ -46,7 +46,7 @@ public class ViewCustomerSalesReport extends Screen {
         DefaultTableModel model = system.generateCustomerSalesReport();
         table1.setModel(model);
 
-
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

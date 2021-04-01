@@ -105,6 +105,7 @@ public class AddTask extends Screen {
                 system.backScreen();
             }
         });
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

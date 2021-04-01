@@ -152,6 +152,7 @@ public class OfficeManager extends Screen {
                 system.nextScreen(system.Reports);
             }
         });
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -68,6 +68,7 @@ public class ViewUserAccount extends Screen {
             JOptionPane.showMessageDialog(null,e1);
         }
 
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

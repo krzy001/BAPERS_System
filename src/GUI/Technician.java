@@ -39,6 +39,7 @@ public class Technician extends Screen {
         searchJobButton.setPreferredSize(new Dimension(150,30));
         searchTaskButton.setPreferredSize(new Dimension(150,30));
 
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,13 +49,13 @@ public class Technician extends Screen {
         jobListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.JobList);
+                system.nextScreen(system.JobListTech);
             }
         });
         taskListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.TaskList);
+                system.nextScreen(system.TaskListTech);
             }
         });
         searchJobButton.addActionListener(new ActionListener() {
@@ -72,13 +73,13 @@ public class Technician extends Screen {
         updateJobButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.AddJob);
+                system.nextScreen(system.UpdateJob);
             }
         });
         updateTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                system.nextScreen(system.AddTask);
+                system.nextScreen(system.UpdateTask);
             }
         });
         jobEnquiryButton.addActionListener(new ActionListener() {

@@ -37,6 +37,7 @@ public class BAPERS {
     public final String ViewIndividualPerformanceReport = "VIPR";
     public final String JobEnquiry = "JE";
     public final String JobList = "JL";
+    public final String JobListTech = "JLT";
     public final String LogIn = "LI";
     public final String OfficeManager = "Office Manager";
     public final String ShiftManager = "Shift Manager";
@@ -51,6 +52,7 @@ public class BAPERS {
     public final String UpdateUserInfo = "UUI";
     public final String AddTask = "ADT";
     public final String TaskList = "TL";
+    public final String TaskListTech = "TLT";
     public final String SearchJob = "SJ";
     public final String SearchTask = "ST";
     public final String ViewJob = "VJ";
@@ -64,6 +66,8 @@ public class BAPERS {
     public final String ViewPayment = "VP";
     public final String PaymentList = "PL";
     public final String StaffList = "SL";
+    public final String UpdateJob ="UJ";
+    public final String UpdateTask ="UT";
 
     // When BAPERS object is created, database connection is established.
     // Some important variables/objects are also established.
@@ -215,6 +219,18 @@ public class BAPERS {
         }
         else if(page == StaffList){
             screen = new StaffList(this);
+        }
+        else if(page == UpdateJob){
+            screen = new UpdateJob(this);
+        }
+        else if(page == UpdateTask){
+            screen = new UpdateTask(this);
+        }
+        else if(page == JobListTech){
+            screen = new JobListTech(this);
+        }
+        else if(page == TaskListTech){
+            screen = new TaskListTech(this);
         }
 
         //Reset the size and location of the screen

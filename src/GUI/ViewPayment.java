@@ -226,87 +226,13 @@ public class ViewPayment extends Screen {
             JOptionPane.showMessageDialog(null,e1);
         }
 
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        /*
-        String transactionID = "-1";
-
-        try{
-            String sql = "SELECT * FROM payment WHERE CustomerAccount_No = '" + system.getID() + "' ";
-
-            Connection con = DriverManager.getConnection(url,user,pass);
-
-            Statement s = con.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
-
-            if (rs.next()){
-
-                transactionID = rs.getString(1);
-                String totalAmount = rs.getString(2);
-                String date = rs.getString(3);
-                String jobID = rs.getString(4);
-                String customerID = rs.getString(5);
-                String Paid = "No";
-
-                jLabelTransactionID.setText(transactionID);
-                jLabelTotalAmount.setText(totalAmount);
-                jLabelDate.setText(date);
-                jLabelJobID.setText(jobID);
-                jLabelCustomerID.setText(customerID);
-                jLabelPaid.setText(Paid);
-            }
-
-        } catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
-        }
-
-        try{
-            String sql = "SELECT Paid FROM recordcardpayment WHERE PaymentTransaction_ID = '" + transactionID + "' ";
-
-            Connection con = DriverManager.getConnection(url,user,pass);
-
-            Statement s = con.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
-
-            if (rs.next()){
-
-                String Paid = rs.getString(1);
-
-                jLabelPaid.setText(Paid);
-            }
-
-        } catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
-        }
-
-        try{
-            String sql = "SELECT Paid FROM recordcashpayment WHERE PaymentTransaction_ID = '" + transactionID + "' ";
-
-            Connection con = DriverManager.getConnection(url,user,pass);
-
-            Statement s = con.prepareStatement(sql);
-            ResultSet rs = s.executeQuery(sql);
-
-            if (rs.next()){
-
-                String Paid = rs.getString(1);
-
-                jLabelPaid.setText(Paid);
-            }
-
-        } catch (Exception e1){
-            JOptionPane.showMessageDialog(null,e1);
-        }
-
-         */
-
         PaymentListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 system.nextScreen(system.PaymentList);
             }
         });
+        //When pressed, system logs the user out, resetting certain attributes of the system object in the process
         btnLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
